@@ -3,7 +3,10 @@
 每天自動掃樂天市場，挑出符合口味的潮流小物、居家擺飾、新奇電子、穿搭，
 翻成繁體中文、用 Claude 評分，偵測**真特價**，再用 Telegram 推播每日精選前 5 名。
 
-> 目前是 **第 1 階段 MVP**。路線圖見文末。
+> 目前狀態：**只開樂天＋Dashboard**。每天記價格、在網頁上看商品與價格走勢；
+> Claude 翻譯評分、Telegram 推播都已寫好但先關閉，之後決定要用再補 key、改設定即可。
+>
+> Dashboard：<https://willychang-jimu.github.io/jp-goods-finder/>
 
 ## 運作方式
 
@@ -63,7 +66,12 @@ Repo → Settings → Secrets and variables → Actions → New repository secre
 
 （選用）若許可網站不是預設的 GitHub Pages 網址，在 **Variables** 加 `RAKUTEN_REFERER`。
 
-### 5. cron-job.org 排程
+### 5. 開啟 GitHub Pages（Dashboard）
+
+Repo → Settings → Pages → **Build and deployment → Source 選「GitHub Actions」**。
+之後每次 workflow 跑完都會自動更新 Dashboard。
+
+### 6. cron-job.org 排程
 
 建立兩個排程，都是 `POST https://api.github.com/repos/willychang-jimu/jp-goods-finder/actions/workflows/daily.yml/dispatches`，
 Header 帶 `Authorization: Bearer <GitHub fine-grained token（此 repo 的 Actions: Read and write）>`、
@@ -92,6 +100,17 @@ cp .env.example .env                      # 填入金鑰（.env 不會被 commit
 python -m jpgf daily --dry-run            # 真的打樂天／Claude，但只印在畫面上
 ```
 
+## Dashboard
+
+每次執行後自動部署到 GitHub Pages，不需要任何 API Key：
+
+- 商品卡片：圖片、實付價、近 90 天價格迷你走勢、真特價標籤
+- 分類篩選、只看真特價、搜尋、多種排序
+- 點卡片看詳細價格走勢（滑鼠／手指移動可看每天價格，也可切成表格）
+- 沒開 Claude 翻譯時，詳細頁有「Google 翻譯」連結
+- 本機預覽：`python -m jpgf dashboard --mock --out out/site`，再開 `out/site/index.html`
+  （需用 `python -m http.server` 在該目錄起伺服器，直接開檔案會被瀏覽器擋 fetch）
+
 ## 調整口味
 
 全部在 [`config.yaml`](config.yaml)：
@@ -117,5 +136,6 @@ python -m jpgf daily --dry-run            # 真的打樂天／Claude，但只印
 ## 路線圖
 
 - [x] **第 1 階段**：樂天 API → 關鍵字／排行榜 → 每日存價 → Claude 翻譯＋評分 → Telegram 每日前 5 名＋喜歡／略過按鈕
-- [ ] **第 2 階段**：GitHub Pages Dashboard（商品卡片、價格走勢、喜歡／略過）、降價提醒（追蹤按過喜歡的商品）、Email 週報
+- [x] **Dashboard**：GitHub Pages 商品卡片、價格走勢、真特價標籤、篩選排序
+- [ ] **第 2 階段**：Dashboard 上的喜歡／略過、降價提醒（追蹤按過喜歡的商品）、Email 週報
 - [ ] **第 3 階段**：YouTube 開箱影片搜尋＋中文摘要、Keepa API 接 Amazon.co.jp

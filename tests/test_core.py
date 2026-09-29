@@ -209,3 +209,22 @@ def test_console_only_run_does_not_mark_notified(tmp_path):
     s, t = Store(tmp_path), "2026-09-29"
     run_daily(s, [mk("a:1", 1000)], FixedScorer(8), [ConsoleNotifier()], CFG, t, real_scorer=True)
     assert "notified_at" not in s.items[mk("a:1", 1).id]
+
+
+# ---------- Dashboard ----------
+def test_dashboard_data_hides_noop_scores_and_flags_deals(tmp_path):
+    from jpgf.dashboard import build_data, build_site
+
+    s, t = Store(tmp_path / "data"), "2026-09-29"
+    for i in range(10, 0, -1):
+        run_daily(s, [mk("a:1", 1000), mk("b:1", 500)], FixedScorer(6), [], CFG,
+                  days_before(t, i), real_scorer=False)
+    run_daily(s, [mk("a:1", 800), mk("b:1", 500)], FixedScorer(6), [], CFG, t, real_scorer=False)
+    d = build_data(s, CFG, t)
+    by = {i["name"]: i for i in d["items"]}
+    a = by["商品a:1"]
+    assert a["deal"]["kind"] == "30d" and a["score"] is None and a["zh_title"] is None
+    assert len(a["series"]) == 11 and a["low"] == 792 and by["商品b:1"]["deal"] is None
+    assert d["days_recorded"] == 11
+    out = build_site(s, CFG, tmp_path / "site", t)
+    assert (out / "index.html").exists() and (out / "data.json").exists()

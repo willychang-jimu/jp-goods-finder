@@ -9,6 +9,13 @@ jp-goods-finder：追蹤日本購物平台（目前只有樂天），每天挑�
 
 使用者興趣：潮流小物、居家擺飾、新奇電子產品、穿搭。
 
+## 目前狀態（使用者的決定）
+
+使用者想**先只用樂天＋Dashboard** 看實際資料，再決定要不要開 Claude 翻譯評分與 Telegram 推播。
+- 目前只設了 `RAKUTEN_APP_ID`、`RAKUTEN_ACCESS_KEY` 兩個 Secret。
+- `config.yaml` 的 `notifiers.telegram: false`；沒有 `ANTHROPIC_API_KEY` 時自動用 NoopScorer（Dashboard 不顯示假分數）。
+- 不要主動要求使用者去申請 Anthropic / Telegram，等使用者決定。
+
 ## 已定案、不要推翻的決策
 
 - **資料源**：樂天官方 Rakuten Web Service API。**不要爬 Amazon.co.jp**（違反條款、雲端 IP 被擋），之後改用付費 Keepa API。
@@ -26,7 +33,7 @@ jp-goods-finder：追蹤日本購物平台（目前只有樂天），每天挑�
 
 ```
 jpgf/
-  __main__.py   CLI：python -m jpgf {daily|feedback} [--dry-run] [--mock] [--date]
+  __main__.py   CLI：python -m jpgf {daily|feedback|dashboard} [--dry-run] [--mock] [--date] [--out]
   config.py     讀 config.yaml、.env
   rakuten.py    樂天 API client、Item、effective_price、fetch_all（去重）
   store.py      data/ 讀寫（items.json、prices/*.csv、feedback.json、state.json）
@@ -35,6 +42,8 @@ jpgf/
   pipeline.py   run_daily：upsert → 存價 → 評分 → 選品 → 推播 → 標記已推
   notify.py     ConsoleNotifier、TelegramNotifier、Pick、format_caption
   feedback.py   Telegram getUpdates → 喜歡／略過
+  dashboard.py  由 data/ 產生 site/（web/index.html 靜態頁 ＋ data.json），daily.yml 的 pages job 部署到 GitHub Pages
+  web/index.html  Dashboard 前端（純 HTML/JS，無框架；淺色／深色）
 config.yaml     口味、關鍵字、門檻、開關（無密鑰）
 data/           由 Actions commit 的資料（勿手動大改格式；若改格式要寫遷移）
 tests/          pytest；fixtures/rakuten_sample.json 是 --mock 用的假資料
@@ -53,13 +62,15 @@ tests/          pytest；fixtures/rakuten_sample.json 是 --mock 用的假資料
 
 ## 路線圖
 
-1. ✅ 第 1 階段 MVP（本版）
-2. 第 2 階段：GitHub Pages Dashboard（商品卡片、中文標題、價格走勢、喜歡／略過）、降價提醒（追蹤按過喜歡的商品）、Email 週報（新 notifier）
+1. ✅ 第 1 階段 MVP
+1.5 ✅ Dashboard（商品卡片、價格走勢、真特價標籤、篩選排序）
+2. 第 2 階段：Dashboard 上的喜歡／略過（靜態頁無法寫回，需另想做法）、降價提醒（追蹤按過喜歡的商品）、Email 週報（新 notifier）
 3. 第 3 階段：YouTube Data API 搜「商品名 開封／レビュー」→ Claude 中文摘要；Keepa API 接 Amazon.co.jp
 
 ## 待使用者提供／確認
 
 - 常逛的樂天店家或心動商品範例（用來校準 `taste_profile` 與關鍵字）
 - 穿搭關鍵字要偏男裝、女裝或中性（目前是中性）
-- 樂天 Application ID ＋ Access Key、Anthropic API Key、Telegram Bot Token ＋ Chat ID（放 GitHub Secrets）
+- ✅ 樂天 Application ID ＋ Access Key 已放 Secrets；Anthropic / Telegram 待使用者決定
+- GitHub Pages 的 Source 要設成「GitHub Actions」
 - 樂天分類排行榜的 genre ID（config.yaml 註解）尚未用真實 API 驗證

@@ -4,6 +4,7 @@
   python -m jpgf daily --dry-run    # 只印在畫面上，不推 Telegram、不標記已推播
   python -m jpgf daily --mock       # 用 tests/fixtures 的假資料，不需任何金鑰
   python -m jpgf feedback           # 只同步 Telegram 喜歡／略過按鈕
+  python -m jpgf dashboard          # 由 data/ 產生 GitHub Pages 靜態頁到 site/
 """
 from __future__ import annotations
 
@@ -11,6 +12,7 @@ import argparse
 import json
 import logging
 import sys
+from pathlib import Path
 
 from .ai import ClaudeScorer, NoopScorer
 from .config import ROOT, env, load_config, load_dotenv
@@ -36,7 +38,8 @@ def mock_items(cfg: dict):
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="jpgf")
-    ap.add_argument("mode", choices=["daily", "feedback"])
+    ap.add_argument("mode", choices=["daily", "feedback", "dashboard"])
+    ap.add_argument("--out", default=None, help="dashboard 輸出目錄（預設 site/）")
     ap.add_argument("--config", default=None)
     ap.add_argument("--data-dir", default=None,
                     help="資料目錄（預設 data/；--mock 時預設 out/mock-data，避免污染正式資料）")
@@ -51,6 +54,13 @@ def main(argv: list[str] | None = None) -> int:
     data_dir = args.data_dir or str(ROOT / ("out/mock-data" if args.mock else "data"))
     store = Store(data_dir)
     today = args.date or today_jst()
+
+    if args.mode == "dashboard":
+        from .dashboard import build_site
+
+        out = build_site(store, cfg, Path(args.out or ROOT / "site"), today)
+        log.info("Dashboard 已產生：%s", out)
+        return 0
 
     tg = None
     if cfg.get("notifiers", {}).get("telegram") and not args.dry_run:

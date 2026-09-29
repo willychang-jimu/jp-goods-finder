@@ -74,5 +74,5 @@ deals:
 
 notifiers:
   console: true                 # 印在 Actions log，永遠建議開著
-  telegram: true                # 需要 TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID
+  telegram: false               # 先關閉；決定要推播後改 true，並設定 TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID
   # email: false                # 第 2 階段：週報

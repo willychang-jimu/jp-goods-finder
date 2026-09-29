@@ -17,3 +17,5 @@ jobs:
       - run: python -m pytest -q
       - name: Mock end-to-end run
         run: python -m jpgf daily --mock --dry-run
+      - name: Mock dashboard build
+        run: python -m jpgf dashboard --mock --out out/site

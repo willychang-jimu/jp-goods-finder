@@ -18,10 +18,14 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: jpgf-data        # 避免兩個 run 同時改 data/ 造成 push 衝突
   cancel-in-progress: false
+
+# Dashboard 部署到 GitHub Pages（Settings → Pages → Source 選「GitHub Actions」）
 
 jobs:
   run:
@@ -62,3 +66,31 @@ jobs:
             sleep $((i * 5))
           done
           exit 1
+
+  pages:
+    needs: run
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}   # 取剛 commit 的最新資料
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Build dashboard
+        run: python -m jpgf dashboard --out site
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deploy
+        uses: actions/deploy-pages@v4

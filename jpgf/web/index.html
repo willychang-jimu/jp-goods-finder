@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>日本好物追蹤</title>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f6f5f2;
+  --surface-1: #fcfcfb;
+  --surface-2: #f0efec;
+  --border: #e2e1dc;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #6f6e69;
+  --accent: #2a78d6;
+  --accent-soft: #cde2fb;
+  --grid: #e8e7e3;
+  --good: #0ca30c;
+  --good-text: #006300;
+  --good-bg: #e3f4e3;
+  --shadow: 0 1px 2px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #111110;
+    --surface-1: #1a1a19;
+    --surface-2: #242422;
+    --border: #33332f;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #9a998f;
+    --accent: #3987e5;
+    --accent-soft: #1c3a5e;
+    --grid: #2c2c29;
+    --good: #0ca30c;
+    --good-text: #5fd35f;
+    --good-bg: #16301a;
+    --shadow: none;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111110;
+  --surface-1: #1a1a19;
+  --surface-2: #242422;
+  --border: #33332f;
+  --text-primary: #ffffff;
+  --text-secondary: #c3c2b7;
+  --text-muted: #9a998f;
+  --accent: #3987e5;
+  --accent-soft: #1c3a5e;
+  --grid: #2c2c29;
+  --good: #0ca30c;
+  --good-text: #5fd35f;
+  --good-bg: #16301a;
+  --shadow: none;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text-primary);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+.wrap { max-width: 1200px; margin: 0 auto; padding: 20px 16px 48px; }
+header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+h1 { font-size: 22px; margin: 0 0 2px; }
+.sub { color: var(--text-muted); font-size: 13px; }
+.theme-btn {
+  border: 1px solid var(--border); background: var(--surface-1); color: var(--text-secondary);
+  border-radius: 8px; padding: 6px 10px; cursor: pointer; font: inherit; font-size: 13px;
+}
+.kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+.kpi { background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; }
+.kpi .v { font-size: 26px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.kpi .l { color: var(--text-muted); font-size: 13px; }
+.notice {
+  background: var(--surface-2); border-radius: 10px; padding: 10px 14px; font-size: 14px;
+  color: var(--text-secondary); margin-bottom: 14px;
+}
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
+.chip {
+  border: 1px solid var(--border); background: var(--surface-1); color: var(--text-secondary);
+  border-radius: 999px; padding: 5px 12px; cursor: pointer; font: inherit; font-size: 14px;
+}
+.chip[aria-pressed="true"] { background: var(--text-primary); color: var(--surface-1); border-color: var(--text-primary); }
+.filters select, .filters input[type=search] {
+  font: inherit; font-size: 14px; padding: 5px 10px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--surface-1); color: var(--text-primary);
+}
+.filters input[type=search] { flex: 1 1 160px; min-width: 0; }
+.filters label { font-size: 14px; color: var(--text-secondary); display: flex; gap: 4px; align-items: center; }
+.spacer { flex: 1; }
+.count { color: var(--text-muted); font-size: 13px; margin-bottom: 10px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.card {
+  background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+  display: flex; flex-direction: column; cursor: pointer; box-shadow: var(--shadow);
+  text-align: left; padding: 0; font: inherit; color: inherit;
+}
+.card:hover { border-color: var(--text-muted); }
+.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.thumb { position: relative; aspect-ratio: 1; background: #fff; }
+.thumb img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.badge {
+  position: absolute; left: 8px; top: 8px; background: var(--good-bg); color: var(--good-text);
+  border: 1px solid var(--good); border-radius: 6px; font-size: 12px; font-weight: 600; padding: 2px 6px;
+}
+.cat-tag {
+  position: absolute; right: 8px; top: 8px; background: rgba(0,0,0,.55); color: #fff;
+  border-radius: 6px; font-size: 11px; padding: 2px 6px;
+}
+.body { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.title {
+  font-size: 13.5px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden; min-height: 3.9em;
+}
+.price-row { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+.price { font-size: 18px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.eff { font-size: 12px; color: var(--text-secondary); }
+.meta { font-size: 12px; color: var(--text-muted); display: flex; justify-content: space-between; gap: 6px; }
+.spark { display: block; width: 100%; height: 36px; }
+.spark-empty { font-size: 12px; color: var(--text-muted); height: 36px; display: flex; align-items: center; }
+.empty { text-align: center; color: var(--text-muted); padding: 60px 0; }
+
+dialog {
+  width: min(760px, calc(100vw - 32px)); max-height: calc(100vh - 32px); border: 1px solid var(--border);
+  border-radius: 14px; padding: 0; background: var(--surface-1); color: var(--text-primary);
+}
+dialog::backdrop { background: rgba(0,0,0,.45); }
+.dlg { padding: 18px; display: grid; gap: 14px; }
+.dlg-head { display: grid; grid-template-columns: 140px 1fr; gap: 14px; }
+.dlg-head img { width: 140px; height: 140px; object-fit: contain; background: #fff; border-radius: 8px; }
+.dlg h2 { font-size: 16px; margin: 0 0 6px; line-height: 1.4; }
+.jp { font-size: 13px; color: var(--text-secondary); }
+.links { display: flex; gap: 12px; flex-wrap: wrap; font-size: 14px; margin-top: 6px; }
+.links a { color: var(--accent); }
+.close {
+  position: absolute; right: 10px; top: 8px; border: 0; background: none; font-size: 22px;
+  color: var(--text-muted); cursor: pointer; line-height: 1;
+}
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; }
+.stat { background: var(--surface-2); border-radius: 8px; padding: 8px 10px; }
+.stat .v { font-weight: 650; font-variant-numeric: tabular-nums; }
+.stat .l { font-size: 12px; color: var(--text-muted); }
+.chart-box { position: relative; }
+.chart-title { font-size: 13px; color: var(--text-secondary); margin-bottom: 4px; display: flex; justify-content: space-between; gap: 8px; }
+.chart-title button { white-space: nowrap; font: inherit; font-size: 12px; background: none; border: 0; color: var(--accent); cursor: pointer; }
+.chart svg { display: block; width: 100%; }
+.tip {
+  position: absolute; pointer-events: none; background: var(--text-primary); color: var(--surface-1);
+  font-size: 12px; padding: 4px 8px; border-radius: 6px; white-space: nowrap; transform: translate(-50%, -110%);
+  display: none; font-variant-numeric: tabular-nums;
+}
+table.hist { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+table.hist th, table.hist td { text-align: right; padding: 4px 8px; border-bottom: 1px solid var(--grid); }
+table.hist th:first-child, table.hist td:first-child { text-align: left; }
+.hist-wrap { max-height: 220px; overflow: auto; }
+@media (max-width: 560px) {
+  .kpis { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; }
+  .kpi .v { font-size: 20px; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .dlg-head { grid-template-columns: 96px 1fr; }
+  .dlg-head img { width: 96px; height: 96px; }
+  .stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>日本好物追蹤</h1>
+      <div class="sub" id="updated">載入中…</div>
+    </div>
+    <button class="theme-btn" id="themeBtn" type="button">切換深淺色</button>
+  </header>
+
+  <section class="kpis" id="kpis"></section>
+  <div class="notice" id="notice" hidden></div>
+
+  <div class="filters" role="toolbar" aria-label="篩選">
+    <div id="cats" style="display:contents"></div>
+    <label><input type="checkbox" id="dealOnly"> 只看真特價</label>
+    <span class="spacer"></span>
+    <select id="sort" aria-label="排序">
+      <option value="deal">特價優先</option>
+      <option value="new">最新發現</option>
+      <option value="drop">離 90 日最高價跌最多</option>
+      <option value="reviews">評價數多</option>
+      <option value="price_asc">實付價 低→高</option>
+      <option value="price_desc">實付價 高→低</option>
+    </select>
+    <input type="search" id="q" placeholder="搜尋商品名／店家" aria-label="搜尋">
+  </div>
+  <div class="count" id="count"></div>
+  <main class="grid" id="grid"></main>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlgTitle"></dialog>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const yen = (n) => n == null ? "—" : "¥" + Number(n).toLocaleString("ja-JP");
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const SVGNS = "http://www.w3.org/2000/svg";
+
+// ---------- 主題切換（記在 localStorage，失敗也不影響）----------
+function applyTheme(t) { if (t) document.documentElement.dataset.theme = t; }
+try { applyTheme(localStorage.getItem("jpgf-theme")); } catch (e) {}
+$("#themeBtn").addEventListener("click", () => {
+  const cur = document.documentElement.dataset.theme
+    || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  const next = cur === "dark" ? "light" : "dark";
+  applyTheme(next);
+  try { localStorage.setItem("jpgf-theme", next); } catch (e) {}
+});
+
+let DATA = null;
+const state = { cat: "all", dealOnly: false, sort: "deal", q: "" };
+
+function translateUrl(text) {
+  return "https://translate.google.com/?sl=ja&tl=zh-TW&op=translate&text=" + encodeURIComponent(text);
+}
+function titleOf(it) { return it.zh_title || it.name; }
+function dealLabel(d) { return (d.kind === "90d" ? "▼ 90 日新低 " : "▼ 30 日新低 ") + "−" + d.drop_pct + "%"; }
+
+// ---------- 迷你走勢圖 ----------
+function sparkline(series) {
+  if (!series || series.length < 2) {
+    return `<div class="spark-empty">${series && series.length ? "已記錄 1 天，明天起顯示走勢" : "尚無價格紀錄"}</div>`;
+  }
+  const W = 200, H = 36, P = 4;
+  const ys = series.map((s) => s[1]);
+  const lo = Math.min(...ys), hi = Math.max(...ys), span = hi - lo || 1;
+  const x = (i) => P + (i * (W - 2 * P)) / (series.length - 1);
+  const y = (v) => hi === lo ? H / 2 : P + ((hi - v) * (H - 2 * P)) / span;
+  const pts = series.map((s, i) => `${x(i).toFixed(1)},${y(s[1]).toFixed(1)}`).join(" ");
+  const last = series.length - 1;
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img"
+    aria-label="近 ${series.length} 天實付價，最低 ${yen(lo)}，最高 ${yen(hi)}">
+    <polyline points="${pts}" fill="none" stroke="var(--accent)" stroke-width="2"
+      vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="${x(last)}" cy="${y(ys[last])}" r="3" fill="var(--accent)" stroke="var(--surface-1)" stroke-width="2"
+      vector-effect="non-scaling-stroke"/>
+  </svg>`;
+}
+
+// ---------- 卡片列表 ----------
+function filtered() {
+  const q = state.q.trim().toLowerCase();
+  let list = DATA.items.filter((it) =>
+    (state.cat === "all" || it.category === state.cat) &&
+    (!state.dealOnly || it.deal) &&
+    (!q || (it.name + " " + (it.zh_title || "") + " " + it.shop).toLowerCase().includes(q)));
+  const dropFromHigh = (it) => it.high ? (it.high - it.effective) / it.high : 0;
+  const cmp = {
+    deal: (a, b) => (!!b.deal - !!a.deal) || ((b.deal?.drop_pct || 0) - (a.deal?.drop_pct || 0))
+                    || (b.score || 0) - (a.score || 0) || b.reviews - a.reviews,
+    new: (a, b) => (b.first_seen || "").localeCompare(a.first_seen || "") || b.reviews - a.reviews,
+    drop: (a, b) => dropFromHigh(b) - dropFromHigh(a),
+    reviews: (a, b) => b.reviews - a.reviews,
+    price_asc: (a, b) => a.effective - b.effective,
+    price_desc: (a, b) => b.effective - a.effective,
+  }[state.sort];
+  return list.sort(cmp);
+}
+
+function render() {
+  const list = filtered();
+  $("#count").textContent = `顯示 ${list.length} / ${DATA.items.length} 件`;
+  if (!list.length) { $("#grid").innerHTML = `<div class="empty">沒有符合條件的商品</div>`; return; }
+  $("#grid").innerHTML = list.map((it) => `
+    <button class="card" type="button" data-id="${it.id}">
+      <div class="thumb">
+        ${it.image ? `<img loading="lazy" src="${esc(it.image)}" alt="">` : ""}
+        ${it.deal ? `<span class="badge">${dealLabel(it.deal)}</span>` : ""}
+        <span class="cat-tag">${esc(DATA.categories[it.category] || it.category)}</span>
+      </div>
+      <div class="body">
+        <div class="title" lang="${it.zh_title ? "zh-Hant" : "ja"}">${esc(titleOf(it))}</div>
+        <div class="price-row">
+          <span class="price">${yen(it.effective)}</span>
+          ${it.point_rate > 1 ? `<span class="eff">售價 ${yen(it.price)}・點數 ${it.point_rate} 倍</span>` : ""}
+          ${!it.postage_included ? `<span class="eff">運費另計</span>` : ""}
+        </div>
+        ${sparkline(it.series)}
+        <div class="meta"><span>${it.reviews ? `★${it.rating}（${it.reviews}）` : "尚無評價"}</span>
+          <span>${esc(it.shop).slice(0, 14)}</span></div>
+      </div>
+    </button>`).join("");
+}
+
+// ---------- 詳細視窗：價格走勢（含游標提示）＋表格 ----------
+function lineChart(box, series) {
+  const W = Math.max(box.clientWidth, 280), H = 200, L = 64, R = 14, T = 14, B = 26;
+  const ys = series.map((s) => s[1]);
+  let lo = Math.min(...ys), hi = Math.max(...ys);
+  const pad = (hi - lo) * 0.15 || hi * 0.05 || 1; lo -= pad; hi += pad;
+  const x = (i) => series.length === 1 ? (L + W - R) / 2 : L + (i * (W - L - R)) / (series.length - 1);
+  const y = (v) => T + ((hi - v) * (H - T - B)) / (hi - lo);
+  const svg = document.createElementNS(SVGNS, "svg");
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-label", `實付價走勢，${series[0][0]} 至 ${series[series.length - 1][0]}`);
+  let g = "";
+  for (let k = 0; k <= 3; k++) {
+    const v = lo + ((hi - lo) * k) / 3, yy = y(v);
+    g += `<line x1="${L}" x2="${W - R}" y1="${yy}" y2="${yy}" stroke="var(--grid)" stroke-width="1"/>`;
+    g += `<text x="${L - 8}" y="${yy + 4}" text-anchor="end" font-size="11" fill="var(--text-muted)">${yen(Math.round(v))}</text>`;
+  }
+  g += `<text x="${L}" y="${H - 6}" font-size="11" fill="var(--text-muted)">${series[0][0].slice(5)}</text>`;
+  if (series.length > 1) g += `<text x="${W - R}" y="${H - 6}" text-anchor="end" font-size="11" fill="var(--text-muted)">${series[series.length - 1][0].slice(5)}</text>`;
+  const pts = series.map((s, i) => `${x(i)},${y(s[1])}`).join(" ");
+  g += `<polyline points="${pts}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+  g += `<line id="xh" y1="${T}" y2="${H - B}" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="3 3" visibility="hidden"/>`;
+  g += `<circle id="xd" r="4.5" fill="var(--accent)" stroke="var(--surface-1)" stroke-width="2" visibility="${series.length === 1 ? "visible" : "hidden"}" cx="${x(0)}" cy="${y(ys[0])}"/>`;
+  g += `<rect x="${L}" y="0" width="${W - L - R}" height="${H}" fill="transparent" id="hit"/>`;
+  svg.innerHTML = g;
+  box.querySelector(".chart").replaceChildren(svg);
+
+  const tip = box.querySelector(".tip"), xh = svg.querySelector("#xh"), xd = svg.querySelector("#xd");
+  const move = (ev) => {
+    const r = svg.getBoundingClientRect();
+    const px = ((ev.touches ? ev.touches[0].clientX : ev.clientX) - r.left) * (W / r.width);
+    const i = series.length === 1 ? 0 : Math.max(0, Math.min(series.length - 1, Math.round(((px - L) / (W - L - R)) * (series.length - 1))));
+    const cx = x(i), cy = y(series[i][1]);
+    xh.setAttribute("x1", cx); xh.setAttribute("x2", cx); xh.setAttribute("visibility", "visible");
+    xd.setAttribute("cx", cx); xd.setAttribute("cy", cy); xd.setAttribute("visibility", "visible");
+    tip.style.display = "block";
+    tip.style.left = (cx * r.width) / W + "px";
+    tip.style.top = (cy * r.height) / H + "px";
+    tip.textContent = `${series[i][0]}　${yen(series[i][1])}`;
+  };
+  const hide = () => { xh.setAttribute("visibility", "hidden"); tip.style.display = "none";
+    if (series.length > 1) xd.setAttribute("visibility", "hidden"); };
+  const hit = svg.querySelector("#hit");
+  hit.addEventListener("mousemove", move); hit.addEventListener("touchmove", move, { passive: true });
+  hit.addEventListener("mouseleave", hide); hit.addEventListener("touchend", hide);
+}
+
+function openDetail(id) {
+  const it = DATA.items.find((x) => x.id === id);
+  if (!it) return;
+  const d = $("#dlg");
+  d.innerHTML = `
+    <div class="dlg">
+      <button class="close" type="button" aria-label="關閉">×</button>
+      <div class="dlg-head">
+        ${it.image ? `<img src="${esc(it.image)}" alt="">` : "<div></div>"}
+        <div>
+          ${it.deal ? `<span class="badge" style="position:static;display:inline-block;margin-bottom:6px">${dealLabel(it.deal)}（先前最低 ${yen(it.deal.prev_low)}）</span>` : ""}
+          <h2 id="dlgTitle">${esc(titleOf(it))}</h2>
+          ${it.zh_summary ? `<div>${esc(it.zh_summary)}</div>` : ""}
+          ${it.zh_title ? `<div class="jp" lang="ja">${esc(it.name)}</div>` : ""}
+          <div class="links">
+            <a href="${esc(it.url)}" target="_blank" rel="noopener">在樂天查看 ↗</a>
+            ${it.zh_title ? "" : `<a href="${translateUrl(it.name)}" target="_blank" rel="noopener">Google 翻譯 ↗</a>`}
+          </div>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="v">${yen(it.effective)}</div><div class="l">今日實付價</div></div>
+        <div class="stat"><div class="v">${yen(it.price)}</div><div class="l">售價${it.point_rate > 1 ? `（點數 ${it.point_rate} 倍）` : ""}</div></div>
+        <div class="stat"><div class="v">${yen(it.low)}</div><div class="l">紀錄最低</div></div>
+        <div class="stat"><div class="v">${yen(it.high)}</div><div class="l">紀錄最高</div></div>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title"><span>實付價走勢（售價 − 點數回饋，已記錄 ${it.series.length} 天）</span>
+          <button type="button" id="tblBtn">顯示表格</button></div>
+        <div class="chart"></div>
+        <div class="tip"></div>
+        <div class="hist-wrap" hidden>
+          <table class="hist"><thead><tr><th>日期</th><th>實付價</th></tr></thead>
+          <tbody>${it.series.slice().reverse().map((s) => `<tr><td>${s[0]}</td><td>${yen(s[1])}</td></tr>`).join("")}</tbody></table>
+        </div>
+      </div>
+      <div class="sub">${esc(it.shop)}・首次發現 ${it.first_seen || "—"}${it.reviews ? `・★${it.rating}（${it.reviews} 則評價）` : ""}${it.rank ? `・排行榜第 ${it.rank} 名` : ""}</div>
+    </div>`;
+  d.querySelector(".close").addEventListener("click", () => d.close());
+  d.querySelector("#tblBtn").addEventListener("click", (e) => {
+    const w = d.querySelector(".hist-wrap"); w.hidden = !w.hidden;
+    e.target.textContent = w.hidden ? "顯示表格" : "隱藏表格";
+  });
+  d.showModal();
+  const box = d.querySelector(".chart-box");
+  if (it.series.length) lineChart(box, it.series);
+  else box.querySelector(".chart").textContent = "尚無價格紀錄";
+}
+
+// ---------- 初始化 ----------
+function setupFilters() {
+  const cats = [["all", "全部"], ...Object.entries(DATA.categories)];
+  $("#cats").innerHTML = cats.map(([k, v]) =>
+    `<button class="chip" type="button" data-cat="${k}" aria-pressed="${k === state.cat}">${esc(v)}</button>`).join("");
+  $("#cats").addEventListener("click", (e) => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    state.cat = b.dataset.cat;
+    document.querySelectorAll("#cats .chip").forEach((c) => c.setAttribute("aria-pressed", c === b));
+    render();
+  });
+  $("#dealOnly").addEventListener("change", (e) => { state.dealOnly = e.target.checked; render(); });
+  $("#sort").addEventListener("change", (e) => { state.sort = e.target.value; render(); });
+  $("#q").addEventListener("input", (e) => { state.q = e.target.value; render(); });
+  $("#grid").addEventListener("click", (e) => { const c = e.target.closest(".card"); if (c) openDetail(c.dataset.id); });
+  $("#dlg").addEventListener("click", (e) => { if (e.target.id === "dlg") e.target.close(); });
+}
+
+function renderHeader() {
+  const deals = DATA.items.filter((i) => i.deal).length;
+  const gen = new Date(DATA.generated_at);
+  $("#updated").textContent = `資料日期 ${DATA.today}（日本時間）・更新於 ${gen.toLocaleString("zh-TW", { hour12: false })}`;
+  $("#kpis").innerHTML = [
+    [DATA.items.length, "追蹤中商品"],
+    [DATA.days_recorded, "已記錄天數"],
+    [deals, "今日真特價"],
+  ].map(([v, l]) => `<div class="kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`).join("");
+  const need = DATA.deal_rules.min_history_days_30;
+  if (DATA.days_recorded < need) {
+    const n = $("#notice");
+    n.hidden = false;
+    n.textContent = `真特價要跟自己記錄的價格比，需要累積至少 ${need} 天紀錄才會開始標示（目前 ${DATA.days_recorded} 天）。實付價 = 售價 − 樂天點數回饋。`;
+  }
+}
+
+fetch("data.json", { cache: "no-store" })
+  .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then((d) => { DATA = d; renderHeader(); setupFilters(); render(); })
+  .catch((e) => { $("#updated").textContent = "資料載入失敗：" + e.message; });
+</script>
+</body>
+</html>
