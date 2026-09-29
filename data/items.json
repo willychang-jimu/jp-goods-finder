@@ -1,4 +1,23 @@
 {
+ "00546e53d2cf": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/beams/cabinet/item/973/mr1973-01_1.jpg?_ex=500x500",
+  "item_code": "beams:10075623",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 6861,
+  "last_point_rate": 1,
+  "last_price": 6930,
+  "last_seen": "2026-09-30",
+  "name": "【別注】中外陶園 / まねき犬 左手 3号 BEAMS JAPAN ビームス ジャパン ファッション雑貨 その他のファッション雑貨 オレンジ【送料無料】[Rakuten Fashion]",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "BEAMS/ビームス",
+  "url": "https://item.rakuten.co.jp/beams/mr1973/"
+ },
  "00908a05afad": {
   "category": "lighting_art",
   "first_seen": "2026-09-30",
@@ -39,8 +58,13 @@
   "postage_included": true,
   "review_average": 4.2,
   "review_count": 5,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Kitchen room キッチンルーム",
-  "url": "https://item.rakuten.co.jp/kaguzaku/hw-pr-f014w/"
+  "url": "https://item.rakuten.co.jp/kaguzaku/hw-pr-f014w/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "PRISMATE プリズメイト『 アロマミストファン wood 』 PR-F01"
  },
  "00d5ff09de3d": {
   "category": "lighting_art",
@@ -158,8 +182,13 @@
   "postage_included": true,
   "review_average": 4.43,
   "review_count": 7,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Rakuten Fashion",
-  "url": "https://item.rakuten.co.jp/stylife/pb5199/"
+  "url": "https://item.rakuten.co.jp/stylife/pb5199/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "LACOSTE 【オンライン限定】LACOSTE オーバーサイズ バック プリン"
  },
  "04c3d7873159": {
   "category": "home_decor",
@@ -177,8 +206,32 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Jolife",
-  "url": "https://item.rakuten.co.jp/jolife-t/tyuik/"
+  "url": "https://item.rakuten.co.jp/jolife-t/tyuik/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【P5+全店最大20%OFFクーポン配布中】デジタル時計 シンプル 木目調 置き"
+ },
+ "04f540c5b0e8": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/kaden-sakura/cabinet/gazou37/h-4530956156965.jpg?_ex=500x500",
+  "item_code": "kaden-sakura:10151574",
+  "keywords": [
+   "メディコムトイ"
+  ],
+  "last_effective_price": 1584,
+  "last_point_rate": 1,
+  "last_price": 1600,
+  "last_seen": "2026-09-30",
+  "name": "メディコムトイ【CCP × UDF】ウルトラディテールフィギュア No.696 UDF キン肉マン シリーズ2 「キン肉マン」 H-4530956156965",
+  "postage_included": false,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "家電のSAKURA 楽天市場店",
+  "url": "https://item.rakuten.co.jp/kaden-sakura/4530956156965/"
  },
  "055ad1916799": {
   "category": "lighting_art",
@@ -241,6 +294,25 @@
   "review_count": 0,
   "shop_name": "Rakuten Fashion",
   "url": "https://item.rakuten.co.jp/stylife/qp5183/"
+ },
+ "06309bac1f76": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/stylife/cabinet/item/501/ac0501-01_1.jpg?_ex=500x500",
+  "item_code": "stylife:12389888",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 10890,
+  "last_point_rate": 1,
+  "last_price": 11000,
+  "last_seen": "2026-09-30",
+  "name": "BEAMS JAPAN 白河だるま総本舗 / 別注 だるま 橙 35cm ビームス ジャパン ファッション雑貨 その他のファッション雑貨 オレンジ【送料無料】",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "Rakuten Fashion",
+  "url": "https://item.rakuten.co.jp/stylife/ac0501/"
  },
  "06ea3b0f2ac8": {
   "category": "trend_goods",
@@ -442,6 +514,25 @@
   "shop_name": "REALiZE トレカ&ホビー楽天市場店",
   "url": "https://item.rakuten.co.jp/realize-store/151906s398fmt4/"
  },
+ "09b272805df3": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/stylife/cabinet/item/802/nh4802-01_1.jpg?_ex=500x500",
+  "item_code": "stylife:14873467",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 4356,
+  "last_point_rate": 1,
+  "last_price": 4400,
+  "last_seen": "2026-09-30",
+  "name": "BEAMS JAPAN 【別注】信楽焼 たぬき 必勝 小 ビームス ジャパン ファッション雑貨 その他のファッション雑貨【送料無料】",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "Rakuten Fashion",
+  "url": "https://item.rakuten.co.jp/stylife/nh4802/"
+ },
  "0c0276bd14ba": {
   "category": "home_decor",
   "first_seen": "2026-09-30",
@@ -496,8 +587,13 @@
   "postage_included": true,
   "review_average": 4.0,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "アクリル板・ケース とうめい館",
-  "url": "https://item.rakuten.co.jp/toumeikan/bbcase-400b400b100/"
+  "url": "https://item.rakuten.co.jp/toumeikan/bbcase-400b400b100/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "ベアブリック専用ケース　400％2体＋100％複数体用UVカット　W450mm "
  },
  "0dd23ac84bcf": {
   "category": "home_decor",
@@ -534,8 +630,13 @@
   "postage_included": true,
   "review_average": 4.71,
   "review_count": 7,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "LINSL 北欧 モダン アートショップ",
-  "url": "https://item.rakuten.co.jp/linsl/a0062/"
+  "url": "https://item.rakuten.co.jp/linsl/a0062/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "モダン アートポスター 選べるサイズ a4 a3 a2 a1 北欧 高品質印刷 "
  },
  "0e6fb99068d9": {
   "category": "lighting_art",
@@ -572,8 +673,13 @@
   "postage_included": true,
   "review_average": 4.2,
   "review_count": 5,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "ポロ、Tシャツの店チープトック",
-  "url": "https://item.rakuten.co.jp/cheap-tock/la-th-6709-51/"
+  "url": "https://item.rakuten.co.jp/cheap-tock/la-th-6709-51/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "Lacoste ラコステ Men's 定番ワンポイント半袖TシャツLacoste"
  },
  "0e87e663d953": {
   "category": "trend_goods",
@@ -610,8 +716,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "スマイルフォーエバー楽天市場店",
-  "url": "https://item.rakuten.co.jp/kiyokyou/ky-flw0222/"
+  "url": "https://item.rakuten.co.jp/kiyokyou/ky-flw0222/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "北欧 INS風 リードディフューザー 容器 お洒落 一輪挿し フラワーベース ガ"
  },
  "0ed9d61220bc": {
   "category": "gadgets",
@@ -648,8 +759,13 @@
   "postage_included": true,
   "review_average": 4.33,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "R&Mインテリアストア",
-  "url": "https://item.rakuten.co.jp/auc-rmjapan/rm146281126/"
+  "url": "https://item.rakuten.co.jp/auc-rmjapan/rm146281126/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "ポールヘニングセン テーブルライト PH 2/1 ゴールド 北欧デザイン Pou"
  },
  "0fa038161ebb": {
   "category": "fashion",
@@ -667,8 +783,13 @@
   "postage_included": true,
   "review_average": 4.33,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Rakuten Fashion",
-  "url": "https://item.rakuten.co.jp/stylife/rv8034/"
+  "url": "https://item.rakuten.co.jp/stylife/rv8034/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "LACOSTE 『L.12.12』定番半袖ポロシャツ ラコステ トップス ポロシ"
  },
  "100c348dc1bc": {
   "category": "lighting_art",
@@ -694,6 +815,25 @@
   "zh_summary": "（未翻譯）",
   "zh_title": "LOVELY POSTERS | TEXTURED WALL ART PRINT"
  },
+ "101c5ad86e55": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/stylife/cabinet/item/799/na4799-01_1.jpg?_ex=500x500",
+  "item_code": "stylife:14804269",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 9039,
+  "last_point_rate": 1,
+  "last_price": 9130,
+  "last_seen": "2026-09-30",
+  "name": "BEAMS JAPAN 【別注】中外陶園 / 橙 まねき犬 右 5号 ビームス ジャパン ファッション雑貨 その他のファッション雑貨 オレンジ【送料無料】",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "Rakuten Fashion",
+  "url": "https://item.rakuten.co.jp/stylife/na4799/"
+ },
  "1114ef071beb": {
   "category": "trend_goods",
   "first_seen": "2026-09-30",
@@ -710,8 +850,51 @@
   "postage_included": true,
   "review_average": 5.0,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "BEAMS/ビームス",
-  "url": "https://item.rakuten.co.jp/beams/me5822/"
+  "url": "https://item.rakuten.co.jp/beams/me5822/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "＜UNISEX＞ ビームス ジャパン オリジナル 漢数字 ウォッチ BEAMS "
+ },
+ "118cbda2bc55": {
+  "category": "lighting_art",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/lifestyle-select-trues/cabinet/11904164/12150623/ct612_1.jpg?_ex=500x500",
+  "item_code": "lifestyle-select-trues:10004493",
+  "keywords": [
+   "デザイナーズ テーブルランプ"
+  ],
+  "last_effective_price": 17771,
+  "last_point_rate": 1,
+  "last_price": 17950,
+  "last_seen": "2026-09-30",
+  "name": "トロメオ テーブルランプ 照明 ライト おしゃれ ポストモダン インダストリアル デザイナーズ ミケーレ・デ・ルッキ 家具 インテリア リプロダクト CT612【お取り寄せ】",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "Lifestyle Select Store TrueS",
+  "url": "https://item.rakuten.co.jp/lifestyle-select-trues/ct612/"
+ },
+ "11975aff5626": {
+  "category": "home_decor",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/frenchflow/cabinet/10676076/imgrc0107218424.jpg?_ex=500x500",
+  "item_code": "frenchflow:10000484",
+  "keywords": [
+   "ミッドセンチュリー 家具"
+  ],
+  "last_effective_price": 11979,
+  "last_point_rate": 1,
+  "last_price": 12100,
+  "last_seen": "2026-09-30",
+  "name": "ドキュメントチェスト5段 収納BOX オシャレ雑貨 ミッドセンチュリー 収納雑貨 収納家具 リビングボード リビング収納 完成品 棚 サイドボード 木製 おしゃれ 北欧 アンティーク調",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "アンティークと雑貨店 FrenchFlow",
+  "url": "https://item.rakuten.co.jp/frenchflow/10000484/"
  },
  "122a75f9d335": {
   "category": "trend_goods",
@@ -1020,8 +1203,13 @@
   "postage_included": false,
   "review_average": 4.67,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "インテリアと雑貨のお店 モリーフ",
-  "url": "https://item.rakuten.co.jp/mollif/c08friends2p/"
+  "url": "https://item.rakuten.co.jp/mollif/c08friends2p/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "2P レトロスタイルソファ フレンズ【ソファ ソファー カリモク カリモクソファ"
  },
  "188ef00a2ed6": {
   "category": "gadgets",
@@ -1125,8 +1313,13 @@
   "postage_included": false,
   "review_average": 4.5,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "INTERFORM",
-  "url": "https://item.rakuten.co.jp/interform-inc/lt-3407-9/"
+  "url": "https://item.rakuten.co.jp/interform-inc/lt-3407-9/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【インターフォルム公式】 ペンダントライト リンデンハースト Lindenhur"
  },
  "1a131e29653f": {
   "category": "home_decor",
@@ -1185,6 +1378,25 @@
   "shop_name": "GLOBER",
   "url": "https://item.rakuten.co.jp/hff/1770/"
  },
+ "1c78ef80c722": {
+  "category": "gadgets",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/santecdirect/cabinet/item/2024/07/003329bk.jpg?_ex=500x500",
+  "item_code": "santecdirect:10152364",
+  "keywords": [
+   "デザイン家電 おしゃれ"
+  ],
+  "last_effective_price": 15246,
+  "last_point_rate": 10,
+  "last_price": 16940,
+  "last_seen": "2026-09-30",
+  "name": "ダクトレールファン DC プラス 50 ブラック 黒 おしゃれ DUCT RAIL FAN DC plus 50 シーリングファン 扇風機 ファン インテリア デザイン家電 003329BK BRID ブリッド リビング 寝室 オフィス カフェ 空気循環 節電 エコ 電気代 節約 空調 換気 DCモーター 天井 リモコン",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "サンテクダイレクト 楽天市場店",
+  "url": "https://item.rakuten.co.jp/santecdirect/003329bk/"
+ },
  "1f64127a3d96": {
   "category": "lighting_art",
   "first_seen": "2026-09-30",
@@ -1201,8 +1413,13 @@
   "postage_included": true,
   "review_average": 5.0,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "AAAZM楽天市場店",
-  "url": "https://item.rakuten.co.jp/ichikashop/ic-jd-dd-485/"
+  "url": "https://item.rakuten.co.jp/ichikashop/ic-jd-dd-485/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【5年保証】 AAAZM ペンダントライト 北欧 おしゃれ ガラス 丸型 星空 "
  },
  "1f72103f6d9f": {
   "category": "home_decor",
@@ -1344,8 +1561,13 @@
   "postage_included": true,
   "review_average": 5.0,
   "review_count": 4,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "インテリアショップroomy garden",
-  "url": "https://item.rakuten.co.jp/roomy-garden/mtb25sep11a01/"
+  "url": "https://item.rakuten.co.jp/roomy-garden/mtb25sep11a01/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "正規店 バルミューダ ザ・レンジS 単機能 電子レンジ フラット コンパクト ソ"
  },
  "2109b026934d": {
   "category": "lighting_art",
@@ -1439,8 +1661,13 @@
   "postage_included": true,
   "review_average": 4.67,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "アクリル板・ケース とうめい館",
-  "url": "https://item.rakuten.co.jp/toumeikan/bbcase-400b100/"
+  "url": "https://item.rakuten.co.jp/toumeikan/bbcase-400b100/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "ベアブリック専用ケース　400％1体＋100％複数体用UVカット　W220mm "
  },
  "228330885d3a": {
   "category": "fashion",
@@ -1556,6 +1783,25 @@
   "shop_name": "MEDICOM TOY TOKYO",
   "url": "https://item.rakuten.co.jp/project1-6/4530956480756/"
  },
+ "250a9063fd4c": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/stylife/cabinet/item/902/sw8902-01_1.jpg?_ex=500x500",
+  "item_code": "stylife:15878793",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 1634,
+  "last_point_rate": 1,
+  "last_price": 1650,
+  "last_seen": "2026-09-30",
+  "name": "BEAMS JAPAN penco / メモブロックカレンダー 2027年 ビームス ジャパン ファッション雑貨 その他のファッション雑貨",
+  "postage_included": false,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "Rakuten Fashion",
+  "url": "https://item.rakuten.co.jp/stylife/sw8902/"
+ },
  "254a682f6ce1": {
   "category": "lighting_art",
   "first_seen": "2026-09-30",
@@ -1634,8 +1880,13 @@
   "postage_included": true,
   "review_average": 4.0,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Rakuten Fashion",
-  "url": "https://item.rakuten.co.jp/stylife/rp5484/"
+  "url": "https://item.rakuten.co.jp/stylife/rp5484/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "SHIPS WOMEN 【SHIPS別注】LACOSTE:＜手洗い可能＞五分袖 "
  },
  "262227244df5": {
   "category": "fashion",
@@ -2000,8 +2251,13 @@
   "postage_included": false,
   "review_average": 4.67,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "ココチヤ",
-  "url": "https://item.rakuten.co.jp/coc/ls-long-crew-tee/"
+  "url": "https://item.rakuten.co.jp/coc/ls-long-crew-tee/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "[製造中止・日本製あり]ラコステ 長袖 丸首・V首 Tシャツ TH350EM／T"
  },
  "2ef0cf1397f9": {
   "category": "fashion",
@@ -2127,6 +2383,25 @@
   "shop_name": "TAMAYA-GROUP楽天市場店",
   "url": "https://item.rakuten.co.jp/moderate/rc_it7iw57taky6_gn3x/"
  },
+ "3205784a2764": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/stylifemen/cabinet/item/249/pv5249-01_1.jpg?_ex=500x500",
+  "item_code": "stylifemen:11101357",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 3921,
+  "last_point_rate": 1,
+  "last_price": 3960,
+  "last_seen": "2026-09-30",
+  "name": "BEAMS JAPAN 【別注】三愛繊維 / 富士山 マルチマット ビームス ジャパン インテリア・生活雑貨 その他のインテリア・生活雑貨 ネイビー オレンジ",
+  "postage_included": false,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "Rakuten Fashion Men",
+  "url": "https://item.rakuten.co.jp/stylifemen/pv5249/"
+ },
  "32381e2f43da": {
   "category": "lighting_art",
   "first_seen": "2026-09-30",
@@ -2162,8 +2437,13 @@
   "postage_included": false,
   "review_average": 4.5,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Rakuten Fashion",
-  "url": "https://item.rakuten.co.jp/stylife/kw2698/"
+  "url": "https://item.rakuten.co.jp/stylife/kw2698/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "BEAMS JAPAN 別注 通学快足 ソックス Vol.2 ビームス ジャパン"
  },
  "327ae2739cb1": {
   "category": "trend_goods",
@@ -2360,6 +2640,25 @@
   "shop_name": "nonoc",
   "url": "https://item.rakuten.co.jp/nonoc/m10841/"
  },
+ "36c43d0c835d": {
+  "category": "home_decor",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/grove/cabinet/loiz/loiz-lb-16wn-01.jpg?_ex=500x500",
+  "item_code": "grove:10002185",
+  "keywords": [
+   "ミッドセンチュリー 家具"
+  ],
+  "last_effective_price": 89081,
+  "last_point_rate": 1,
+  "last_price": 89980,
+  "last_seen": "2026-09-30",
+  "name": "テレビ台 日本製 完成品 幅160cm テレビボード ローボード 160 160cm 木製 収納 国産 おしゃれ 北欧 ウォールナット ブラウン オーク ナチュラル TVボード オシャレ ミッドセンチュリー TVラック シンプル リモコン操作可能 お掃除ロボット対応 大川家具 収納 LOIZ",
+  "postage_included": false,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "grove",
+  "url": "https://item.rakuten.co.jp/grove/loiz-160tv/"
+ },
  "36e65cc368c0": {
   "category": "home_decor",
   "first_seen": "2026-09-30",
@@ -2433,8 +2732,13 @@
   "postage_included": false,
   "review_average": 4.8,
   "review_count": 5,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Z-SPORTS",
-  "url": "https://item.rakuten.co.jp/z-sports/2220-0020/"
+  "url": "https://item.rakuten.co.jp/z-sports/2220-0020/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "ラコステ 半袖ポロシャツ メンズ クラシック ピケ ポロシャツ L1212 LA"
  },
  "38a7c4bfb74b": {
   "category": "lighting_art",
@@ -2452,8 +2756,13 @@
   "postage_included": true,
   "review_average": 4.5,
   "review_count": 4,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "向日葵SHOP楽天市場店",
-  "url": "https://item.rakuten.co.jp/hmwr/hm-jd-dd-64/"
+  "url": "https://item.rakuten.co.jp/hmwr/hm-jd-dd-64/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【5年保証】 AAAZM ペンダントライト ガラス 木目調 北欧 おしゃれ 丸型"
  },
  "38b9d80dfdd2": {
   "category": "trend_goods",
@@ -2571,8 +2880,13 @@
   "postage_included": false,
   "review_average": 4.5,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Rakuten Fashion",
-  "url": "https://item.rakuten.co.jp/stylife/kr4572/"
+  "url": "https://item.rakuten.co.jp/stylife/kr4572/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "BEAMS JAPAN 本間冬治工業 / 別注 ウォーターピッチャー 2.1L "
  },
  "39f4c50138a9": {
   "category": "home_decor",
@@ -2668,6 +2982,25 @@
   "review_count": 0,
   "shop_name": "エア・リゾーム インテリア",
   "url": "https://item.rakuten.co.jp/air-rhizome/skj-sofa-2/"
+ },
+ "3b0a21be9248": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/stylifemen/cabinet/item/242/es7242-01_1.jpg?_ex=500x500",
+  "item_code": "stylifemen:10641695",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 3812,
+  "last_point_rate": 1,
+  "last_price": 3850,
+  "last_seen": "2026-09-30",
+  "name": "BEAMS JAPAN 日本香堂 / Yohaku アロマミスト 100ml ビームス ジャパン インテリア・生活雑貨 その他のインテリア・生活雑貨",
+  "postage_included": false,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "Rakuten Fashion Men",
+  "url": "https://item.rakuten.co.jp/stylifemen/es7242/"
  },
  "3beb41bdcc85": {
   "category": "trend_goods",
@@ -2828,8 +3161,13 @@
   "postage_included": false,
   "review_average": 4.25,
   "review_count": 4,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "wanna do",
-  "url": "https://item.rakuten.co.jp/wannado/lac-l1212/"
+  "url": "https://item.rakuten.co.jp/wannado/lac-l1212/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "ラコステ LACOSTE L.12.12 ポロシャツ 日本製 メンズ 半袖 クラ"
  },
  "3ed01c313fa8": {
   "category": "lighting_art",
@@ -3117,6 +3455,25 @@
   "zh_summary": "（未翻譯）",
   "zh_title": "【公式10％ OFFクーポン】公式限定色あり RELAX マルチレトロラジオ リ"
  },
+ "46031e538180": {
+  "category": "home_decor",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_gold/gift-angelo/2019/item/sst01/pru-6032135.jpg?_ex=500x500",
+  "item_code": "gift-angelo:10005139",
+  "keywords": [
+   "ミッドセンチュリー 家具"
+  ],
+  "last_effective_price": 20038,
+  "last_point_rate": 1,
+  "last_price": 20240,
+  "last_seen": "2026-09-30",
+  "name": "☆☆ブリックラック4段　60×32×135送料無料　簡単組立アンティーク　モダン　ナチュラル　ミッドセンチュリー　ウッド　スタイリッシュ　シンプル　シェルフ　ラック　ハンガー　インテリア　家具　天然　　カフェ　バーチカルライン　　　ギフト対応　あす楽",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "ガーデニング雑貨天使アンジェロ",
+  "url": "https://item.rakuten.co.jp/gift-angelo/pru-6032135/"
+ },
  "463d37fbc9fc": {
   "category": "fashion",
   "first_seen": "2026-09-30",
@@ -3252,8 +3609,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 6,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "お家で美術館 楽天市場店",
-  "url": "https://item.rakuten.co.jp/ouchidebijyutsukan/odb14534/"
+  "url": "https://item.rakuten.co.jp/ouchidebijyutsukan/odb14534/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "日本製 バウハウス BAUHAUS A3 サイズ ポスター アート おしゃれ 絵"
  },
  "47a63186826c": {
   "category": "lighting_art",
@@ -3295,8 +3657,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "モノギャラリー",
-  "url": "https://item.rakuten.co.jp/monogallery/074a-699/"
+  "url": "https://item.rakuten.co.jp/monogallery/074a-699/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【全6種】収納ケース 冷蔵庫トレー 収納ボックス おしゃれ 引き出し スリム 食"
  },
  "4969981afb97": {
   "category": "home_decor",
@@ -3371,8 +3738,13 @@
   "postage_included": false,
   "review_average": 4.5,
   "review_count": 4,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "アートワークスタジオ公式",
-  "url": "https://item.rakuten.co.jp/artworkstudio/candela3-wall-light/"
+  "url": "https://item.rakuten.co.jp/artworkstudio/candela3-wall-light/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【レビュー特典付】【アートワークスタジオ公式】 ARTWORKSTUDIO ウォ"
  },
  "4a448fbb6119": {
   "category": "home_decor",
@@ -3450,6 +3822,25 @@
   "shop_name": "Rakuten Fashion",
   "url": "https://item.rakuten.co.jp/stylife/gu6434/"
  },
+ "4b31adeef136": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/beams/cabinet/item/249/pv5249-01_1.jpg?_ex=500x500",
+  "item_code": "beams:10088248",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 3921,
+  "last_point_rate": 1,
+  "last_price": 3960,
+  "last_seen": "2026-09-30",
+  "name": "【別注】三愛繊維 / 富士山 マルチマット BEAMS JAPAN ビームス ジャパン インテリア・生活雑貨 その他のインテリア・生活雑貨 オレンジ ネイビー[Rakuten Fashion]",
+  "postage_included": false,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "BEAMS/ビームス",
+  "url": "https://item.rakuten.co.jp/beams/pv5249/"
+ },
  "4c35c7c47647": {
   "category": "fashion",
   "first_seen": "2026-09-30",
@@ -3485,8 +3876,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "ART OF BLACK",
-  "url": "https://item.rakuten.co.jp/artofblack/poster-03085/"
+  "url": "https://item.rakuten.co.jp/artofblack/poster-03085/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "BAUHAUS vivid シルバーフレーム アートポスター 50×40cm【A"
  },
  "4c84853cfd77": {
   "category": "trend_goods",
@@ -3705,8 +4101,13 @@
   "postage_included": false,
   "review_average": 4.29,
   "review_count": 7,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "おしゃれ家具・照明の快適ホームズ",
-  "url": "https://item.rakuten.co.jp/kaiteki-homes/a08lt-7443/"
+  "url": "https://item.rakuten.co.jp/kaiteki-homes/a08lt-7443/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【送料無料・一部地域を除く】LED対応 ペンダントライト 1灯 メルチェロ [M"
  },
  "50e48aa8031a": {
   "category": "gadgets",
@@ -3876,8 +4277,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 5,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "お家で美術館 楽天市場店",
-  "url": "https://item.rakuten.co.jp/ouchidebijyutsukan/odb13593/"
+  "url": "https://item.rakuten.co.jp/ouchidebijyutsukan/odb13593/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "日本製 バウハウス BAUHAUS モダン A3 サイズ ポスター アート おし"
  },
  "551ac9b382ac": {
   "category": "trend_goods",
@@ -4066,8 +4472,13 @@
   "postage_included": true,
   "review_average": 2.5,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "e住まいるスタイル",
-  "url": "https://item.rakuten.co.jp/e-sumail-style/aldochair/"
+  "url": "https://item.rakuten.co.jp/e-sumail-style/aldochair/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【ポイント10倍】《TOCOM interior》Aldo アルド チェア ファ"
  },
  "5a50e2bf83ad": {
   "category": "lighting_art",
@@ -4085,8 +4496,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 5,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "お家で美術館 楽天市場店",
-  "url": "https://item.rakuten.co.jp/ouchidebijyutsukan/odb09111/"
+  "url": "https://item.rakuten.co.jp/ouchidebijyutsukan/odb09111/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "日本製 バウハウス BAUHAUS A3 サイズ ポスター アート おしゃれ 絵"
  },
  "5a72160a1924": {
   "category": "lighting_art",
@@ -4378,6 +4794,25 @@
   "zh_summary": "（未翻譯）",
   "zh_title": "パソコンデスク 木製 机 PCデスク デスク おしゃれ 120cm幅 学習机 ワ"
  },
+ "60b5d5239f9f": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/beams/cabinet/item/275/ku6275-01_1.jpg?_ex=500x500",
+  "item_code": "beams:10072155",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 10890,
+  "last_point_rate": 1,
+  "last_price": 11000,
+  "last_seen": "2026-09-30",
+  "name": "山形工房 / 別注 ビームスジャパン けん玉 5連皿 BEAMS JAPAN ビームス ジャパン ファッション雑貨 その他のファッション雑貨【送料無料】[Rakuten Fashion]",
+  "postage_included": true,
+  "review_average": 5.0,
+  "review_count": 1,
+  "shop_name": "BEAMS/ビームス",
+  "url": "https://item.rakuten.co.jp/beams/ku6275/"
+ },
  "610c3aa0df13": {
   "category": "lighting_art",
   "first_seen": "2026-09-30",
@@ -4535,6 +4970,25 @@
   "shop_name": "Rakuten Fashion",
   "url": "https://item.rakuten.co.jp/stylife/rd4848/"
  },
+ "6404140732fa": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/stylife/cabinet/item/262/kv7262-01_1.jpg?_ex=500x500",
+  "item_code": "stylife:14540417",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 9039,
+  "last_point_rate": 1,
+  "last_price": 9130,
+  "last_seen": "2026-09-30",
+  "name": "BEAMS JAPAN 中外陶園 / 別注 まねき猫 左手 5号 ビームス ジャパン ファッション雑貨 その他のファッション雑貨 ゴールド オレンジ【送料無料】",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "Rakuten Fashion",
+  "url": "https://item.rakuten.co.jp/stylife/kv7262/"
+ },
  "644f9ca7c9a8": {
   "category": "trend_goods",
   "first_seen": "2026-09-30",
@@ -4665,8 +5119,13 @@
   "postage_included": false,
   "review_average": 4.8,
   "review_count": 5,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Rakuten Fashion",
-  "url": "https://item.rakuten.co.jp/stylife/kt2083/"
+  "url": "https://item.rakuten.co.jp/stylife/kt2083/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "BEAMS JAPAN 【別注】HIGHTIDE / パス & カードケース ビ"
  },
  "673c5d1b6c7a": {
   "category": "trend_goods",
@@ -4879,8 +5338,13 @@
   "postage_included": true,
   "review_average": 3.83,
   "review_count": 6,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "bees knees one",
-  "url": "https://item.rakuten.co.jp/knees/bees-106/"
+  "url": "https://item.rakuten.co.jp/knees/bees-106/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "72種類から選べる アートポスター 北欧 ポスター A3サイズ ART デザイン"
  },
  "6bfc2dbd1311": {
   "category": "fashion",
@@ -5360,8 +5824,13 @@
   "postage_included": false,
   "review_average": 4.33,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "natu & robe ナチュアンドローブ",
-  "url": "https://item.rakuten.co.jp/naturobe/mnr-0260/"
+  "url": "https://item.rakuten.co.jp/naturobe/mnr-0260/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【クーポン対象外】 Toffy トフィー コンパクトマルチ電気鍋 電気鍋 1人用"
  },
  "76c7351db3f7": {
   "category": "lighting_art",
@@ -5555,8 +6024,13 @@
   "postage_included": true,
   "review_average": 5.0,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "アクリル板・ケース とうめい館",
-  "url": "https://item.rakuten.co.jp/toumeikan/bbcase-400b/"
+  "url": "https://item.rakuten.co.jp/toumeikan/bbcase-400b/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "ベアブリック専用ケース　400％1体用UVカット　W200mm H300mm D"
  },
  "7dc99a5ba240": {
   "category": "trend_goods",
@@ -5669,8 +6143,13 @@
   "postage_included": true,
   "review_average": 4.83,
   "review_count": 6,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "ママチー",
-  "url": "https://item.rakuten.co.jp/mamachi/074a-430/"
+  "url": "https://item.rakuten.co.jp/mamachi/074a-430/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "スリッパラック スリム おしゃれ 北欧 シューズラック 木製 幅50cm 4足 "
  },
  "7efd9a2e7e40": {
   "category": "trend_goods",
@@ -5972,6 +6451,30 @@
   "shop_name": "Rakuten Fashion",
   "url": "https://item.rakuten.co.jp/stylife/sb5471/"
  },
+ "82af311f21b9": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/stylife/cabinet/item/425/ef5425-01_1.jpg?_ex=500x500",
+  "item_code": "stylife:13320876",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 4851,
+  "last_point_rate": 1,
+  "last_price": 4899,
+  "last_seen": "2026-09-30",
+  "name": "BEAMS JAPAN IMAGE CRAFT / 安江式 まじかるピンチハンガー 28pcs II ビームス ジャパン ファッション雑貨 その他のファッション雑貨【送料無料】",
+  "postage_included": true,
+  "review_average": 3.0,
+  "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
+  "shop_name": "Rakuten Fashion",
+  "url": "https://item.rakuten.co.jp/stylife/ef5425/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "BEAMS JAPAN IMAGE CRAFT / 安江式 まじかるピンチハンガ"
+ },
  "82be67ddc556": {
   "category": "trend_goods",
   "first_seen": "2026-09-30",
@@ -6105,6 +6608,25 @@
   "shop_name": "輸入家具 メゾン・ド・マルシェ",
   "url": "https://item.rakuten.co.jp/maison-du-marche/100006301217/"
  },
+ "8699357c509c": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/stylife/cabinet/item/795/kt0795-01_1.jpg?_ex=500x500",
+  "item_code": "stylife:14523594",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 1961,
+  "last_point_rate": 1,
+  "last_price": 1980,
+  "last_seen": "2026-09-30",
+  "name": "BEAMS JAPAN 宮島工芸製作所 * BEAMS JAPAN / 別注 宮島 しゃもじ 30cm ビームス ジャパン ファッション雑貨 その他のファッション雑貨",
+  "postage_included": false,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "Rakuten Fashion",
+  "url": "https://item.rakuten.co.jp/stylife/kt0795/"
+ },
  "86b8d441d6d0": {
   "category": "fashion",
   "first_seen": "2026-09-30",
@@ -6121,8 +6643,13 @@
   "postage_included": true,
   "review_average": 4.71,
   "review_count": 7,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "スポーツマリオ",
-  "url": "https://item.rakuten.co.jp/sportsmario2/i02lcl1212lj99/"
+  "url": "https://item.rakuten.co.jp/sportsmario2/i02lcl1212lj99/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "ラコステ LACOSTE 【国内正規取扱店】L.12.12 ポロシャツ メンズ "
  },
  "86ff82346621": {
   "category": "home_decor",
@@ -6142,6 +6669,30 @@
   "review_count": 0,
   "shop_name": "Little Lanai",
   "url": "https://item.rakuten.co.jp/little-lanai/k955-1263-7/"
+ },
+ "886f2acc0ed6": {
+  "category": "home_decor",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/air-rhizome/cabinet/110/f1c-kago1.jpg?_ex=500x500",
+  "item_code": "air-rhizome:10003933",
+  "keywords": [
+   "ミッドセンチュリー 家具"
+  ],
+  "last_effective_price": 8901,
+  "last_point_rate": 1,
+  "last_price": 8990,
+  "last_seen": "2026-09-30",
+  "name": "テレビ台 コーナー テレビボード ローボード 北欧 テレビラック コーナーテレビ台 コーナー型 TV台 tvボード AV収納 シンプル モダン ミッドセンチュリー 西海岸 収納 家具 棚 おしゃれ かわいい テレビ台 folco〔フォルコ〕",
+  "postage_included": true,
+  "review_average": 4.32,
+  "review_count": 317,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
+  "shop_name": "エア・リゾーム インテリア",
+  "url": "https://item.rakuten.co.jp/air-rhizome/miy-ar-tv05/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "テレビ台 コーナー テレビボード ローボード 北欧 テレビラック コーナーテレビ"
  },
  "8878f127f030": {
   "category": "home_decor",
@@ -6179,8 +6730,13 @@
   "postage_included": true,
   "review_average": 4.0,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "家具・インテリアのジェンコ",
-  "url": "https://item.rakuten.co.jp/auc-genco/kwg-ct612/"
+  "url": "https://item.rakuten.co.jp/auc-genco/kwg-ct612/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【即納】ミケーレ・デ・ルッキ トロメオ テーブルランプ アルミニウム シルバー "
  },
  "88d5f680f721": {
   "category": "lighting_art",
@@ -6312,8 +6868,13 @@
   "postage_included": true,
   "review_average": 4.67,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "nest 北欧モダンなインテリア雑貨",
-  "url": "https://item.rakuten.co.jp/nestinterior/n210507/"
+  "url": "https://item.rakuten.co.jp/nestinterior/n210507/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "デンマーク THE POSTER CLUB ポスター WAITING 70x50"
  },
  "8ae0cf0cc586": {
   "category": "trend_goods",
@@ -6371,6 +6932,25 @@
   "review_count": 0,
   "shop_name": "Neo Globe",
   "url": "https://item.rakuten.co.jp/neoglobe/101202011032/"
+ },
+ "8bc510699ac8": {
+  "category": "home_decor",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/dandy-life-space/cabinet/in2/in0585_4_1.jpg?_ex=500x500",
+  "item_code": "dandy-life-space:10003032",
+  "keywords": [
+   "ミッドセンチュリー インテリア"
+  ],
+  "last_effective_price": 8712,
+  "last_point_rate": 1,
+  "last_price": 8800,
+  "last_seen": "2026-09-30",
+  "name": "大特価10点セット!! ANTIQUE OBJECT!! ｢NOSTALGIA VII｣!! 男前インテリア アメリカンアンティーク 店舗什器 店舗展示品 アンティークシャープナー 鉛筆削り 男の隠れ家 デスクオブジェ 卓上オブジェ 机上小物 アンティークオブジェ DandyLifeSpace",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "Dandy Life Space 楽天市場店",
+  "url": "https://item.rakuten.co.jp/dandy-life-space/in0585/"
  },
  "8bf8a63c3321": {
   "category": "trend_goods",
@@ -6543,6 +7123,25 @@
   "shop_name": "Rakuten Fashion",
   "url": "https://item.rakuten.co.jp/stylife/nf4123/"
  },
+ "8d815e66e686": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/stylife/cabinet/item/231/t24231-01_1.jpg?_ex=500x500",
+  "item_code": "stylife:12145825",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 5881,
+  "last_point_rate": 1,
+  "last_price": 5940,
+  "last_seen": "2026-09-30",
+  "name": "BEAMS JAPAN 中外陶園 * BEAMS JAPAN / 別注 まねき 金しゃち 左 ビームス ジャパン ファッション雑貨 その他のファッション雑貨 ゴールド【送料無料】",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "Rakuten Fashion",
+  "url": "https://item.rakuten.co.jp/stylife/t24231/"
+ },
  "8d8b0de83f6e": {
   "category": "gadgets",
   "first_seen": "2026-09-30",
@@ -6586,6 +7185,25 @@
   "shop_name": "Little Lanai",
   "url": "https://item.rakuten.co.jp/little-lanai/by-0421/"
  },
+ "8dcb67550653": {
+  "category": "gadgets",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/odekake/cabinet/shohin10/5/oz1540pkm.jpg?_ex=500x500",
+  "item_code": "odekake:10000894",
+  "keywords": [
+   "Bluetoothスピーカー レトロ"
+  ],
+  "last_effective_price": 5921,
+  "last_point_rate": 1,
+  "last_price": 5980,
+  "last_seen": "2026-09-30",
+  "name": "【クーポン有｜30日23:59迄】bluetoothスピーカー レトロ レコード かわいい ブルートゥーススピーカー ブルートゥース 対応 おしゃれ 小型 コンパクト 充電式 卓上 スマホ スマートフォン パソコン PC ピンク",
+  "postage_included": true,
+  "review_average": 2.0,
+  "review_count": 1,
+  "shop_name": "おでかけセレクト 楽天市場店",
+  "url": "https://item.rakuten.co.jp/odekake/oz1540pk/"
+ },
  "8dd794399565": {
   "category": "lighting_art",
   "first_seen": "2026-09-30",
@@ -6602,8 +7220,13 @@
   "postage_included": true,
   "review_average": 2.5,
   "review_count": 4,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "bees knees one",
-  "url": "https://item.rakuten.co.jp/knees/bees-429/"
+  "url": "https://item.rakuten.co.jp/knees/bees-429/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "アートポスター『大理石ヘキサゴン』 北欧 アートパネル ノルディック A5 A4"
  },
  "8e4eafa69fb9": {
   "category": "lighting_art",
@@ -6623,6 +7246,25 @@
   "review_count": 1,
   "shop_name": "お家で美術館 楽天市場店",
   "url": "https://item.rakuten.co.jp/ouchidebijyutsukan/odb14587/"
+ },
+ "8e81cde3199b": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/beams/cabinet/item/798/na4798-01_1.jpg?_ex=500x500",
+  "item_code": "beams:10076809",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 3267,
+  "last_point_rate": 1,
+  "last_price": 3300,
+  "last_seen": "2026-09-30",
+  "name": "【別注】オビツ製作所 / オレンジ かぶりものキューピー キーホルダー まねき猫 BEAMS JAPAN ビームス ジャパン ファッション雑貨 その他のファッション雑貨 オレンジ[Rakuten Fashion]",
+  "postage_included": false,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "BEAMS/ビームス",
+  "url": "https://item.rakuten.co.jp/beams/na4798/"
  },
  "8e8bd36170b6": {
   "category": "trend_goods",
@@ -6716,8 +7358,13 @@
   "postage_included": false,
   "review_average": 4.43,
   "review_count": 7,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "MARK DOYLE楽天市場店",
-  "url": "https://item.rakuten.co.jp/markdoyle/10004738/"
+  "url": "https://item.rakuten.co.jp/markdoyle/10004738/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "LEDデスクライト 日本製 高品質 BISLEY ビスレー SWAN スワン B"
  },
  "912891598791": {
   "category": "fashion",
@@ -6735,8 +7382,13 @@
   "postage_included": true,
   "review_average": 5.0,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Rakuten Fashion",
-  "url": "https://item.rakuten.co.jp/stylife/pq1387/"
+  "url": "https://item.rakuten.co.jp/stylife/pq1387/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【SALE／30%OFF】XLARGE PATCHED LOGO S/S TEE"
  },
  "91394333cd1a": {
   "category": "home_decor",
@@ -6780,6 +7432,25 @@
   "url": "https://item.rakuten.co.jp/edifier-2022/mp330/",
   "zh_summary": "（未翻譯）",
   "zh_title": "【VGP2025金賞】EDIFIER MP330 ポータブルスピーカー Blue"
+ },
+ "917880a111b0": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/beams/cabinet/item/728/nh4728-01_1.jpg?_ex=500x500",
+  "item_code": "beams:10077894",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 16335,
+  "last_point_rate": 1,
+  "last_price": 16500,
+  "last_seen": "2026-09-30",
+  "name": "【別注】信楽焼 たぬき カップル BEAMS JAPAN ビームス ジャパン ファッション雑貨 その他のファッション雑貨 オレンジ【送料無料】[Rakuten Fashion]",
+  "postage_included": true,
+  "review_average": 4.0,
+  "review_count": 1,
+  "shop_name": "BEAMS/ビームス",
+  "url": "https://item.rakuten.co.jp/beams/nh4728/"
  },
  "91df837ab28a": {
   "category": "lighting_art",
@@ -6863,6 +7534,25 @@
   "shop_name": "サンストア",
   "url": "https://item.rakuten.co.jp/sunstorehh/2513bkt018/"
  },
+ "93423dcef7a5": {
+  "category": "gadgets",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/moya/cabinet/12082740/imgrc0101801631.jpg?_ex=500x500",
+  "item_code": "moya:10000001",
+  "keywords": [
+   "デザイン家電 おしゃれ"
+  ],
+  "last_effective_price": 89820,
+  "last_point_rate": 10,
+  "last_price": 99800,
+  "last_seen": "2026-09-30",
+  "name": "【TVで紹介されました】moya Ultra 日本製 ウイルスリデューサー 大容量 10L 静音 微細ミスト デザイン家電 ウイルス対策 ペット オフィス お手入れ簡単 おしゃれ 純水ウルトラマイクロミスト 加湿器",
+  "postage_included": false,
+  "review_average": 5.0,
+  "review_count": 2,
+  "shop_name": "moyaストア 楽天市場店",
+  "url": "https://item.rakuten.co.jp/moya/moyaultra/"
+ },
  "93a8278e243e": {
   "category": "fashion",
   "first_seen": "2026-09-30",
@@ -6900,6 +7590,25 @@
   "review_count": 0,
   "shop_name": "【公式】Kartell カルテル",
   "url": "https://item.rakuten.co.jp/kartell/40405/"
+ },
+ "954be7c84a6c": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/stylife/cabinet/item/057/nq9057-01_1.jpg?_ex=500x500",
+  "item_code": "stylife:14935967",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 6534,
+  "last_point_rate": 1,
+  "last_price": 6600,
+  "last_seen": "2026-09-30",
+  "name": "BEAMS JAPAN 歴清社 / ペーパークラフト 鹿 ビームス ジャパン ファッション雑貨 その他のファッション雑貨【送料無料】",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "Rakuten Fashion",
+  "url": "https://item.rakuten.co.jp/stylife/nq9057/"
  },
  "95acdc286837": {
   "category": "trend_goods",
@@ -7111,6 +7820,25 @@
   "zh_summary": "（未翻譯）",
   "zh_title": "ポールヘニングセン テーブルライト PH3/2 ブラック 北欧デザイン Poul"
  },
+ "9a6567d10b38": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/stylife/cabinet/item/729/nh4729-01_1.jpg?_ex=500x500",
+  "item_code": "stylife:14873419",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 5881,
+  "last_point_rate": 1,
+  "last_price": 5940,
+  "last_seen": "2026-09-30",
+  "name": "BEAMS JAPAN 【別注】信楽焼 たぬき 橙 中 ビームス ジャパン ファッション雑貨 その他のファッション雑貨 オレンジ【送料無料】",
+  "postage_included": true,
+  "review_average": 5.0,
+  "review_count": 1,
+  "shop_name": "Rakuten Fashion",
+  "url": "https://item.rakuten.co.jp/stylife/nh4729/"
+ },
  "9a9335ea0d02": {
   "category": "home_decor",
   "first_seen": "2026-09-30",
@@ -7146,8 +7874,13 @@
   "postage_included": true,
   "review_average": 4.17,
   "review_count": 6,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "SOUTH one(サウスワン)",
-  "url": "https://item.rakuten.co.jp/southone/202506p/"
+  "url": "https://item.rakuten.co.jp/southone/202506p/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【2つ選べる特典付】プラスマイナスゼロ 扇風機 テラスファン サーキュレーター "
  },
  "9b51959d058a": {
   "category": "fashion",
@@ -7165,8 +7898,13 @@
   "postage_included": true,
   "review_average": 4.5,
   "review_count": 4,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Rakuten Fashion",
-  "url": "https://item.rakuten.co.jp/stylife/pj0386/"
+  "url": "https://item.rakuten.co.jp/stylife/pj0386/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "XLARGE RHINE STONE SLANTED OG S/S TEE エク"
  },
  "9b7024e0111a": {
   "category": "lighting_art",
@@ -7222,8 +7960,32 @@
   "postage_included": true,
   "review_average": 2.5,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "牧光(BOKKOU)",
-  "url": "https://item.rakuten.co.jp/wnfashion/wn-jd-dd-457/"
+  "url": "https://item.rakuten.co.jp/wnfashion/wn-jd-dd-457/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【3年保証】 AAAZM ペンダントライト ガラス 北欧 おしゃれ LED かわ"
+ },
+ "9d265ac35a31": {
+  "category": "gadgets",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/designers-and-labo/cabinet/entrex/stadlerform/enx-stadler-leo.jpg?_ex=500x500",
+  "item_code": "designers-and-labo:10006059",
+  "keywords": [
+   "デザイン家電 おしゃれ"
+  ],
+  "last_effective_price": 13585,
+  "last_point_rate": 5,
+  "last_price": 14300,
+  "last_seen": "2026-09-30",
+  "name": "【ポイント5倍】3Dサーキュレーター 扇風機 DCモーター Stadler Form Leo 静音 ホワイト ブラック デザイン家電 スタドラフォーム レオ 北欧デザイン おしゃれ 卓上 寝室 リビング コンパクト 省スペース 持ち運び可 タイマー付き リモコン付き タッチセンサー",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "Designers&Laboshop",
+  "url": "https://item.rakuten.co.jp/designers-and-labo/enx-stadler-leo/"
  },
  "9db36790831e": {
   "category": "home_decor",
@@ -7670,8 +8432,13 @@
   "postage_included": true,
   "review_average": 4.5,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "向日葵SHOP楽天市場店",
-  "url": "https://item.rakuten.co.jp/hmwr/hm-jd-dd-353/"
+  "url": "https://item.rakuten.co.jp/hmwr/hm-jd-dd-353/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【3年保証】 AAAZM ペンダントライト LED おしゃれ 北欧 円錐 弾丸 "
  },
  "a698cac4ee2a": {
   "category": "fashion",
@@ -7765,8 +8532,13 @@
   "postage_included": false,
   "review_average": 4.33,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "j・x・t-style",
-  "url": "https://item.rakuten.co.jp/jxt-style/th3273/"
+  "url": "https://item.rakuten.co.jp/jxt-style/th3273/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "ラコステ 長袖 Tシャツ メンズ クルーネック LACOSTE TH5583-9"
  },
  "a83b7771815a": {
   "category": "trend_goods",
@@ -7784,8 +8556,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "MEDICOM TOY TOKYO",
-  "url": "https://item.rakuten.co.jp/project1-6/4530956590301/"
+  "url": "https://item.rakuten.co.jp/project1-6/4530956590301/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【メディコム・トイ公式】BE@RBRICK ANDY WARHOL \"Brill"
  },
  "a88d82ce4e43": {
   "category": "lighting_art",
@@ -7879,8 +8656,13 @@
   "postage_included": false,
   "review_average": 4.71,
   "review_count": 7,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "子供と暮らしの専門店 IAM NATURAL",
-  "url": "https://item.rakuten.co.jp/iamnatural/10000258/"
+  "url": "https://item.rakuten.co.jp/iamnatural/10000258/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【 30日ポイント最大5倍 】 北欧風 ウォールデコ 北欧バード オーナメント "
  },
  "ab385e66ac2c": {
   "category": "fashion",
@@ -7901,6 +8683,25 @@
   "shop_name": "TIARA PETS",
   "url": "https://item.rakuten.co.jp/tiarapets/31709/"
  },
+ "ab3d8b90e8e5": {
+  "category": "home_decor",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/ddform/cabinet/02827948/05449522/05558076/imgrc0078203116.jpg?_ex=500x500",
+  "item_code": "ddform:10001125",
+  "keywords": [
+   "ミッドセンチュリー 家具"
+  ],
+  "last_effective_price": 68112,
+  "last_point_rate": 1,
+  "last_price": 68800,
+  "last_seen": "2026-09-30",
+  "name": "ホーバン TVボード100北欧 テイスト ミッドセンチュリー ナチュラル テレビ台 木製 AVボード ローボード テレビボード シンプル TV台 天然木 家具 HOBANG ホーバン",
+  "postage_included": true,
+  "review_average": 5.0,
+  "review_count": 1,
+  "shop_name": "DDform",
+  "url": "https://item.rakuten.co.jp/ddform/10001125/"
+ },
  "abc7b3e1640e": {
   "category": "fashion",
   "first_seen": "2026-09-30",
@@ -7917,8 +8718,13 @@
   "postage_included": true,
   "review_average": 5.0,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "XLARGE X-girl公式calif楽天市場店",
-  "url": "https://item.rakuten.co.jp/calif-shop/101262011045/"
+  "url": "https://item.rakuten.co.jp/calif-shop/101262011045/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【公式】XLARGE エクストララージ DRAWING OG S/S TEE 半"
  },
  "ac00e214dd0d": {
   "category": "lighting_art",
@@ -7993,8 +8799,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 4,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "PEASE",
-  "url": "https://item.rakuten.co.jp/pease/pease-645/"
+  "url": "https://item.rakuten.co.jp/pease/pease-645/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【30日全品5%OFF】アートポスター フレーム付き 北欧 モダン アートパネル"
  },
  "ace7eef0663a": {
   "category": "gadgets",
@@ -8036,8 +8847,32 @@
   "postage_included": false,
   "review_average": 4.86,
   "review_count": 7,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "インポートセレクトショップヤヨイ",
-  "url": "https://item.rakuten.co.jp/ueno-yayoi/lacoste-l1212/"
+  "url": "https://item.rakuten.co.jp/ueno-yayoi/lacoste-l1212/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "LACOSTE ラコステ　L1212 S/S Classic Pique Pol"
+ },
+ "ad5442353fe8": {
+  "category": "gadgets",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/ichibankanshop/cabinet/item73/cool-x-001-01.jpg?_ex=500x500",
+  "item_code": "ichibankanshop:11160664",
+  "keywords": [
+   "デザイン家電 おしゃれ"
+  ],
+  "last_effective_price": 25542,
+  "last_point_rate": 10,
+  "last_price": 28380,
+  "last_seen": "2026-09-30",
+  "name": "【P10倍 9/30限定】 ツインエアーサーキュレーター 空気清浄機 UV照射機能付 タワーファン おしゃれ デザイン家電 ファン 扇風機 首振り DCモーターファン 羽根無し 花粉対策 節電 省エネ エコ Chrester クレスター COOL-X-001B COOL-X-001W 【代引不可】",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "壱番館STORE",
+  "url": "https://item.rakuten.co.jp/ichibankanshop/cool-x-001/"
  },
  "adf4e73004c9": {
   "category": "lighting_art",
@@ -8055,8 +8890,13 @@
   "postage_included": true,
   "review_average": 4.67,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "SONORITE(ソノリテ)",
-  "url": "https://item.rakuten.co.jp/sonorite/order-abstract5-5070/"
+  "url": "https://item.rakuten.co.jp/sonorite/order-abstract5-5070/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "アートポスター アブストラクト 流動 50x70cm / B2 /40x50cm"
  },
  "ae10ba0d965e": {
   "category": "lighting_art",
@@ -8074,8 +8914,13 @@
   "postage_included": true,
   "review_average": 3.5,
   "review_count": 4,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "向日葵SHOP楽天市場店",
-  "url": "https://item.rakuten.co.jp/hmwr/hm-jd-dd-261/"
+  "url": "https://item.rakuten.co.jp/hmwr/hm-jd-dd-261/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【5年保証】 AAAZM ペンダントライト 北欧 LED対応 おしゃれ マカロン"
  },
  "ae3d7800c658": {
   "category": "lighting_art",
@@ -8294,8 +9139,13 @@
   "postage_included": false,
   "review_average": 4.5,
   "review_count": 4,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "アートワークスタジオ公式",
-  "url": "https://item.rakuten.co.jp/artworkstudio/aw-0664/"
+  "url": "https://item.rakuten.co.jp/artworkstudio/aw-0664/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【レビュー特典付】【アートワークスタジオ公式】 ARTWORKSTUDIO デス"
  },
  "b3ee84a20ee0": {
   "category": "lighting_art",
@@ -8394,8 +9244,13 @@
   "postage_included": true,
   "review_average": 5.0,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Rakuten Fashion Men",
-  "url": "https://item.rakuten.co.jp/stylifemen/nh4727/"
+  "url": "https://item.rakuten.co.jp/stylifemen/nh4727/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "BEAMS JAPAN 【別注】信楽焼 たぬき 貯金箱 ビームス ジャパン ファ"
  },
  "b5c59e4664e0": {
   "category": "fashion",
@@ -8560,6 +9415,25 @@
   "shop_name": "雑貨ネットオンライン 楽天市場店",
   "url": "https://item.rakuten.co.jp/zakkanetonline-trans/pxl1065_25a/"
  },
+ "b7446877dfe2": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/auc-otakick/cabinet/06932257/08907238/imgrc0101163660.jpg?_ex=500x500",
+  "item_code": "auc-otakick:10010904",
+  "keywords": [
+   "メディコムトイ"
+  ],
+  "last_effective_price": 69201,
+  "last_point_rate": 1,
+  "last_price": 69900,
+  "last_seen": "2026-09-30",
+  "name": "メディコムトイ　東映レトロソフビコレクション　イナズマン(劇中カラーVer.)",
+  "postage_included": true,
+  "review_average": 5.0,
+  "review_count": 1,
+  "shop_name": "御宅家本舗 OTAKICK",
+  "url": "https://item.rakuten.co.jp/auc-otakick/4530956434162/"
+ },
  "b80d55f21a76": {
   "category": "lighting_art",
   "first_seen": "2026-09-30",
@@ -8600,8 +9474,13 @@
   "postage_included": false,
   "review_average": 4.75,
   "review_count": 4,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "お家で美術館 楽天市場店",
-  "url": "https://item.rakuten.co.jp/ouchidebijyutsukan/odb08918/"
+  "url": "https://item.rakuten.co.jp/ouchidebijyutsukan/odb08918/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "日本製 バウハウス BAUHAUS モダン A3 サイズ ポスター アート おし"
  },
  "b84aa6b19b03": {
   "category": "trend_goods",
@@ -8795,8 +9674,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "照明器具の専門店AMBER FOREST",
-  "url": "https://item.rakuten.co.jp/amberforest/10002350/"
+  "url": "https://item.rakuten.co.jp/amberforest/10002350/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "ペンダントライト ■DON Lサイズ■ ミッドセンチュリー調 モダンハンドメイド"
  },
  "bb2c1bb89742": {
   "category": "lighting_art",
@@ -8890,8 +9774,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 4,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "お家で美術館 楽天市場店",
-  "url": "https://item.rakuten.co.jp/ouchidebijyutsukan/odb11771/"
+  "url": "https://item.rakuten.co.jp/ouchidebijyutsukan/odb11771/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "日本製 バウハウス BAUHAUS A3 サイズ ポスター アート おしゃれ 絵"
  },
  "bea7d559cd7a": {
   "category": "home_decor",
@@ -8969,6 +9858,30 @@
   "shop_name": "Little Lanai",
   "url": "https://item.rakuten.co.jp/little-lanai/h19-0110/"
  },
+ "c065cc463837": {
+  "category": "home_decor",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/mikazuki/cabinet/modan13/iw-72-2p_00ab.jpg?_ex=500x500",
+  "item_code": "mikazuki:10043631",
+  "keywords": [
+   "ミッドセンチュリー 家具"
+  ],
+  "last_effective_price": 28512,
+  "last_point_rate": 1,
+  "last_price": 28800,
+  "last_seen": "2026-09-30",
+  "name": "ビンテージソファ2人掛け ソファ 2人掛け 男前 合皮 レザー カフェ 2pソファー ミッドセンチュリー おすすめ モダンソファー ミッドセンチュリー m182-iwx72x2p MMK 家具",
+  "postage_included": false,
+  "review_average": 4.0,
+  "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
+  "shop_name": "クレセント家具&マットレス",
+  "url": "https://item.rakuten.co.jp/mikazuki/fgb77124/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "ビンテージソファ2人掛け ソファ 2人掛け 男前 合皮 レザー カフェ 2pソフ"
+ },
  "c099b81d491d": {
   "category": "lighting_art",
   "first_seen": "2026-09-30",
@@ -9045,6 +9958,25 @@
   "shop_name": "自分にピッタリ家電の「マイピタ」",
   "url": "https://item.rakuten.co.jp/mypita/a155/"
  },
+ "c2624d12ca23": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/beams/cabinet/item/990/em5990-01_1.jpg?_ex=500x500",
+  "item_code": "beams:10048719",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 21780,
+  "last_point_rate": 1,
+  "last_price": 22000,
+  "last_seen": "2026-09-30",
+  "name": "有高扇山堂 * BEAMS JAPAN / 松竹梅 小 BEAMS JAPAN ビームス ジャパン インテリア・生活雑貨 その他のインテリア・生活雑貨【送料無料】[Rakuten Fashion]",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "BEAMS/ビームス",
+  "url": "https://item.rakuten.co.jp/beams/em5990/"
+ },
  "c2b2f230851e": {
   "category": "fashion",
   "first_seen": "2026-09-30",
@@ -9099,8 +10031,13 @@
   "postage_included": true,
   "review_average": 4.75,
   "review_count": 4,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "nest 北欧モダンなインテリア雑貨",
-  "url": "https://item.rakuten.co.jp/nestinterior/n202404/"
+  "url": "https://item.rakuten.co.jp/nestinterior/n202404/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "デンマーク THE POSTER CLUB ポスター レモン 50x70cm 北"
  },
  "c42e0d3224e8": {
   "category": "gadgets",
@@ -9156,8 +10093,13 @@
   "postage_included": false,
   "review_average": 4.67,
   "review_count": 6,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "お家で美術館 楽天市場店",
-  "url": "https://item.rakuten.co.jp/ouchidebijyutsukan/odb13600/"
+  "url": "https://item.rakuten.co.jp/ouchidebijyutsukan/odb13600/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "日本製 BAUHAUS バウハウス BAUHAUS 鯨 クジラ A3 サイズ ポ"
  },
  "c55f912d58b4": {
   "category": "lighting_art",
@@ -9194,8 +10136,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 5,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "nest 北欧モダンなインテリア雑貨",
-  "url": "https://item.rakuten.co.jp/nestinterior/n202405/"
+  "url": "https://item.rakuten.co.jp/nestinterior/n202405/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "デンマーク THE POSTER CLUB ポスター レモン 30x40cm 北"
  },
  "c6806ea337b8": {
   "category": "home_decor",
@@ -9265,6 +10212,25 @@
   "zh_summary": "（未翻譯）",
   "zh_title": "Lacoste ラコステ Men's L-1212ベ-シック 半袖 鹿の子 ポロ"
  },
+ "c8a4030f4fee": {
+  "category": "gadgets",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/wansuteikusu/cabinet/t13/t1312045361c76_1.jpg?_ex=500x500",
+  "item_code": "wansuteikusu:10002994",
+  "keywords": [
+   "Bluetoothスピーカー レトロ"
+  ],
+  "last_effective_price": 8712,
+  "last_point_rate": 1,
+  "last_price": 8800,
+  "last_seen": "2026-09-30",
+  "name": "bluetoothスピーカー レトロ レコード 復刻スピーカー CDスピーカー ポータブル メモリーカード AUX USBカード ビニール レコード レトロ ビンテージ 蓄音機 内蔵ステレオ スピーカーレコード プレーヤー ターンテーブル ビニール プレーヤー レコーダー",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "ワンステークス",
+  "url": "https://item.rakuten.co.jp/wansuteikusu/t1312045361c76/"
+ },
  "c8f1e7074396": {
   "category": "trend_goods",
   "first_seen": "2026-09-30",
@@ -9281,8 +10247,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "BEAMS/ビームス",
-  "url": "https://item.rakuten.co.jp/beams/kt2083/"
+  "url": "https://item.rakuten.co.jp/beams/kt2083/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【別注】HIGHTIDE / パス & カードケース BEAMS JAPAN ビ"
  },
  "c90d4a69fcb8": {
   "category": "fashion",
@@ -9319,8 +10290,13 @@
   "postage_included": true,
   "review_average": 5.0,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Rakuten Fashion",
-  "url": "https://item.rakuten.co.jp/stylife/me5822/"
+  "url": "https://item.rakuten.co.jp/stylife/me5822/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "BEAMS JAPAN ＜UNISEX＞ ビームス ジャパン オリジナル 漢数字"
  },
  "c9a09007bbe1": {
   "category": "lighting_art",
@@ -9376,8 +10352,13 @@
   "postage_included": true,
   "review_average": 4.33,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "AAAZM楽天市場店",
-  "url": "https://item.rakuten.co.jp/ichikashop/ic-jd-dd-136/"
+  "url": "https://item.rakuten.co.jp/ichikashop/ic-jd-dd-136/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【5年保証】 AAAZM ペンダントライト 北欧 おしゃれ 籐 編む 丸型 LE"
  },
  "ca8cd0927ed3": {
   "category": "gadgets",
@@ -9560,6 +10541,30 @@
   "shop_name": "BEAMS/ビームス",
   "url": "https://item.rakuten.co.jp/beams/nh4731/"
  },
+ "cd895f4d769a": {
+  "category": "gadgets",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/plywood/cabinet/503/14937007.jpg?_ex=500x500",
+  "item_code": "plywood:10011781",
+  "keywords": [
+   "デザイン家電 おしゃれ"
+  ],
+  "last_effective_price": 71280,
+  "last_point_rate": 10,
+  "last_price": 79200,
+  "last_seen": "2026-09-30",
+  "name": "最新モデル バルミューダ レイン 加湿器 大容量 気化式BALMUDA Rain AHM01JP Wi-Fi対応おしゃれ 省エネ 有機el オシャレ 花粉 おしゃれ オフィス 結婚祝い 出産祝い デザイン家電 かわいい◇送料無料 P10倍",
+  "postage_included": false,
+  "review_average": 4.66,
+  "review_count": 108,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
+  "shop_name": "plywood キッチン・インテリア雑貨",
+  "url": "https://item.rakuten.co.jp/plywood/08437066/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "最新モデル バルミューダ レイン 加湿器 大容量 気化式BALMUDA Rain"
+ },
  "cdc56cb5b010": {
   "category": "trend_goods",
   "first_seen": "2026-09-30",
@@ -9595,8 +10600,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Rakuten Fashion",
-  "url": "https://item.rakuten.co.jp/stylife/kv8516/"
+  "url": "https://item.rakuten.co.jp/stylife/kv8516/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "BEAMS JAPAN evergreen works * BEAMS JAPA"
  },
  "ce6fd5664d35": {
   "category": "fashion",
@@ -9869,6 +10879,25 @@
   "shop_name": "ママチー",
   "url": "https://item.rakuten.co.jp/mamachi/074a-700/"
  },
+ "d3d72ef69d79": {
+  "category": "gadgets",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/aya323/cabinet/08555352/lhl22012601.jpg?_ex=500x500",
+  "item_code": "aya323:10002771",
+  "keywords": [
+   "Bluetoothスピーカー レトロ"
+  ],
+  "last_effective_price": 9108,
+  "last_point_rate": 1,
+  "last_price": 9200,
+  "last_seen": "2026-09-30",
+  "name": "bluetooth スピーカー ブルートゥース スピーカー 手元スピーカー テレビスピーカー 木製 小型 おしゃれ かわいい レトロ コンパクト ステレオ 高音質 高出力 パソコン ワイヤレス 接続 SD カード 有線 端子 ハンズフリー 通話 置き型 アウトドア キャンプ バッテリー搭載",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "Selling Town",
+  "url": "https://item.rakuten.co.jp/aya323/lhl22012601/"
+ },
  "d3ff4bcdbed1": {
   "category": "lighting_art",
   "first_seen": "2026-09-30",
@@ -9885,8 +10914,13 @@
   "postage_included": false,
   "review_average": 4.67,
   "review_count": 3,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "お家で美術館 楽天市場店",
-  "url": "https://item.rakuten.co.jp/ouchidebijyutsukan/odb14569/"
+  "url": "https://item.rakuten.co.jp/ouchidebijyutsukan/odb14569/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "日本製 バウハウス BAUHAUS A3 サイズ ポスター アート おしゃれ 絵"
  },
  "d46c4345c06d": {
   "category": "fashion",
@@ -10056,8 +11090,13 @@
   "postage_included": false,
   "review_average": 4.25,
   "review_count": 4,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "CHLOROS (クロロス)",
-  "url": "https://item.rakuten.co.jp/chloros/10091203/"
+  "url": "https://item.rakuten.co.jp/chloros/10091203/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "ARCHITECTMADE アーキテクトメイド Duckling ダックリング "
  },
  "d8d831079c48": {
   "category": "lighting_art",
@@ -10250,6 +11289,25 @@
   "zh_summary": "（未翻譯）",
   "zh_title": "【インターフォルム公式】 ペンダントライト ブランシュ Blanche | 照明"
  },
+ "dbbf9e31ada6": {
+  "category": "gadgets",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/nihontuuhan/cabinet/_oda01/oda0286.jpg?_ex=500x500",
+  "item_code": "nihontuuhan:10022854",
+  "keywords": [
+   "デザイン家電 おしゃれ"
+  ],
+  "last_effective_price": 16511,
+  "last_point_rate": 5,
+  "last_price": 17380,
+  "last_seen": "2026-09-30",
+  "name": "【選ぶ景品付き】 スリーアップ CL-T2269 上部給水式 気化式加湿器 GRANLUXE グランリュクス CLシリーズ クリーンモデル ハイブリッド加湿器 気化加湿器 加湿機 大容量タンク おしゃれ CLT2269 リモコン CL-T2269WH CL-T2269BK デザイン家電",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "日本通販 空気清浄機・日傘",
+  "url": "https://item.rakuten.co.jp/nihontuuhan/oda0286/"
+ },
  "dbff389f5e6e": {
   "category": "lighting_art",
   "first_seen": "2026-09-30",
@@ -10309,8 +11367,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 7,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "ココチヤ",
-  "url": "https://item.rakuten.co.jp/coc/ls-pocket-tee/"
+  "url": "https://item.rakuten.co.jp/coc/ls-pocket-tee/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "ラコステ アウトライン クロック ポケット Tシャツ TH5581-99 メンズ"
  },
  "dd54e86ee444": {
   "category": "lighting_art",
@@ -10328,8 +11391,13 @@
   "postage_included": true,
   "review_average": 4.83,
   "review_count": 6,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "ARS’ONLINE",
-  "url": "https://item.rakuten.co.jp/arsonline/zco10351/"
+  "url": "https://item.rakuten.co.jp/arsonline/zco10351/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "コロボックル colobockle ポスター 絵画 絵 複製画 版画 作品 リト"
  },
  "dd7ea88f372c": {
   "category": "lighting_art",
@@ -10349,6 +11417,25 @@
   "review_count": 0,
   "shop_name": "お家で美術館 楽天市場店",
   "url": "https://item.rakuten.co.jp/ouchidebijyutsukan/odb14322/"
+ },
+ "dd87394a79d4": {
+  "category": "gadgets",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/koti/cabinet/aladdin/bf3911-t.jpg?_ex=500x500",
+  "item_code": "koti:10003875",
+  "keywords": [
+   "デザイン家電 おしゃれ"
+  ],
+  "last_effective_price": 45936,
+  "last_point_rate": 1,
+  "last_price": 46400,
+  "last_seen": "2026-09-30",
+  "name": "ストーブ 暖房 おしゃれ アラジン ブルーフレーム ヒーター ) ホワイト アラジンストーブ 石油ストーブ aladdin おしゃれ家電 デザイン家電 レトロ インテリア カワイイ カフェ プレゼント ちいくのいちば いちばかぐ",
+  "postage_included": false,
+  "review_average": 5.0,
+  "review_count": 2,
+  "shop_name": "インテリア・雑貨・通販 koti",
+  "url": "https://item.rakuten.co.jp/koti/bf3911/"
  },
  "dd942c5a4f30": {
   "category": "lighting_art",
@@ -10580,8 +11667,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 4,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "SOUTH one(サウスワン)",
-  "url": "https://item.rakuten.co.jp/southone/202410po/"
+  "url": "https://item.rakuten.co.jp/southone/202410po/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【2つ選べる特典付】moya Ultra プルガティオ 加湿器 PURGATIO"
  },
  "e1d422ea4560": {
   "category": "gadgets",
@@ -10742,8 +11834,13 @@
   "postage_included": true,
   "review_average": 3.5,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "AAAZM楽天市場店",
-  "url": "https://item.rakuten.co.jp/ichikashop/ic-jd-dd-43/"
+  "url": "https://item.rakuten.co.jp/ichikashop/ic-jd-dd-43/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【5年保証】 AAAZM ペンダントライト 北欧 LED対応 おしゃれ 和風笠 "
  },
  "e4336f7f4ba3": {
   "category": "gadgets",
@@ -10937,8 +12034,13 @@
   "postage_included": true,
   "review_average": 5.0,
   "review_count": 4,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "nest 北欧モダンなインテリア雑貨",
-  "url": "https://item.rakuten.co.jp/nestinterior/n230505/"
+  "url": "https://item.rakuten.co.jp/nestinterior/n230505/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "デンマーク THE POSTER CLUB ポスター ポピー 習作 II 40x"
  },
  "e81758f63e74": {
   "category": "lighting_art",
@@ -11118,8 +12220,13 @@
   "postage_included": true,
   "review_average": 4.67,
   "review_count": 6,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "世界中の個性が集まるお店FROMSEED",
-  "url": "https://item.rakuten.co.jp/fromseed/round-x11/"
+  "url": "https://item.rakuten.co.jp/fromseed/round-x11/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【日本国内使用OK 技適マーク取得】 Round X-11 ターンテーブル型スピ"
  },
  "ebe2144c3a5e": {
   "category": "fashion",
@@ -11156,8 +12263,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 4,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "モノギャラリー",
-  "url": "https://item.rakuten.co.jp/monogallery/074a-281/"
+  "url": "https://item.rakuten.co.jp/monogallery/074a-281/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "収納スタンド ホルダー おしゃれ 全8種 マグネット テーブル下 立てかけ 北欧"
  },
  "ecb4878a17ac": {
   "category": "home_decor",
@@ -11194,8 +12306,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 5,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "EZAKI NET GOLF",
-  "url": "https://item.rakuten.co.jp/ezaki-g/la-ram992j99/"
+  "url": "https://item.rakuten.co.jp/ezaki-g/la-ram992j99/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "LACOSTE ラコステ 正規品 クロックエンブレム 3×2リブニット ソックス"
  },
  "ed2e2668c9af": {
   "category": "home_decor",
@@ -11521,6 +12638,25 @@
   "zh_summary": "（未翻譯）",
   "zh_title": "KINTO キントー LUNA ベース 80×70mm(フラワーベース 花瓶 お"
  },
+ "f3dd2a085bad": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/stylife/cabinet/item/280/ku6280-01_1.jpg?_ex=500x500",
+  "item_code": "stylife:14523232",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 3921,
+  "last_point_rate": 1,
+  "last_price": 3960,
+  "last_seen": "2026-09-30",
+  "name": "BEAMS JAPAN 山形工房 / 別注 ビームスジャパン けん玉 木地 ビームス ジャパン ファッション雑貨 その他のファッション雑貨",
+  "postage_included": false,
+  "review_average": 5.0,
+  "review_count": 1,
+  "shop_name": "Rakuten Fashion",
+  "url": "https://item.rakuten.co.jp/stylife/ku6280/"
+ },
  "f3e4505b9252": {
   "category": "home_decor",
   "first_seen": "2026-09-30",
@@ -11751,8 +12887,13 @@
   "postage_included": false,
   "review_average": 3.0,
   "review_count": 2,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "おしゃれ家具・照明の快適ホームズ",
-  "url": "https://item.rakuten.co.jp/kaiteki-homes/a80kerma/"
+  "url": "https://item.rakuten.co.jp/kaiteki-homes/a80kerma/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "掛け時計 kerma ケルマ pelata [ペラタ]【壁掛け時計 掛時計 ウォ"
  },
  "f8db2a1a9547": {
   "category": "fashion",
@@ -11877,6 +13018,44 @@
   "review_count": 2,
   "shop_name": "Shinwa Shop 楽天市場店",
   "url": "https://item.rakuten.co.jp/shinwashop/flos-bellhop/"
+ },
+ "fab7b7a81293": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/beams/cabinet/item/391/r46391-01_1.jpg?_ex=500x500",
+  "item_code": "beams:10017153",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 7406,
+  "last_point_rate": 1,
+  "last_price": 7480,
+  "last_seen": "2026-09-30",
+  "name": "俵田屋 / 別注 お守り棚 BEAMS JAPAN ビームス ジャパン インテリア・生活雑貨 その他のインテリア・生活雑貨 ベージュ【送料無料】[Rakuten Fashion]",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "BEAMS/ビームス",
+  "url": "https://item.rakuten.co.jp/beams/r46391/"
+ },
+ "fb2994e15ab0": {
+  "category": "trend_goods",
+  "first_seen": "2026-09-30",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/beams/cabinet/item/972/mr1972-01_1.jpg?_ex=500x500",
+  "item_code": "beams:10075624",
+  "keywords": [
+   "ビームスジャパン 雑貨"
+  ],
+  "last_effective_price": 9039,
+  "last_point_rate": 1,
+  "last_price": 9130,
+  "last_seen": "2026-09-30",
+  "name": "【別注】中外陶園 / まねき犬 左手 5号 BEAMS JAPAN ビームス ジャパン ファッション雑貨 その他のファッション雑貨 オレンジ【送料無料】[Rakuten Fashion]",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "BEAMS/ビームス",
+  "url": "https://item.rakuten.co.jp/beams/mr1972/"
  },
  "fb955d0af7c6": {
   "category": "lighting_art",
