@@ -1,0 +1,64 @@
+# 由 cron-job.org 呼叫 workflow_dispatch 觸發（不用 GitHub 原生 schedule，對此帳號不穩定）。
+#   每日精選：inputs.mode = daily      （建議每天 JST 20:00 左右）
+#   回饋同步：inputs.mode = feedback   （建議每 3–6 小時；Telegram 只保留 24 小時內的按鈕點擊）
+name: daily
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "daily = 抓價格＋評分＋推播；feedback = 只同步 Telegram 按鈕"
+        type: choice
+        options: [daily, feedback]
+        default: daily
+      dry_run:
+        description: "只印 log，不推播、不標記已推播"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: jpgf-data        # 避免兩個 run 同時改 data/ 造成 push 衝突
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Run jpgf
+        env:
+          RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
+          RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
+          RAKUTEN_REFERER: ${{ vars.RAKUTEN_REFERER || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          args="${{ inputs.mode }}"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then args="$args --dry-run"; fi
+          python -m jpgf $args
+
+      - name: Commit data
+        run: |
+          git config user.name "jpgf-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then echo "no data changes"; exit 0; fi
+          git commit -m "data: ${{ inputs.mode }} $(TZ=Asia/Tokyo date +%F)"
+          for i in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1

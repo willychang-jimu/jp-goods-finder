@@ -1,0 +1,78 @@
+# jp-goods-finder 設定檔（不放任何密鑰；密鑰一律走環境變數／GitHub Secrets）
+
+# 使用者口味描述：會原封不動放進 Claude 的評分提示詞
+taste_profile: |
+  喜歡潮流小物、居家擺飾、新奇電子產品、穿搭。
+  偏好設計感強、日本才買得到或在台灣少見、實用又有話題性的東西。
+  不喜歡：廉價感的量產貨、純消耗品（衛生紙、洗劑）、食品、福袋、二手品。
+
+# 四類興趣，每類一組日文關鍵字。label 是推播時顯示的中文分類名。
+categories:
+  trend_goods:
+    label: 潮流小物
+    keywords:
+      - キーケース おしゃれ
+      - スマホショルダー
+      - ミニ財布 本革
+      - サコッシュ ブランド
+    ranking_genre_ids: [216131]      # バッグ・小物・ブランド雑貨
+  home_decor:
+    label: 居家擺飾
+    keywords:
+      - インテリア雑貨 おしゃれ
+      - 間接照明 おしゃれ
+      - フラワーベース 北欧
+      - アートポスター
+    ranking_genre_ids: [100804]      # インテリア・寝具・収納
+  gadgets:
+    label: 新奇電子
+    keywords:
+      - ガジェット 便利 新作
+      - デスク周り ガジェット
+      - モバイルバッテリー 小型 おしゃれ
+      - ワイヤレスイヤホン 新作
+    ranking_genre_ids: [562637, 211742]   # 家電 / TV・オーディオ・カメラ
+  fashion:
+    label: 穿搭
+    keywords:
+      - オーバーサイズ シャツ
+      - ワイドパンツ
+      - スニーカー 新作
+      - キャンバス トートバッグ
+    ranking_genre_ids: [100371, 551177]   # レディースファッション / メンズファッション
+# ↑ genre ID 若錯了只會讓該次排行榜請求失敗（記 log 後略過），不影響其他資料。
+#   可用樂天 Genre Search API 或網頁版分類網址確認。
+
+rakuten:
+  search_endpoint: https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701
+  ranking_endpoint: https://openapi.rakuten.co.jp/ichibaranking/api/IchibaItem/Ranking/20220601
+  hits_per_keyword: 30          # API 上限 30
+  sort: standard                # standard / -reviewCount / +itemPrice ...
+  min_price: 500                # 過濾太便宜的雜物（日圓）
+  request_interval_sec: 1.2     # 樂天建議每秒 1 次以內
+  use_ranking: true
+
+ai:
+  model: claude-haiku-4-5-20251001
+  batch_size: 20                # 一次送幾個商品給 Claude
+  max_new_items_per_run: 80     # 每次最多替幾個「新商品」做翻譯＋評分（控制成本）
+  feedback_examples: 15         # 提示詞裡最多帶幾筆喜歡／略過的例子
+
+selection:
+  daily_top_n: 5
+  max_per_category: 2          # 每類最多幾個，避免全被同一類洗版
+  min_score: 6                  # Claude 評分 1–10，低於此分不推
+  resend_cooldown_days: 14      # 推過的商品幾天內不再推（除非變成真特價）
+  min_review_count: 0           # 想只看有評價的商品可調高
+
+deals:
+  min_history_days_30: 7        # 至少要有幾天紀錄才判斷「30 日新低」
+  min_history_days_90: 30       # 至少要有幾天紀錄才判斷「90 日新低」
+  min_drop_pct: 3.0             # 比過去最低價再低多少 % 才算（避免 1 円抖動）
+  bonus_30d: 2.0                # 排名加分
+  bonus_90d: 3.0
+
+notifiers:
+  console: true                 # 印在 Actions log，永遠建議開著
+  telegram: true                # 需要 TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID
+  # email: false                # 第 2 階段：週報

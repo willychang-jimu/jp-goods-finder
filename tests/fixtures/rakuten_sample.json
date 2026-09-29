@@ -1,0 +1,130 @@
+{
+ "trend_goods": [
+  {
+   "itemCode": "shopa:10001",
+   "itemName": "【楽天1位】本革 キーケース スマートキー対応 メンズ レディース 送料無料",
+   "itemPrice": 4980,
+   "pointRate": 10,
+   "itemUrl": "https://item.rakuten.co.jp/shopa/10001/",
+   "shopName": "テストショップ",
+   "mediumImageUrls": [
+    "https://thumbnail.image.rakuten.co.jp/@0_mall/shopa/img.jpg?_ex=128x128"
+   ],
+   "reviewCount": 512,
+   "reviewAverage": 4.6,
+   "postageFlag": 0,
+   "availability": 1
+  },
+  {
+   "itemCode": "shopb:20002",
+   "itemName": "スマホショルダー ストラップ 韓国 おしゃれ 全20色",
+   "itemPrice": 1980,
+   "pointRate": 1,
+   "itemUrl": "https://item.rakuten.co.jp/shopb/20002/",
+   "shopName": "テストショップ",
+   "mediumImageUrls": [
+    "https://thumbnail.image.rakuten.co.jp/@0_mall/shopb/img.jpg?_ex=128x128"
+   ],
+   "reviewCount": 88,
+   "reviewAverage": 4.3,
+   "postageFlag": 0,
+   "availability": 1
+  }
+ ],
+ "home_decor": [
+  {
+   "itemCode": "shopc:30003",
+   "itemName": "間接照明 LED フロアライト 北欧 おしゃれ 調光",
+   "itemPrice": 8800,
+   "pointRate": 2,
+   "itemUrl": "https://item.rakuten.co.jp/shopc/30003/",
+   "shopName": "テストショップ",
+   "mediumImageUrls": [
+    "https://thumbnail.image.rakuten.co.jp/@0_mall/shopc/img.jpg?_ex=128x128"
+   ],
+   "reviewCount": 230,
+   "reviewAverage": 4.5,
+   "postageFlag": 1,
+   "availability": 1
+  },
+  {
+   "itemCode": "shopd:40004",
+   "itemName": "フラワーベース ガラス 花瓶 波佐見焼 ギフト",
+   "itemPrice": 3300,
+   "pointRate": 1,
+   "itemUrl": "https://item.rakuten.co.jp/shopd/40004/",
+   "shopName": "テストショップ",
+   "mediumImageUrls": [
+    "https://thumbnail.image.rakuten.co.jp/@0_mall/shopd/img.jpg?_ex=128x128"
+   ],
+   "reviewCount": 45,
+   "reviewAverage": 4.8,
+   "postageFlag": 0,
+   "availability": 1
+  }
+ ],
+ "gadgets": [
+  {
+   "itemCode": "shope:50005",
+   "itemName": "モバイルバッテリー 5000mAh 超小型 MagSafe対応 ポイント10倍",
+   "itemPrice": 3990,
+   "pointRate": 10,
+   "itemUrl": "https://item.rakuten.co.jp/shope/50005/",
+   "shopName": "テストショップ",
+   "mediumImageUrls": [
+    "https://thumbnail.image.rakuten.co.jp/@0_mall/shope/img.jpg?_ex=128x128"
+   ],
+   "reviewCount": 1024,
+   "reviewAverage": 4.2,
+   "postageFlag": 0,
+   "availability": 1
+  },
+  {
+   "itemCode": "shopf:60006",
+   "itemName": "デスクライト モニターライト USB給電 目に優しい",
+   "itemPrice": 5480,
+   "pointRate": 1,
+   "itemUrl": "https://item.rakuten.co.jp/shopf/60006/",
+   "shopName": "テストショップ",
+   "mediumImageUrls": [
+    "https://thumbnail.image.rakuten.co.jp/@0_mall/shopf/img.jpg?_ex=128x128"
+   ],
+   "reviewCount": 300,
+   "reviewAverage": 4.4,
+   "postageFlag": 0,
+   "availability": 1
+  }
+ ],
+ "fashion": [
+  {
+   "itemCode": "shopg:70007",
+   "itemName": "オーバーサイズ シャツ リネン混 ユニセックス 春夏",
+   "itemPrice": 4290,
+   "pointRate": 1,
+   "itemUrl": "https://item.rakuten.co.jp/shopg/70007/",
+   "shopName": "テストショップ",
+   "mediumImageUrls": [
+    "https://thumbnail.image.rakuten.co.jp/@0_mall/shopg/img.jpg?_ex=128x128"
+   ],
+   "reviewCount": 60,
+   "reviewAverage": 4.1,
+   "postageFlag": 0,
+   "availability": 1
+  },
+  {
+   "itemCode": "shoph:80008",
+   "itemName": "キャンバス トートバッグ A4 大容量 日本製 帆布",
+   "itemPrice": 6600,
+   "pointRate": 1,
+   "itemUrl": "https://item.rakuten.co.jp/shoph/80008/",
+   "shopName": "テストショップ",
+   "mediumImageUrls": [
+    "https://thumbnail.image.rakuten.co.jp/@0_mall/shoph/img.jpg?_ex=128x128"
+   ],
+   "reviewCount": 150,
+   "reviewAverage": 4.7,
+   "postageFlag": 0,
+   "availability": 1
+  }
+ ]
+}
