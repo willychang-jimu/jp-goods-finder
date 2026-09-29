@@ -2,46 +2,53 @@
 
 # 使用者口味描述：會原封不動放進 Claude 的評分提示詞
 taste_profile: |
-  喜歡潮流小物、居家擺飾、新奇電子產品、穿搭。
-  偏好設計感強、日本才買得到或在台灣少見、實用又有話題性的東西。
-  不喜歡：廉價感的量產貨、純消耗品（衛生紙、洗劑）、食品、福袋、二手品。
+  喜歡：MEDICOM TOY（BE@RBRICK 等）這類設計師玩具；BEAMS JAPAN 這類有日本味的選物小物；
+  北歐家居、燈具、海報；包浩斯（Bauhaus）風格、中世紀現代（Mid-Century Modern）、混搭風裝潢；
+  服飾喜歡 XLARGE、LACOSTE 這類街頭／經典休閒品牌。
+  偏好設計感強、日本才買得到或在台灣少見的東西。
+  不喜歡：美容家電、廉價感的量產貨、純消耗品、食品、福袋、二手品。
 
-# 四類興趣，每類一組日文關鍵字。label 是推播時顯示的中文分類名。
+# 分類與日文搜尋關鍵字（依使用者給的例子設定）。label 是 Dashboard／推播顯示的中文分類名。
 categories:
   trend_goods:
-    label: 潮流小物
+    label: 潮流小物・玩具
     keywords:
-      - キーケース おしゃれ
-      - スマホショルダー
-      - ミニ財布 本革
-      - サコッシュ ブランド
-    ranking_genre_ids: [216131]      # バッグ・小物・ブランド雑貨
+      - メディコムトイ
+      - ベアブリック 400％
+      - ベアブリック 1000％
+      - BEAMS JAPAN
+      - ビームスジャパン 雑貨
   home_decor:
-    label: 居家擺飾
+    label: 北歐・中世紀家居
     keywords:
-      - インテリア雑貨 おしゃれ
-      - 間接照明 おしゃれ
-      - フラワーベース 北欧
-      - アートポスター
-    ranking_genre_ids: [100804]      # インテリア・寝具・収納
+      - 北欧 インテリア雑貨
+      - ミッドセンチュリー 家具
+      - ミッドセンチュリー インテリア
+      - バウハウス インテリア
+  lighting_art:
+    label: 燈具・海報
+    keywords:
+      - 北欧 ペンダントライト
+      - ミッドセンチュリー 照明
+      - デザイナーズ テーブルランプ
+      - バウハウス ポスター
+      - 北欧 アートポスター
   gadgets:
     label: 新奇電子
+    # 暫定：尚未拿到使用者的電子產品例子，先抓偏設計感的品項
     keywords:
-      - ガジェット 便利 新作
-      - デスク周り ガジェット
-      - モバイルバッテリー 小型 おしゃれ
-      - ワイヤレスイヤホン 新作
-    ranking_genre_ids: [562637, 211742]   # 家電 / TV・オーディオ・カメラ
+      - デザイン家電 おしゃれ
+      - Bluetoothスピーカー レトロ
+      - デスクライト デザイナーズ
   fashion:
     label: 穿搭
     keywords:
-      - オーバーサイズ シャツ
-      - ワイドパンツ
-      - スニーカー 新作
-      - キャンバス トートバッグ
-    ranking_genre_ids: [100371, 551177]   # レディースファッション / メンズファッション
-# ↑ genre ID 若錯了只會讓該次排行榜請求失敗（記 log 後略過），不影響其他資料。
-#   可用樂天 Genre Search API 或網頁版分類網址確認。
+      - XLARGE エクストララージ
+      - エクストララージ Tシャツ
+      - ラコステ ポロシャツ
+      - ラコステ
+# 分類排行榜（ranking_genre_ids）已停用：熱門榜會混進美容家電等不相關商品。
+# 要恢復可在分類下加 ranking_genre_ids: [...]，並把 rakuten.use_ranking 設回 true。
 
 rakuten:
   search_endpoint: https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701
@@ -50,7 +57,8 @@ rakuten:
   sort: standard                # standard / -reviewCount / +itemPrice ...
   min_price: 500                # 過濾太便宜的雜物（日圓）
   request_interval_sec: 1.2     # 樂天建議每秒 1 次以內
-  use_ranking: true
+  use_ranking: false
+  ng_keywords: 中古 USED 福袋 訳あり   # 標題含這些字的商品不要（空白分隔）
 
 ai:
   model: claude-haiku-4-5-20251001
