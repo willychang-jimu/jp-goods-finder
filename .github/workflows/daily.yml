@@ -69,6 +69,8 @@ jobs:
 
   pages:
     needs: run
+    # 只有預設分支會部署 Dashboard；在其他分支試跑（預覽關鍵字）時略過
+    if: github.ref_name == github.event.repository.default_branch
     runs-on: ubuntu-latest
     environment:
       name: github-pages

@@ -153,6 +153,8 @@ class RakutenClient:
         }
         if self.cfg.get("min_price"):
             params["minPrice"] = self.cfg["min_price"]
+        if self.cfg.get("ng_keywords"):
+            params["NGKeyword"] = self.cfg["ng_keywords"]
         data = self._get(self.cfg["search_endpoint"], params)
         items = [parse_item(r, category, "search") for r in _items_from_response(data)]
         for it in items:
