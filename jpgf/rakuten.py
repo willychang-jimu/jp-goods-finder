@@ -12,7 +12,7 @@ import logging
 import math
 import time
 from dataclasses import dataclass, field
-from urllib.parse import urlparse
+from urllib.parse import parse_qsl, urlencode, urlparse, urlsplit, urlunsplit
 
 import requests
 
@@ -61,6 +61,15 @@ def effective_price(price: int, point_rate: int) -> int:
     return int(price) - math.floor(int(price) * rate / 100)
 
 
+def clean_url(url: str) -> str:
+    """移除樂天附加的 rafcid 追蹤參數：它的值含有 applicationId，repo 公開時不能 commit。"""
+    if not url:
+        return ""
+    parts = urlsplit(url)
+    query = [(k, v) for k, v in parse_qsl(parts.query, keep_blank_values=True) if k != "rafcid"]
+    return urlunsplit(parts._replace(query=urlencode(query)))
+
+
 def _first_image(raw: dict) -> str:
     imgs = raw.get("mediumImageUrls") or raw.get("smallImageUrls") or []
     if not imgs:
@@ -83,7 +92,7 @@ def parse_item(raw: dict, category: str, source: str = "search") -> Item | None:
         name=raw.get("itemName", ""),
         price=int(raw["itemPrice"]),
         point_rate=int(raw["pointRate"]) if raw.get("pointRate") is not None else 1,
-        url=raw.get("affiliateUrl") or raw.get("itemUrl", ""),
+        url=clean_url(raw.get("itemUrl", "")),
         shop_name=raw.get("shopName", ""),
         image_url=_first_image(raw),
         category=category,
