@@ -228,3 +228,12 @@ def test_dashboard_data_hides_noop_scores_and_flags_deals(tmp_path):
     assert d["days_recorded"] == 11
     out = build_site(s, CFG, tmp_path / "site", t)
     assert (out / "index.html").exists() and (out / "data.json").exists()
+
+
+def test_clean_url_strips_rafcid_with_app_id():
+    from jpgf.rakuten import clean_url
+
+    assert clean_url("https://item.rakuten.co.jp/s/1/?rafcid=wsc_i_is_abc-123") == "https://item.rakuten.co.jp/s/1/"
+    assert clean_url("https://item.rakuten.co.jp/s/1/?a=1&rafcid=x") == "https://item.rakuten.co.jp/s/1/?a=1"
+    it = parse_item({"itemCode": "s:1", "itemPrice": 100, "itemUrl": "https://x/?rafcid=secret"}, "c")
+    assert "secret" not in it.url
