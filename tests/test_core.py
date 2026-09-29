@@ -81,6 +81,16 @@ def test_record_prices_is_idempotent_per_day(tmp_path):
 
 
 # ---------- 選品 ----------
+class FakeNotifier:
+    name = "fake"
+
+    def send_picks(self, picks, title):
+        self.last = picks
+
+
+NT = [FakeNotifier()]
+
+
 class FixedScorer:
     def __init__(self, score):
         self.s = score
@@ -95,10 +105,10 @@ class FixedScorer:
 def test_daily_flow_scores_once_and_respects_cooldown(tmp_path):
     s, scorer, t = Store(tmp_path), FixedScorer(8), "2026-09-29"
     items = [mk("a:1", 1000)]
-    picks = run_daily(s, items, scorer, [], CFG, t, real_scorer=True)
+    picks = run_daily(s, items, scorer, NT, CFG, t, real_scorer=True)
     assert len(picks) == 1 and scorer.calls == 1
     # 隔天：不重新評分、冷卻期內不再推
-    picks = run_daily(s, items, scorer, [], CFG, "2026-09-30", real_scorer=True)
+    picks = run_daily(s, items, scorer, NT, CFG, "2026-09-30", real_scorer=True)
     assert picks == [] and scorer.calls == 1
 
 
@@ -191,3 +201,11 @@ def test_claude_scorer_parses_structured_output():
     assert out == {"a": {**rows[0], "score": 10}}
     assert captured["output_config"]["format"]["type"] == "json_schema"
     assert "潮流小物" in captured["messages"][0]["content"] and "喜歡的" in captured["messages"][0]["content"]
+
+
+def test_console_only_run_does_not_mark_notified(tmp_path):
+    from jpgf.notify import ConsoleNotifier
+
+    s, t = Store(tmp_path), "2026-09-29"
+    run_daily(s, [mk("a:1", 1000)], FixedScorer(8), [ConsoleNotifier()], CFG, t, real_scorer=True)
+    assert "notified_at" not in s.items[mk("a:1", 1).id]

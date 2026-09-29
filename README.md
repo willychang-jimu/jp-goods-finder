@@ -76,6 +76,12 @@ Header 帶 `Authorization: Bearer <GitHub fine-grained token（此 repo 的 Acti
 
 回饋同步要另外排，是因為 Telegram 只保留 24 小時內的按鈕點擊紀錄。
 
+### 只設樂天也能先跑
+
+只放樂天兩個 Secret 也可以先開始每天記價格（特價判斷要累積天數，越早開始越好）：
+- 沒有 `ANTHROPIC_API_KEY`：不翻譯、全部給 6 分；之後補上 key，會自動重新翻譯評分。
+- 沒有 Telegram：精選只印在 Actions log，**不會標記成已推播**，之後接上 Telegram 仍會正常推。
+
 ## 本機執行
 
 ```bash

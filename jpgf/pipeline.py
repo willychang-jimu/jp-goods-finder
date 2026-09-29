@@ -114,8 +114,9 @@ def run_daily(store: Store, items: list[Item], scorer, notifiers: list, cfg: dic
         except Exception as e:  # noqa: BLE001 — 某個通道失敗不影響其他通道
             all_ok = False
             log.error("推播 %s 失敗：%s", getattr(nt, "name", nt), e)
-    # 推播失敗就不標記，明天還有機會再推
-    if mark_notified and all_ok:
+    # 推播失敗、或只有印在 log（沒有真正送到使用者手上）就不標記，之後還有機會再推
+    delivered = any(getattr(nt, "name", "") != "console" for nt in notifiers)
+    if mark_notified and all_ok and delivered:
         for p in picks:
             p.rec["notified_at"] = today
             p.rec["notified_price"] = p.rec["last_effective_price"]
