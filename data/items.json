@@ -52,8 +52,13 @@
   "postage_included": true,
   "review_average": 4.3,
   "review_count": 606,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "タンスのゲン Design the Future",
-  "url": "https://item.rakuten.co.jp/tansu/79700006/"
+  "url": "https://item.rakuten.co.jp/tansu/79700006/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "楽天1位 パワフル除湿 コンプレッサー式 除湿機 衣類乾燥付き [10L/日 2"
  },
  "020a4261b2c4": {
   "category": "trend_goods",
@@ -131,8 +136,13 @@
   "postage_included": true,
   "review_average": 5.0,
   "review_count": 8,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "楽天モバイル公式 楽天市場店",
-  "url": "https://item.rakuten.co.jp/rakutenmobile-store/apple-rm2609007/"
+  "url": "https://item.rakuten.co.jp/rakutenmobile-store/apple-rm2609007/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【新登場】 Apple ワイヤレス充電ケース付きAirPods 5"
  },
  "03edb418e6a2": {
   "category": "trend_goods",
@@ -343,6 +353,25 @@
   "shop_name": "バッグ通販 クロスチャーム",
   "url": "https://item.rakuten.co.jp/plenty-one/rsn71019zz/"
  },
+ "09a6b356d322": {
+  "category": "gadgets",
+  "first_seen": "2026-09-29",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/keipuraimu/cabinet/13393513/yxy144-_1.jpg?_ex=500x500",
+  "item_code": "keipuraimu:10005819",
+  "keywords": [
+   "ワイヤレスイヤホン 新作"
+  ],
+  "last_effective_price": 5921,
+  "last_point_rate": 1,
+  "last_price": 5980,
+  "last_seen": "2026-09-29",
+  "name": "2026 新作 AI 翻訳機能付き ワイヤレスイヤホン タッチ式 ノイズキャンセリング 完全ワイヤレスイヤホン タッチ画面搭載 Bluetooth5.4 快適 無痛装着 軽量 高速通信 低消費電力ENC 通話 ビジネス スポーツ サイクリング 対応 マイク付き HiFi高音質 長時間持続",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "Kプライム",
+  "url": "https://item.rakuten.co.jp/keipuraimu/dvgvaa-039/"
+ },
  "09c94a161d59": {
   "category": "gadgets",
   "first_seen": "2026-09-29",
@@ -453,8 +482,13 @@
   "postage_included": false,
   "review_average": 5.0,
   "review_count": 5,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "KANFUDO",
-  "url": "https://item.rakuten.co.jp/kanfudo/kanfudo263/"
+  "url": "https://item.rakuten.co.jp/kanfudo/kanfudo263/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【正規品】ディズニー トイストーリー キーボード キーホルダー 26口 全5種 "
  },
  "0cb5e2416f01": {
   "category": "fashion",
@@ -532,8 +566,13 @@
   "postage_included": true,
   "review_average": 4.19,
   "review_count": 798,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "アイリスオーヤマ公式 楽天市場店",
-  "url": "https://item.rakuten.co.jp/irisplaza-r/274018/"
+  "url": "https://item.rakuten.co.jp/irisplaza-r/274018/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "＼★楽天1位常連★／【選べる物干しセット】除湿機 デシカント式 室内干し 梅雨 "
  },
  "0e0b50d60b78": {
   "category": "fashion",
@@ -569,8 +608,13 @@
   "postage_included": true,
   "review_average": 4.07,
   "review_count": 558,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "uricca（ウリッカ） by SHINY-MART",
-  "url": "https://item.rakuten.co.jp/shiny-mart/v182/"
+  "url": "https://item.rakuten.co.jp/shiny-mart/v182/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【半額クーポン対象】 カーディガン レディース 秋 冬 長袖カーディガン スウェ"
  },
  "0e312cef02a4": {
   "category": "gadgets",
@@ -829,6 +873,25 @@
   "url": "https://item.rakuten.co.jp/tu-hacci/90389r/",
   "zh_summary": "（未翻譯）",
   "zh_title": "【28h限定！全品10％OFFクーポン】新色登場！ブラトップ デザイン4種《BR"
+ },
+ "1225657d40da": {
+  "category": "gadgets",
+  "first_seen": "2026-09-29",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/denkitarou/cabinet/13918704/13934648/asc47-.jpg?_ex=500x500",
+  "item_code": "denkitarou:10010636",
+  "keywords": [
+   "ワイヤレスイヤホン 新作"
+  ],
+  "last_effective_price": 3248,
+  "last_point_rate": 1,
+  "last_price": 3280,
+  "last_seen": "2026-09-29",
+  "name": "SALE！【一年保証】【2026新登場】ワイヤレスイヤホン 新作 非骨伝導 オープンイヤー 耳掛け式 超長時間再生 耳が痛くない Android対応 iPhone対応 耳を塞がない 軽量 快適 フィット 低遅延 高音質 通話可能",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "電気太郎楽天市場店",
+  "url": "https://item.rakuten.co.jp/denkitarou/choice-z705/"
  },
  "12b74fc52ea6": {
   "category": "gadgets",
@@ -1152,8 +1215,13 @@
   "postage_included": true,
   "review_average": 4.7,
   "review_count": 74,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "BENQUE【公式】楽天市場店",
-  "url": "https://item.rakuten.co.jp/benque/be132-r151/"
+  "url": "https://item.rakuten.co.jp/benque/be132-r151/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "高評価★4.7 【2冠達成!!】【リュックも濡れない】 レインウェア 上下 メン"
  },
  "19227d53291e": {
   "category": "gadgets",
@@ -1170,8 +1238,13 @@
   "postage_included": true,
   "review_average": 4.43,
   "review_count": 317,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "アンカー・ダイレクト楽天市場店",
-  "url": "https://item.rakuten.co.jp/anker/a3994/"
+  "url": "https://item.rakuten.co.jp/anker/a3994/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "Anker Soundcore K20i（Bluetooth 5.3）【完全ワイ"
  },
  "199e7eb8594b": {
   "category": "gadgets",
@@ -1325,8 +1398,13 @@
   "postage_included": true,
   "review_average": 4.11,
   "review_count": 9,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "テレ朝通販ロッピング　楽天市場店",
-  "url": "https://item.rakuten.co.jp/ropping/112556/"
+  "url": "https://item.rakuten.co.jp/ropping/112556/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【2個購入クーポン利用で3520円引き】西川(nishikawa) ナチュラルフ"
  },
  "1d2d4629a547": {
   "category": "trend_goods",
@@ -1457,8 +1535,13 @@
   "postage_included": true,
   "review_average": 4.56,
   "review_count": 176,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "楽天モバイル公式 楽天市場店",
-  "url": "https://item.rakuten.co.jp/rakutenmobile-store/apple-rm2509012/"
+  "url": "https://item.rakuten.co.jp/rakutenmobile-store/apple-rm2509012/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "Apple AirPods Pro 3"
  },
  "1f37790654a5": {
   "category": "trend_goods",
@@ -1513,8 +1596,13 @@
   "postage_included": false,
   "review_average": 4.71,
   "review_count": 7,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "reca （レカ）",
-  "url": "https://item.rakuten.co.jp/reca/p246542/"
+  "url": "https://item.rakuten.co.jp/reca/p246542/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【50枚限定！15%offクーポン】今だけクーポンで☆3,366円！チェック柄オ"
  },
  "208ea2164351": {
   "category": "trend_goods",
@@ -1550,8 +1638,13 @@
   "postage_included": true,
   "review_average": 4.78,
   "review_count": 749,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "STY1 楽天市場店",
-  "url": "https://item.rakuten.co.jp/sty1shop/102/"
+  "url": "https://item.rakuten.co.jp/sty1shop/102/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "ニューエラ Newera キャップ 帽子 LA ドジャース ナインフォーティ ヤ"
  },
  "21eb13f8020f": {
   "category": "gadgets",
@@ -1625,8 +1718,13 @@
   "postage_included": true,
   "review_average": 4.51,
   "review_count": 1073,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "シャツステーション",
-  "url": "https://item.rakuten.co.jp/ss1946/unw/"
+  "url": "https://item.rakuten.co.jp/ss1946/unw/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "ワイシャツ 長袖 メンズ 【よりどり3枚 1枚あたり2,199円→1,979円】"
  },
  "23b0053fcb36": {
   "category": "gadgets",
@@ -1723,8 +1821,13 @@
   "postage_included": false,
   "review_average": 4.54,
   "review_count": 63,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "XPRICE楽天市場店",
-  "url": "https://item.rakuten.co.jp/a-price/4580652113427/"
+  "url": "https://item.rakuten.co.jp/a-price/4580652113427/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "＼ランキング1位／ テレビ 40型 TVS REGZA 40V35N レグザ 液"
  },
  "26c00a399e73": {
   "category": "trend_goods",
@@ -1935,8 +2038,13 @@
   "postage_included": false,
   "review_average": 4.7,
   "review_count": 141,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "DJI 楽天市場店",
-  "url": "https://item.rakuten.co.jp/dji-shop/6937224148321v/"
+  "url": "https://item.rakuten.co.jp/dji-shop/6937224148321v/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "新製品 vlogカメラ DJI Osmo Pocket 4P ビデオカメラ アク"
  },
  "2d12dfe14470": {
   "category": "trend_goods",
@@ -2086,8 +2194,13 @@
   "postage_included": false,
   "review_average": 4.74,
   "review_count": 776,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Vesync公式　楽天市場店",
-  "url": "https://item.rakuten.co.jp/vesync/kaapafcsnjp0106y/"
+  "url": "https://item.rakuten.co.jp/vesync/kaapafcsnjp0106y/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【2,700円クーポン】COSORI DCモーター搭載 ノンフライヤー 6L 大"
  },
  "31d4628487b7": {
   "category": "fashion",
@@ -2241,8 +2354,13 @@
   "postage_included": true,
   "review_average": 5.0,
   "review_count": 6,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "マップカメラ楽天市場店",
-  "url": "https://item.rakuten.co.jp/mapcamera/4547410520088/"
+  "url": "https://item.rakuten.co.jp/mapcamera/4547410520088/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "《新品》 FUJIFILM (フジフイルム)instax mini Evo（US"
  },
  "33adf2d6650b": {
   "category": "home_decor",
@@ -2278,8 +2396,13 @@
   "postage_included": true,
   "review_average": 4.32,
   "review_count": 941,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "antiqua（アンティカ）",
-  "url": "https://item.rakuten.co.jp/antiqua-a/na-00448/"
+  "url": "https://item.rakuten.co.jp/antiqua-a/na-00448/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "そのロンT、本当に透けない？ロンT レディース トップス 長袖 綿100 Tシャ"
  },
  "33dc775b1aec": {
   "category": "home_decor",
@@ -2315,8 +2438,13 @@
   "postage_included": true,
   "review_average": 4.51,
   "review_count": 393,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "アンカー・ダイレクト楽天市場店",
-  "url": "https://item.rakuten.co.jp/anker/a3957/"
+  "url": "https://item.rakuten.co.jp/anker/a3957/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "Anker Soundcore Liberty 5（Bluetooth 5.4）"
  },
  "350fa5aa45f2": {
   "category": "gadgets",
@@ -2473,8 +2601,13 @@
   "postage_included": true,
   "review_average": 4.34,
   "review_count": 278,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "La-gemme（ラジエム）",
-  "url": "https://item.rakuten.co.jp/la-gemme/lstpaw25-pl003/"
+  "url": "https://item.rakuten.co.jp/la-gemme/lstpaw25-pl003/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【クーポンで3,980円】U.S. POLO ASSN. 別注 ロゴ刺繍 フーデ"
  },
  "37e08a210276": {
   "category": "trend_goods",
@@ -2590,8 +2723,13 @@
   "postage_included": true,
   "review_average": 4.39,
   "review_count": 385,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "生活雑貨のネットショップELEMENTS",
-  "url": "https://item.rakuten.co.jp/zakka-elements/set54-84/"
+  "url": "https://item.rakuten.co.jp/zakka-elements/set54-84/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "フロアタイル 置くだけ 6畳 大理石 2畳 1畳 9枚〜54枚 賃貸OK 床材 "
  },
  "39b527487ce9": {
   "category": "home_decor",
@@ -2764,8 +2902,13 @@
   "postage_included": false,
   "review_average": 4.08,
   "review_count": 49,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Rakuten Fashion",
-  "url": "https://item.rakuten.co.jp/stylife/dv7123/"
+  "url": "https://item.rakuten.co.jp/stylife/dv7123/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "coca エンボス 長袖裾フレアトップス コカ トップス カットソー・Tシャツ "
  },
  "3e844da6b841": {
   "category": "fashion",
@@ -2858,8 +3001,13 @@
   "postage_included": true,
   "review_average": 4.43,
   "review_count": 423,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "RUBEAUTY",
-  "url": "https://item.rakuten.co.jp/rubeauty/h1-m1/"
+  "url": "https://item.rakuten.co.jp/rubeauty/h1-m1/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "★半額セール★＼楽天1位／スーツケース キャリーケース 軽量 多機能キャリーバッ"
  },
  "3f47c1c12814": {
   "category": "trend_goods",
@@ -3089,8 +3237,13 @@
   "postage_included": false,
   "review_average": 4.54,
   "review_count": 184,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "XPRICE楽天市場店",
-  "url": "https://item.rakuten.co.jp/a-price/2980000580031/"
+  "url": "https://item.rakuten.co.jp/a-price/2980000580031/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "除湿機 シャープ SHARP CV-TH150-W ホワイト 白 ハイブリッド式"
  },
  "451456adc8f1": {
   "category": "fashion",
@@ -3107,8 +3260,13 @@
   "postage_included": true,
   "review_average": 5.0,
   "review_count": 7,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Labr’s（ラバーズ）",
-  "url": "https://item.rakuten.co.jp/sunwill/005011484-m/"
+  "url": "https://item.rakuten.co.jp/sunwill/005011484-m/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【LEVI'S】リーバイス【00501-1484】リーバイス 501ストレート "
  },
  "451d36ad13ba": {
   "category": "home_decor",
@@ -3360,8 +3518,13 @@
   "postage_included": true,
   "review_average": 4.55,
   "review_count": 87,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "トレンドカプセル 楽天市場店",
-  "url": "https://item.rakuten.co.jp/trendcapsule/840414695122/"
+  "url": "https://item.rakuten.co.jp/trendcapsule/840414695122/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【2026年モデル】Fire TV Stick HD 第2世代 U-NEXTボタ"
  },
  "4af2c1f174f4": {
   "category": "home_decor",
@@ -3785,8 +3948,13 @@
   "postage_included": true,
   "review_average": 4.49,
   "review_count": 352,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "アイリスオーヤマ公式 楽天市場店",
-  "url": "https://item.rakuten.co.jp/irisplaza-r/288494/"
+  "url": "https://item.rakuten.co.jp/irisplaza-r/288494/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "＼★楽天1位常連★／ 布団乾燥機 アイリスオーヤマ ダニ対策 ツインノズル 小型"
  },
  "534719666601": {
   "category": "fashion",
@@ -3901,8 +4069,13 @@
   "postage_included": true,
   "review_average": 4.17,
   "review_count": 675,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "くらしのeショップ",
-  "url": "https://item.rakuten.co.jp/e-kurashi/s1k76/"
+  "url": "https://item.rakuten.co.jp/e-kurashi/s1k76/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "除湿機 衣類乾燥除湿機 コンプレッサー式 6L/日 12L/日 除湿目安14畳 "
  },
  "56e782d01148": {
   "category": "gadgets",
@@ -4381,8 +4554,13 @@
   "postage_included": true,
   "review_average": 4.18,
   "review_count": 39,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "HULKEN Japan 楽天市場店",
-  "url": "https://item.rakuten.co.jp/hulkenjapan/hulken-rolling-tote/"
+  "url": "https://item.rakuten.co.jp/hulkenjapan/hulken-rolling-tote/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【公式】【一部予約販売あり】NY発 HULKEN® ハルケンバッグ S・M・Lサ"
  },
  "621b0fd2886b": {
   "category": "fashion",
@@ -4563,8 +4741,13 @@
   "postage_included": true,
   "review_average": 4.45,
   "review_count": 688,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "ワーカービー",
-  "url": "https://item.rakuten.co.jp/workerbee/ah-100/"
+  "url": "https://item.rakuten.co.jp/workerbee/ah-100/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【新色登場】レインコート 自転車 リュック対応 リュック レインポンチョ 自転車"
  },
  "65f46b66790c": {
   "category": "gadgets",
@@ -4756,8 +4939,13 @@
   "postage_included": false,
   "review_average": 4.82,
   "review_count": 104,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "PATY",
-  "url": "https://item.rakuten.co.jp/paty/r200427006/"
+  "url": "https://item.rakuten.co.jp/paty/r200427006/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "パーカー 長袖 メンズ レディース 裏毛 USA コットン 綿100 厚手 色合"
  },
  "6865fa056b0d": {
   "category": "trend_goods",
@@ -4964,8 +5152,13 @@
   "postage_included": true,
   "review_average": 4.74,
   "review_count": 552,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "インテリアショップ roomy",
-  "url": "https://item.rakuten.co.jp/roomy/win26feb09a01/"
+  "url": "https://item.rakuten.co.jp/roomy/win26feb09a01/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【36種類レシピ付】レコルト スープメーカー 豆乳メーカー スープ 全自動 豆乳"
  },
  "6bf89376a759": {
   "category": "fashion",
@@ -5409,8 +5602,13 @@
   "postage_included": false,
   "review_average": 4.86,
   "review_count": 7,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "オシャレウォーカー　osharewalker",
-  "url": "https://item.rakuten.co.jp/osharewalker/11dm0p5/"
+  "url": "https://item.rakuten.co.jp/osharewalker/11dm0p5/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【F26S】【対象商品3点で3,990円 9/30 23:59迄】ワンピース 長"
  },
  "73b82f73eb8c": {
   "category": "trend_goods",
@@ -5503,8 +5701,13 @@
   "postage_included": false,
   "review_average": 4.5,
   "review_count": 156,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "お祭り用品の専門店　橋本屋",
-  "url": "https://item.rakuten.co.jp/omaturihashim/6794005hikyak01/"
+  "url": "https://item.rakuten.co.jp/omaturihashim/6794005hikyak01/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【 ヤマタ エアー足袋 7枚コハゼ 23〜29cm 白 黒 紺(藍色)】地下足袋"
  },
  "75c711379531": {
   "category": "trend_goods",
@@ -5677,8 +5880,13 @@
   "postage_included": true,
   "review_average": 4.4,
   "review_count": 273,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Rakuten Fashion",
-  "url": "https://item.rakuten.co.jp/stylife/kx8129/"
+  "url": "https://item.rakuten.co.jp/stylife/kx8129/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "Discoat 《24色展開/7サイズ展開》-3kg見え!とろみイージーパンツ【"
  },
  "79f4140de7df": {
   "category": "gadgets",
@@ -5713,8 +5921,13 @@
   "postage_included": false,
   "review_average": 4.75,
   "review_count": 81,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "DJI 楽天市場店",
-  "url": "https://item.rakuten.co.jp/dji-shop/6937224133099/"
+  "url": "https://item.rakuten.co.jp/dji-shop/6937224133099/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "アクションカメラ DJI Osmo Pocket 4 スタンダードコンボ ビデオ"
  },
  "7a26b11e1e61": {
   "category": "fashion",
@@ -5750,8 +5963,13 @@
   "postage_included": true,
   "review_average": 4.55,
   "review_count": 659,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "アトリエ365 -ワイシャツ＆通勤服-",
-  "url": "https://item.rakuten.co.jp/shirtshouse/sun-ml-scl-1131-3set/"
+  "url": "https://item.rakuten.co.jp/shirtshouse/sun-ml-scl-1131-3set/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【選べる3枚セット】 ワイシャツ ノーアイロン 長袖 メンズ ノンアイロン カッ"
  },
  "7a7b9c894a8e": {
   "category": "home_decor",
@@ -5784,7 +6002,7 @@
   "last_point_rate": 1,
   "last_price": 2990,
   "last_seen": "2026-09-29",
-  "name": "【期間限定！クーポンで2,691円 一部即納】ウチョパンツ 秋冬 ワイドパンツ レディース ウール パンツ ガウチョ きれいめ ワイド キュロット パンツ ゆったり スカーチョ 暖かい ウールパンツ 防寒 柄 スカンツ 体型カバー 美脚 ウール調 落ち感 春先",
+  "name": "【9/30！クーポンで2,691円+P5 一部即納】ウチョパンツ 秋冬 ワイドパンツ レディース ウール パンツ ガウチョ きれいめ ワイド キュロット パンツ ゆったり スカーチョ 暖かい ウールパンツ 防寒 柄 スカンツ 体型カバー 美脚 ウール調 落ち感 春先",
   "postage_included": true,
   "review_average": 4.16,
   "review_count": 819,
@@ -5901,8 +6119,13 @@
   "postage_included": false,
   "review_average": 4.43,
   "review_count": 95,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "urs（ユアーズ）",
-  "url": "https://item.rakuten.co.jp/urs-me/bhxp4502/"
+  "url": "https://item.rakuten.co.jp/urs-me/bhxp4502/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【クーポン利用で4,941円】胸ポケットニットカーディガン トップス レディース"
  },
  "7cc2e7c5815b": {
   "category": "fashion",
@@ -5957,8 +6180,13 @@
   "postage_included": false,
   "review_average": 4.28,
   "review_count": 644,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "RUIRUE BOUTIQUE",
-  "url": "https://item.rakuten.co.jp/auc-ruirue/csu1240/"
+  "url": "https://item.rakuten.co.jp/auc-ruirue/csu1240/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "◆クーポン利用で5980円◆【新色入荷】【洗える/UVカット/吸水速乾】レディー"
  },
  "7d305244e1c5": {
   "category": "home_decor",
@@ -6428,8 +6656,13 @@
   "postage_included": true,
   "review_average": 4.6,
   "review_count": 30,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Panda Mobile",
-  "url": "https://item.rakuten.co.jp/keitai-god/airpodspro3-n/"
+  "url": "https://item.rakuten.co.jp/keitai-god/airpodspro3-n/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【土日、祝日発送、店舗受取可】新品未開封品【Nランク】国内Appleストア正規品"
  },
  "850d3642d95c": {
   "category": "fashion",
@@ -7001,8 +7234,13 @@
   "postage_included": true,
   "review_average": 4.65,
   "review_count": 17,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "電子問屋ワールドいち",
-  "url": "https://item.rakuten.co.jp/auc-worldichi/4549995635232/"
+  "url": "https://item.rakuten.co.jp/auc-worldichi/4549995635232/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【新品】AirPods Pro 3 MFHP4J/A"
  },
  "915d7d22945e": {
   "category": "trend_goods",
@@ -7137,8 +7375,13 @@
   "postage_included": true,
   "review_average": 4.78,
   "review_count": 69,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "A-GRADE",
-  "url": "https://item.rakuten.co.jp/a-grade/dic-874/"
+  "url": "https://item.rakuten.co.jp/a-grade/dic-874/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "ディッキーズ オリジナルフィット ワークパンツ 874 DICKIES USA企"
  },
  "9334245d99bb": {
   "category": "home_decor",
@@ -7304,8 +7547,13 @@
   "postage_included": true,
   "review_average": 4.9,
   "review_count": 487,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "PEGASUS STORE",
-  "url": "https://item.rakuten.co.jp/pegasus-store/recovery/"
+  "url": "https://item.rakuten.co.jp/pegasus-store/recovery/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【SALE！14600→7980円】リカバリーウェア《上下セット》 《ラッピング"
  },
  "96524b5d4d77": {
   "category": "home_decor",
@@ -7484,8 +7732,13 @@
   "postage_included": true,
   "review_average": 4.63,
   "review_count": 98,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "あっと！テラフィ 楽天市場店",
-  "url": "https://item.rakuten.co.jp/telaffy/dmr-2w102/"
+  "url": "https://item.rakuten.co.jp/telaffy/dmr-2w102/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【特価セール】 おうちクラウドDIGA(ディーガ) 1TB HDD搭載 ブルーレ"
  },
  "98fe0de87630": {
   "category": "fashion",
@@ -7521,8 +7774,13 @@
   "postage_included": false,
   "review_average": 4.59,
   "review_count": 51,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "99HeadwearShop",
-  "url": "https://item.rakuten.co.jp/99headwearshop/dk874/"
+  "url": "https://item.rakuten.co.jp/99headwearshop/dk874/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【再入荷！】ディッキーズ 874 ワークパンツ メンズ DICKIES チノパン"
  },
  "995eb5451b54": {
   "category": "gadgets",
@@ -7539,8 +7797,13 @@
   "postage_included": false,
   "review_average": 4.03,
   "review_count": 344,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "リコメン堂インテリア館",
-  "url": "https://item.rakuten.co.jp/rcmdin/eu-4589668450113/"
+  "url": "https://item.rakuten.co.jp/rcmdin/eu-4589668450113/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "simplus 冷蔵庫 小型 2ドア 90L 家庭用 冷凍庫 一人暮らし オフィ"
  },
  "99ae470d7e5c": {
   "category": "home_decor",
@@ -7599,8 +7862,13 @@
   "postage_included": true,
   "review_average": 4.86,
   "review_count": 374,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "沖縄カフーショップ",
-  "url": "https://item.rakuten.co.jp/kahoo-shop/fkt194/"
+  "url": "https://item.rakuten.co.jp/kahoo-shop/fkt194/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "オリオンビール tシャツ 正規品 17バリエーション オリオンTシャツ 沖縄お土"
  },
  "9aab7a0c24d3": {
   "category": "home_decor",
@@ -7895,8 +8163,13 @@
   "postage_included": false,
   "review_average": 4.58,
   "review_count": 353,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Tシャツ！ポロシャツ！ムジガスキ",
-  "url": "https://item.rakuten.co.jp/mujigasuki/1456070/"
+  "url": "https://item.rakuten.co.jp/mujigasuki/1456070/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "問屋直売【メール便は1通に2枚OK】ネコポス ドライ glimmer グリマー "
  },
  "a2df3cc911d9": {
   "category": "fashion",
@@ -7913,8 +8186,13 @@
   "postage_included": false,
   "review_average": 4.61,
   "review_count": 397,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Tシャツ！ポロシャツ！ムジガスキ",
-  "url": "https://item.rakuten.co.jp/mujigasuki/1456039/"
+  "url": "https://item.rakuten.co.jp/mujigasuki/1456039/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "問屋直売 【メール便は1通に2枚OK】ドライ glimmer グリマー ネコポス"
  },
  "a30208d3cc62": {
   "category": "home_decor",
@@ -8064,8 +8342,13 @@
   "postage_included": true,
   "review_average": 4.47,
   "review_count": 129,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "デニムセットアップメンズsloweasy",
-  "url": "https://item.rakuten.co.jp/unsugerrage/slo-003/"
+  "url": "https://item.rakuten.co.jp/unsugerrage/slo-003/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【3点購入で1枚半額】ジャケットのインナー専用 半袖 長袖 Tシャツ ロンT 超"
  },
  "a5d0f28dc735": {
   "category": "home_decor",
@@ -8512,8 +8795,13 @@
   "postage_included": true,
   "review_average": 4.63,
   "review_count": 38,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "TeddyShop",
-  "url": "https://item.rakuten.co.jp/teddyshop/pants592/"
+  "url": "https://item.rakuten.co.jp/teddyshop/pants592/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【10％OFFクーポン利用で！2,232円〜！29日迄】「リラクシーなめらかベロ"
  },
  "b09d3c5e2a7c": {
   "category": "fashion",
@@ -8568,8 +8856,13 @@
   "postage_included": true,
   "review_average": 4.4,
   "review_count": 239,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "楽天スーパーDEALSHOP",
-  "url": "https://item.rakuten.co.jp/superdeal/14895ery602412/"
+  "url": "https://item.rakuten.co.jp/superdeal/14895ery602412/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "東芝(TOSHIBA) スチーム オーブンレンジ 石窯オーブン 23L ER-Y"
  },
  "b102d5c46a92": {
   "category": "gadgets",
@@ -8799,8 +9092,13 @@
   "postage_included": true,
   "review_average": 4.67,
   "review_count": 648,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "MTG ONLINESHOP",
-  "url": "https://item.rakuten.co.jp/mtgec-beauty/1850320101/"
+  "url": "https://item.rakuten.co.jp/mtgec-beauty/1850320101/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【リファ公式店】 コンパクト 速乾 ドライヤー まとまる ツヤ髪 S+ リファ "
  },
  "b457504c08fd": {
   "category": "gadgets",
@@ -8938,8 +9236,13 @@
   "postage_included": true,
   "review_average": 4.57,
   "review_count": 14,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "アンカー・ダイレクト楽天市場店",
-  "url": "https://item.rakuten.co.jp/anker/d1205/"
+  "url": "https://item.rakuten.co.jp/anker/d1205/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "Anker Soundcore P42i 【ワイヤレスイヤホン 完全ワイヤレスイ"
  },
  "b6e0c83585ec": {
   "category": "fashion",
@@ -9013,8 +9316,13 @@
   "postage_included": true,
   "review_average": 4.54,
   "review_count": 272,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "QUADS公式楽天市場店",
-  "url": "https://item.rakuten.co.jp/quads/qs549/"
+  "url": "https://item.rakuten.co.jp/quads/qs549/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【QUADS公式】 スチーム加湿器 GLASS グラス ガラスポッド式 大容量 "
  },
  "b80b2a3df6d1": {
   "category": "fashion",
@@ -9087,8 +9395,13 @@
   "postage_included": true,
   "review_average": 4.43,
   "review_count": 224,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "FPDVISION　楽天市場店",
-  "url": "https://item.rakuten.co.jp/fpdvision/cg40-p2/"
+  "url": "https://item.rakuten.co.jp/fpdvision/cg40-p2/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "FPD チューナーレス テレビ 32V型 40V型 43V型 Google TV"
  },
  "b9ba08c5eedf": {
   "category": "gadgets",
@@ -9105,8 +9418,13 @@
   "postage_included": true,
   "review_average": 4.56,
   "review_count": 34,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "ピジョン公式楽天市場店",
-  "url": "https://item.rakuten.co.jp/pigeon-shop/1046551/"
+  "url": "https://item.rakuten.co.jp/pigeon-shop/1046551/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "調乳用適温サーバー ミルスマート | 調乳 タイパ ミルク 赤ちゃんグッズ ベビ"
  },
  "b9c14b03338c": {
   "category": "fashion",
@@ -9399,8 +9717,13 @@
   "postage_included": true,
   "review_average": 4.17,
   "review_count": 126,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Dyson公式 楽天市場店",
-  "url": "https://item.rakuten.co.jp/dyson/593813-01/"
+  "url": "https://item.rakuten.co.jp/dyson/593813-01/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【期間限定P10倍】 ダイソン Dyson Cyclone V10 Fluffy"
  },
  "bfa45e799c2a": {
   "category": "gadgets",
@@ -9417,8 +9740,13 @@
   "postage_included": true,
   "review_average": 4.72,
   "review_count": 716,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "風見鶏",
-  "url": "https://item.rakuten.co.jp/kazamidori/0619659188511/"
+  "url": "https://item.rakuten.co.jp/kazamidori/0619659188511/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "マイクロSDカード 256GB microSDカード microSDXC San"
  },
  "bfa99620774f": {
   "category": "gadgets",
@@ -9492,8 +9820,13 @@
   "postage_included": true,
   "review_average": 4.49,
   "review_count": 404,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "スタイルオンバッグ",
-  "url": "https://item.rakuten.co.jp/style-on-bag/lz-3367/"
+  "url": "https://item.rakuten.co.jp/style-on-bag/lz-3367/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【24H限定50%OFF】トートバッグ レディース ナイロン 軽量 撥水 2wa"
  },
  "c0560a0f03c5": {
   "category": "home_decor",
@@ -9661,8 +9994,13 @@
   "postage_included": false,
   "review_average": 4.26,
   "review_count": 31,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "antiqua（アンティカ）",
-  "url": "https://item.rakuten.co.jp/antiqua-a/za-00221/"
+  "url": "https://item.rakuten.co.jp/antiqua-a/za-00221/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "マシュマロタッチ ニットトップス レディース ニット 送料無料・メール便不可"
  },
  "c2fa55627c89": {
   "category": "gadgets",
@@ -9759,8 +10097,13 @@
   "postage_included": true,
   "review_average": 4.46,
   "review_count": 1126,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "マーナ公式楽天市場店",
-  "url": "https://item.rakuten.co.jp/shopmarna/s498/"
+  "url": "https://item.rakuten.co.jp/shopmarna/s498/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "365日配送 Shupatto シュパット アンブレラ 58cm 65cm【マー"
  },
  "c5c1fdd0a567": {
   "category": "gadgets",
@@ -9815,8 +10158,13 @@
   "postage_included": false,
   "review_average": 4.51,
   "review_count": 417,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "無地Tシャツ Tshirt.st楽天市場店",
-  "url": "https://item.rakuten.co.jp/tshirt-st/335alp-01/"
+  "url": "https://item.rakuten.co.jp/tshirt-st/335alp-01/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "シャツ メンズ レディース 長袖 glimmer グリマー ドライ長袖 ポロシャ"
  },
  "c85458a08870": {
   "category": "gadgets",
@@ -9871,8 +10219,13 @@
   "postage_included": true,
   "review_average": 4.52,
   "review_count": 421,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Panasonic Store Plus 楽天市場店",
-  "url": "https://item.rakuten.co.jp/panasonic-store/ew-dj55-w/"
+  "url": "https://item.rakuten.co.jp/panasonic-store/ew-dj55-w/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【公式店】パナソニック 口腔洗浄器 ジェットウォッシャー ドルツ EW-DJ55"
  },
  "c9489d52e531": {
   "category": "trend_goods",
@@ -10003,8 +10356,13 @@
   "postage_included": true,
   "review_average": 4.64,
   "review_count": 622,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "アンカー・ダイレクト楽天市場店",
-  "url": "https://item.rakuten.co.jp/anker/d1202/"
+  "url": "https://item.rakuten.co.jp/anker/d1202/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "Anker Soundcore P31i (Bluetooth 6.1) 【完全"
  },
  "cf3defd7802c": {
   "category": "gadgets",
@@ -10333,8 +10691,13 @@
   "postage_included": true,
   "review_average": 4.49,
   "review_count": 277,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "tu-hacci（ツーハッチ）",
-  "url": "https://item.rakuten.co.jp/tu-hacci/90396ac/"
+  "url": "https://item.rakuten.co.jp/tu-hacci/90396ac/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【今だけ50％OFFクーポン】9/29(火)23:59迄SALE ※お一人様3点"
  },
  "d54544486b96": {
   "category": "trend_goods",
@@ -10389,8 +10752,13 @@
   "postage_included": true,
   "review_average": 4.31,
   "review_count": 335,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "ASKRTECH",
-  "url": "https://item.rakuten.co.jp/askrtech/ys-yz12/"
+  "url": "https://item.rakuten.co.jp/askrtech/ys-yz12/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【先着限定◎2,380円～クーポンで】「楽天1位」 折りたたみ傘 形状記憶 傘 "
  },
  "d5fae2a17679": {
   "category": "home_decor",
@@ -10483,8 +10851,13 @@
   "postage_included": true,
   "review_average": 4.52,
   "review_count": 97,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "LUCIDA",
-  "url": "https://item.rakuten.co.jp/lucida/dik-9/"
+  "url": "https://item.rakuten.co.jp/lucida/dik-9/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "Dickies 874 ディッキーズ オリジナル ワークパンツ チノパン レング"
  },
  "d6fdbfe96c2d": {
   "category": "gadgets",
@@ -10501,8 +10874,13 @@
   "postage_included": false,
   "review_average": 4.29,
   "review_count": 42,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "ケーズデンキ　楽天市場店",
-  "url": "https://item.rakuten.co.jp/ksdenki/4978877387967/"
+  "url": "https://item.rakuten.co.jp/ksdenki/4978877387967/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "KODAK（コダック） コンパクトデジタルカメラ FZ55BK ブラック"
  },
  "d77e11e59181": {
   "category": "fashion",
@@ -10594,8 +10972,13 @@
   "postage_included": true,
   "review_average": 4.09,
   "review_count": 368,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "La-gemme（ラジエム）",
-  "url": "https://item.rakuten.co.jp/la-gemme/lstpaw25-pl001/"
+  "url": "https://item.rakuten.co.jp/la-gemme/lstpaw25-pl001/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "9/28 10:00～24h限定【クーポンで2,280円】U.S. POLO A"
  },
  "da9b568cae09": {
   "category": "fashion",
@@ -10668,8 +11051,13 @@
   "postage_included": true,
   "review_average": 4.38,
   "review_count": 813,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Hitidear",
-  "url": "https://item.rakuten.co.jp/hitidear/up02/"
+  "url": "https://item.rakuten.co.jp/hitidear/up02/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【クーポンで最安2880円】「楽天1位」「2026年新登場」 日傘 折りたたみ傘"
  },
  "dd94a3f1256e": {
   "category": "home_decor",
@@ -10705,8 +11093,13 @@
   "postage_included": true,
   "review_average": 4.36,
   "review_count": 689,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "anderis生活館",
-  "url": "https://item.rakuten.co.jp/birena/by01-1/"
+  "url": "https://item.rakuten.co.jp/birena/by01-1/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "＼ランキング1位受賞★2026最新型／レインコート 自転車 レインウェア レディ"
  },
  "ddee17a31023": {
   "category": "fashion",
@@ -10935,8 +11328,13 @@
   "postage_included": true,
   "review_average": 4.44,
   "review_count": 425,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "revotown （レボタウン）",
-  "url": "https://item.rakuten.co.jp/revotown/sust01/"
+  "url": "https://item.rakuten.co.jp/revotown/sust01/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "セットアップ メンズ スーツ テーラード ストレッチスーツ カジュアルスーツ イ"
  },
  "e65d5cd09753": {
   "category": "home_decor",
@@ -11112,6 +11510,25 @@
   "shop_name": "Giftya (ギフト&北欧雑貨)",
   "url": "https://item.rakuten.co.jp/golwis/clock0001/"
  },
+ "eac9e5d97b2c": {
+  "category": "gadgets",
+  "first_seen": "2026-09-29",
+  "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/denkitarou/cabinet/13732638/13747716/13757401/wjc36-01.jpg?_ex=500x500",
+  "item_code": "denkitarou:10000976",
+  "keywords": [
+   "ワイヤレスイヤホン 新作"
+  ],
+  "last_effective_price": 5921,
+  "last_point_rate": 1,
+  "last_price": 5980,
+  "last_seen": "2026-09-29",
+  "name": "2026 新作 AI 翻訳機能付き ワイヤレスイヤホン タッチ式 ノイズキャンセリング 完全ワイヤレスイヤホン タッチ画面搭載 Bluetooth5.4 快適 無痛装着 軽量 高速通信 低消費電力ENC 通話 ビジネス スポーツ サイクリング 対応 マイク付き HiFi高音質 長時間持続",
+  "postage_included": true,
+  "review_average": 0.0,
+  "review_count": 0,
+  "shop_name": "電気太郎楽天市場店",
+  "url": "https://item.rakuten.co.jp/denkitarou/xsy327/"
+ },
  "eb2fccd99e1e": {
   "category": "trend_goods",
   "first_seen": "2026-09-29",
@@ -11146,8 +11563,13 @@
   "postage_included": false,
   "review_average": 4.63,
   "review_count": 905,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "タンスのゲン Design the Future",
-  "url": "https://item.rakuten.co.jp/tansu/86500001/"
+  "url": "https://item.rakuten.co.jp/tansu/86500001/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "楽天1位 遮光 カーテン 2枚セット 4枚セット ドレープカーテン レースカーテ"
  },
  "ebf0fd9033fb": {
   "category": "fashion",
@@ -11183,8 +11605,13 @@
   "postage_included": true,
   "review_average": 4.85,
   "review_count": 86,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "GRAN BEAUTY WORLD楽天市場店",
-  "url": "https://item.rakuten.co.jp/granbeautyon-line/2200-4547410377224/"
+  "url": "https://item.rakuten.co.jp/granbeautyon-line/2200-4547410377224/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "＼最大3,000円OFF／【1位獲得】富士フイルム チェキ用フィルム INSTA"
  },
  "ec75bcd4ae43": {
   "category": "fashion",
@@ -11356,8 +11783,13 @@
   "postage_included": true,
   "review_average": 4.52,
   "review_count": 610,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "KIZAWA 楽天市場店",
-  "url": "https://item.rakuten.co.jp/kizawa/aex-um/"
+  "url": "https://item.rakuten.co.jp/kizawa/aex-um/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "決算セール★最大35%OFFクーポン 【3秒で畳める 形状記憶】折りたたみ傘 軽"
  },
  "ef1fc352be24": {
   "category": "fashion",
@@ -11469,8 +11901,13 @@
   "postage_included": true,
   "review_average": 4.34,
   "review_count": 307,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "BLUXE 楽天市場店",
-  "url": "https://item.rakuten.co.jp/bluxe-store/dhaz083/"
+  "url": "https://item.rakuten.co.jp/bluxe-store/dhaz083/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "＼期間限定価格／ [レビューで延長保証]スリーアップ 除湿機 コンプレッサー式除"
  },
  "f15dcb914dc8": {
   "category": "trend_goods",
@@ -11601,8 +12038,13 @@
   "postage_included": true,
   "review_average": 4.52,
   "review_count": 939,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "CICI BELLA",
-  "url": "https://item.rakuten.co.jp/cicib/h1-m5/"
+  "url": "https://item.rakuten.co.jp/cicib/h1-m5/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【公式】＼半額OFFセール／楽天1位★高評価 cicibella スーツケース "
  },
  "f2cd6e1f49f8": {
   "category": "home_decor",
@@ -11877,8 +12319,13 @@
   "postage_included": false,
   "review_average": 4.81,
   "review_count": 285,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "Vesync公式　楽天市場店",
-  "url": "https://item.rakuten.co.jp/vesync/kaapafcsnjp0284y/"
+  "url": "https://item.rakuten.co.jp/vesync/kaapafcsnjp0284y/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【2,700円クーポン】COSORI DCモーター搭載 ノンフライヤー 6L 大"
  },
  "f7d53896f687": {
   "category": "home_decor",
@@ -11960,8 +12407,13 @@
   "postage_included": false,
   "review_average": 4.91,
   "review_count": 11,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "digred　楽天市場店",
-  "url": "https://item.rakuten.co.jp/digred2020/4122-3754/"
+  "url": "https://item.rakuten.co.jp/digred2020/4122-3754/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "【80％OFF！】BEVERLYHILLSPOLOCLUB ビバリーヒルズポロク"
  },
  "f994cdd4fe54": {
   "category": "fashion",
@@ -12146,8 +12598,13 @@
   "postage_included": true,
   "review_average": 4.55,
   "review_count": 55,
+  "score": 6,
+  "score_reason": "未設定 ANTHROPIC_API_KEY",
+  "scored_by": "noop",
   "shop_name": "生活雑貨のネットショップELEMENTS",
-  "url": "https://item.rakuten.co.jp/zakka-elements/94893/"
+  "url": "https://item.rakuten.co.jp/zakka-elements/94893/",
+  "zh_summary": "（未翻譯）",
+  "zh_title": "東リ フロアタイル ピタフィー 置くだけ 敷くだけ 賃貸OK 吸着床タイル 接着"
  },
  "fe34dd52cc2a": {
   "category": "gadgets",
