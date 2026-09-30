@@ -12,9 +12,11 @@ jp-goods-finder：追蹤日本購物平台（目前只有樂天），每天挑�
 ## 目前狀態（使用者的決定）
 
 使用者想**先只用樂天＋Dashboard** 看實際資料，再決定要不要開 Claude 翻譯評分與 Telegram 推播。
-- 目前只設了 `RAKUTEN_APP_ID`、`RAKUTEN_ACCESS_KEY` 兩個 Secret。
-- `config.yaml` 的 `notifiers.telegram: false`；沒有 `ANTHROPIC_API_KEY` 時自動用 NoopScorer（Dashboard 不顯示假分數）。
-- 不要主動要求使用者去申請 Anthropic / Telegram，等使用者決定。
+- Secrets 已設：`RAKUTEN_APP_ID`、`RAKUTEN_ACCESS_KEY`、`TELEGRAM_BOT_TOKEN`、`TELEGRAM_CHAT_ID`；`notifiers.telegram: true`。
+- `ANTHROPIC_API_KEY` 已設，Claude 翻譯＋評分已啟用（沒有 key 時會自動退回 NoopScorer）。
+- `python -m jpgf ping`（workflow mode=ping）可傳 Telegram 測試訊息。
+- 待做（使用者已提出）：Dashboard 卡片 ✕／♡ 回饋、「我想找…」需求（Telegram 傳文字）、老婆的女裝與「我／老婆」切換。
+- 使用者強調：品牌只是例子，要的是「追求潮流物的精神」→ 靠 taste_profile ＋ Claude 評分，不要只加品牌關鍵字。
 
 ## 已定案、不要推翻的決策
 
@@ -33,7 +35,7 @@ jp-goods-finder：追蹤日本購物平台（目前只有樂天），每天挑�
 
 ```
 jpgf/
-  __main__.py   CLI：python -m jpgf {daily|feedback|dashboard} [--dry-run] [--mock] [--date] [--out]
+  __main__.py   CLI：python -m jpgf {daily|feedback|dashboard|ping} [--dry-run] [--mock] [--date] [--out]
   config.py     讀 config.yaml、.env
   rakuten.py    樂天 API client、Item、effective_price、fetch_all（去重）
   store.py      data/ 讀寫（items.json、prices/*.csv、feedback.json、state.json）

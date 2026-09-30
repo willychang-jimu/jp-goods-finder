@@ -5,6 +5,7 @@
   python -m jpgf daily --mock       # 用 tests/fixtures 的假資料，不需任何金鑰
   python -m jpgf feedback           # 只同步 Telegram 喜歡／略過按鈕
   python -m jpgf dashboard          # 由 data/ 產生 GitHub Pages 靜態頁到 site/
+  python -m jpgf ping               # 傳一則 Telegram 測試訊息，確認 Token／Chat ID 正確
 """
 from __future__ import annotations
 
@@ -38,7 +39,7 @@ def mock_items(cfg: dict):
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="jpgf")
-    ap.add_argument("mode", choices=["daily", "feedback", "dashboard"])
+    ap.add_argument("mode", choices=["daily", "feedback", "dashboard", "ping"])
     ap.add_argument("--out", default=None, help="dashboard 輸出目錄（預設 site/）")
     ap.add_argument("--config", default=None)
     ap.add_argument("--data-dir", default=None,
@@ -60,6 +61,17 @@ def main(argv: list[str] | None = None) -> int:
 
         out = build_site(store, cfg, Path(args.out or ROOT / "site"), today)
         log.info("Dashboard 已產生：%s", out)
+        return 0
+
+    if args.mode == "ping":
+        token, chat = env("TELEGRAM_BOT_TOKEN"), env("TELEGRAM_CHAT_ID")
+        if not (token and chat):
+            log.error("缺 TELEGRAM_BOT_TOKEN 或 TELEGRAM_CHAT_ID")
+            return 1
+        TelegramNotifier(token, chat).call(
+            "sendMessage", chat_id=chat,
+            text="✅ 日本好物追蹤：Telegram 連線成功！之後每日精選會推到這裡。")
+        log.info("Telegram 測試訊息已送出")
         return 0
 
     tg = None

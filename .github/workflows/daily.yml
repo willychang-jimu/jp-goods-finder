@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "daily = 抓價格＋評分＋推播；feedback = 只同步 Telegram 按鈕"
+        description: "daily = 抓價格＋評分＋推播；feedback = 只同步 Telegram 按鈕；ping = 傳 Telegram 測試訊息"
         type: choice
-        options: [daily, feedback]
+        options: [daily, feedback, ping]
         default: daily
       dry_run:
         description: "只印 log，不推播、不標記已推播"

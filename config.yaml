@@ -2,11 +2,14 @@
 
 # 使用者口味描述：會原封不動放進 Claude 的評分提示詞
 taste_profile: |
-  喜歡：MEDICOM TOY（BE@RBRICK 等）這類設計師玩具；BEAMS JAPAN 這類有日本味的選物小物；
-  北歐家居、燈具、海報；包浩斯（Bauhaus）風格、中世紀現代（Mid-Century Modern）、混搭風裝潢；
-  服飾喜歡 XLARGE、LACOSTE 這類街頭／經典休閒品牌。
-  偏好設計感強、日本才買得到或在台灣少見的東西。
-  不喜歡：美容家電、廉價感的量產貨、純消耗品、食品、福袋、二手品。
+  重點是「追求潮流物的精神」，下面的品牌只是例子，不限於這些品牌：
+  - 設計師玩具／收藏：MEDICOM TOY（BE@RBRICK）這一類，有聯名、限量、話題性的潮玩。
+  - 有日本味的選物小物：BEAMS JAPAN 這一類，職人、別注、在地品牌聯名。
+  - 家居：北歐、包浩斯（Bauhaus）、中世紀現代（Mid-Century Modern）、混搭風；設計師燈具、藝術海報。
+  - 服飾：XLARGE、LACOSTE 這類街頭／經典休閒品牌的感覺。
+  偏好設計感強、有品牌故事或聯名、日本才買得到或在台灣少見的東西。
+  不喜歡：美容家電、一般生活家具（電腦桌、收納箱、食器櫃）、展示盒等周邊配件、
+  廉價感的量產貨、純消耗品、食品、福袋、二手品。
 
 # 分類與日文搜尋關鍵字（依使用者給的例子設定）。label 是 Dashboard／推播顯示的中文分類名。
 categories:
@@ -63,7 +66,7 @@ rakuten:
 ai:
   model: claude-haiku-4-5-20251001
   batch_size: 20                # 一次送幾個商品給 Claude
-  max_new_items_per_run: 80     # 每次最多替幾個「新商品」做翻譯＋評分（控制成本）
+  max_new_items_per_run: 700    # 每次最多替幾個「新商品」做翻譯＋評分（控制成本；每 100 件約 0.06 美元）
   feedback_examples: 15         # 提示詞裡最多帶幾筆喜歡／略過的例子
 
 selection:
@@ -82,5 +85,5 @@ deals:
 
 notifiers:
   console: true                 # 印在 Actions log，永遠建議開著
-  telegram: false               # 先關閉；決定要推播後改 true，並設定 TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID
+  telegram: true                # 需要 TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID（GitHub Secrets）
   # email: false                # 第 2 階段：週報
