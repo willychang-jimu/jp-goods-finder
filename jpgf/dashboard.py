@@ -80,6 +80,12 @@ def build_data(store: Store, cfg: dict, today: str, active_days: int = 14,
                          "status": req.get("status"), "summary_zh": req.get("summary_zh"),
                          "keywords": req.get("keywords", []), "results": results})
 
+    # 收藏（♡）過但最近沒再抓到的商品也要留著，「收藏」分頁才不會少東西。
+    # 和需求結果一樣放在 request_items（= 不在主清單、但前端要能查到的額外商品）。
+    for iid, rec in store.items.items():
+        if rec.get("feedback") == "like" and iid not in main_ids and iid not in extra:
+            extra[iid] = item_obj(iid, rec)
+
     days_recorded = len({d for s in history.values() for d, _ in s})
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
