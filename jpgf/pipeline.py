@@ -50,7 +50,9 @@ def score_new_items(store: Store, seen_ids: list[str], scorer, cfg: dict, real_s
     return done
 
 
-def select_picks(store: Store, seen_ids: list[str], today: str, cfg: dict) -> list[Pick]:
+def select_picks(store: Store, seen_ids: list[str], today: str, cfg: dict,
+                 require_claude: bool = False) -> list[Pick]:
+    """require_claude=True 時只挑 Claude 真的評過分的商品（避免 API 失敗時推出沒評分的東西）。"""
     sel, dcfg = cfg["selection"], cfg["deals"]
     labels = {k: v.get("label", k) for k, v in cfg["categories"].items()}
     since = (date.fromisoformat(today) - timedelta(days=90)).isoformat()
@@ -64,6 +66,8 @@ def select_picks(store: Store, seen_ids: list[str], today: str, cfg: dict) -> li
         rec = store.items[iid]
         score = rec.get("score")
         if score is None or rec.get("feedback") == "skip":
+            continue
+        if require_claude and rec.get("scored_by") != "claude":
             continue
         deal = detect_deal(history.get(iid, []), today, dcfg)
         # 特價商品門檻放寬 2 分；沒特價的商品要達 min_score
@@ -104,7 +108,7 @@ def run_daily(store: Store, items: list[Item], scorer, notifiers: list, cfg: dic
 
     seen_ids = [it.id for it in items]
     score_new_items(store, seen_ids, scorer, cfg, real_scorer)
-    picks = select_picks(store, seen_ids, today, cfg)
+    picks = select_picks(store, seen_ids, today, cfg, require_claude=real_scorer)
 
     title = f"{today} 日本好物精選"
     all_ok = True
