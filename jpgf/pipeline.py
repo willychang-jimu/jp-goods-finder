@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import logging
+import re
 from datetime import date, datetime, timedelta, timezone
 
 from .deals import detect_deal
@@ -17,8 +18,18 @@ def today_jst() -> str:
     return datetime.now(JST).date().isoformat()
 
 
-def score_new_items(store: Store, seen_ids: list[str], scorer, cfg: dict, real_scorer: bool) -> int:
-    """只替「還沒被 Claude 評過分」的商品呼叫 Claude；結果快取在 items.json。"""
+def dedupe_key(rec: dict) -> str:
+    """同一商品常由多家店上架：用中文標題（沒有就用日文名前 40 字）正規化後當作比對鍵。"""
+    title = rec.get("zh_title") if rec.get("scored_by") == "claude" else None
+    base = title or rec.get("name", "")[:40]
+    return re.sub(r"[\s\W_]+", "", base).lower()
+
+
+def score_new_items(store: Store, seen_ids: list[str], scorer, cfg: dict, real_scorer: bool,
+                    on_batch=None) -> int:
+    """只替「還沒被 Claude 評過分」的商品呼叫 Claude；結果快取在 items.json。
+
+    on_batch：每批評分完呼叫一次（用來先存檔），執行逾時被中斷也不會白做。"""
     ai = cfg["ai"]
     todo = [store.items[i] | {"id": i} for i in seen_ids
             if "score" not in store.items[i]
@@ -46,6 +57,8 @@ def score_new_items(store: Store, seen_ids: list[str], scorer, cfg: dict, real_s
                         "score": r["score"], "score_reason": r["reason"],
                         "scored_by": "claude" if real_scorer else "noop"})
             done += 1
+        if on_batch:
+            on_batch()
     log.info("評分完成 %d / %d 筆", done, len(todo))
     return done
 
@@ -85,11 +98,13 @@ def select_picks(store: Store, seen_ids: list[str], today: str, cfg: dict,
 
     cands.sort(key=lambda p: (p.rank_score, p.rec.get("review_count", 0)), reverse=True)
     per_cat_max = sel.get("max_per_category", 2)
-    picks, per_cat = [], {}
+    picks, per_cat, seen_keys = [], {}, set()
     for p in cands:
         c = p.rec.get("category")
-        if per_cat.get(c, 0) >= per_cat_max:
-            continue
+        key = dedupe_key(p.rec)
+        if per_cat.get(c, 0) >= per_cat_max or key in seen_keys:
+            continue  # 同分類已滿，或同一商品（不同店家）已經選過
+        seen_keys.add(key)
         per_cat[c] = per_cat.get(c, 0) + 1
         picks.append(p)
         if len(picks) >= sel.get("daily_top_n", 5):
@@ -98,7 +113,8 @@ def select_picks(store: Store, seen_ids: list[str], today: str, cfg: dict,
 
 
 def run_daily(store: Store, items: list[Item], scorer, notifiers: list, cfg: dict,
-              today: str, real_scorer: bool, mark_notified: bool = True) -> list[Pick]:
+              today: str, real_scorer: bool, mark_notified: bool = True,
+              on_batch=None) -> list[Pick]:
     min_reviews = cfg["selection"].get("min_review_count", 0)
     items = [i for i in items if i.review_count >= min_reviews]
     for it in items:
@@ -107,7 +123,7 @@ def run_daily(store: Store, items: list[Item], scorer, notifiers: list, cfg: dic
     log.info("今日商品 %d 筆，新寫入價格 %d 筆", len(items), n)
 
     seen_ids = [it.id for it in items]
-    score_new_items(store, seen_ids, scorer, cfg, real_scorer)
+    score_new_items(store, seen_ids, scorer, cfg, real_scorer, on_batch=on_batch)
     picks = select_picks(store, seen_ids, today, cfg, require_claude=real_scorer)
 
     title = f"{today} 日本好物精選"

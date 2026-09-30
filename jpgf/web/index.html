@@ -63,7 +63,7 @@ body {
   margin: 0; background: var(--bg); color: var(--text-primary);
   font: 15px/1.5 system-ui, -apple-system, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
 }
-.wrap { max-width: 1200px; margin: 0 auto; padding: 20px 16px 48px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 20px 16px 96px; }
 header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 h1 { font-size: 22px; margin: 0 0 2px; }
 .sub { color: var(--text-muted); font-size: 13px; }
@@ -100,6 +100,38 @@ h1 { font-size: 22px; margin: 0 0 2px; }
   text-align: left; padding: 0; font: inherit; color: inherit;
 }
 .card:hover { border-color: var(--text-muted); }
+.acts { position: absolute; right: 6px; bottom: 6px; display: flex; gap: 6px; }
+.act {
+  width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--border); cursor: pointer;
+  background: var(--surface-1); color: var(--text-secondary); font-size: 17px; line-height: 1;
+  display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); padding: 0;
+}
+.act:hover { color: var(--text-primary); border-color: var(--text-muted); }
+.act.like[aria-pressed="true"] { color: #d03b3b; border-color: #d03b3b; }
+.score-tag {
+  font-size: 12px; font-weight: 600; color: var(--text-secondary); background: var(--surface-2);
+  border-radius: 6px; padding: 1px 6px; font-variant-numeric: tabular-nums;
+}
+.fbbar {
+  position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 10;
+  width: min(560px, calc(100vw - 32px)); background: var(--text-primary); color: var(--surface-1);
+  border-radius: 14px; padding: 10px 12px 10px 16px; display: flex; gap: 10px; align-items: center;
+  box-shadow: 0 6px 24px rgba(0,0,0,.25); font-size: 14px;
+}
+.fbbar[hidden] { display: none; }
+.fbbar .grow { flex: 1; }
+.fbbar button {
+  font: inherit; font-size: 14px; border-radius: 8px; padding: 6px 12px; cursor: pointer; border: 0;
+}
+.fbbar .send { background: var(--accent); color: #fff; font-weight: 600; }
+.fbbar .clear { background: transparent; color: inherit; opacity: .8; }
+.req { margin-bottom: 28px; }
+.req h3 { font-size: 16px; margin: 0 0 2px; }
+.req .sub { margin-bottom: 10px; }
+.req-help {
+  background: var(--surface-2); border-radius: 10px; padding: 12px 14px; font-size: 14px;
+  color: var(--text-secondary); margin-bottom: 16px;
+}
 .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .thumb { position: relative; aspect-ratio: 1; background: #fff; }
 .thumb img { width: 100%; height: 100%; object-fit: contain; display: block; }
@@ -185,6 +217,7 @@ table.hist th:first-child, table.hist td:first-child { text-align: left; }
     <label><input type="checkbox" id="dealOnly"> 只看真特價</label>
     <span class="spacer"></span>
     <select id="sort" aria-label="排序">
+      <option value="score">推薦分數高</option>
       <option value="deal">特價優先</option>
       <option value="new">最新發現</option>
       <option value="drop">離 90 日最高價跌最多</option>
@@ -196,6 +229,12 @@ table.hist th:first-child, table.hist td:first-child { text-align: left; }
   </div>
   <div class="count" id="count"></div>
   <main class="grid" id="grid"></main>
+</div>
+
+<div class="fbbar" id="fbbar" role="region" aria-label="回饋" hidden>
+  <span class="grow" id="fbtext"></span>
+  <button class="clear" type="button" id="fbclear">清除</button>
+  <button class="send" type="button" id="fbsend">送出回饋</button>
 </div>
 
 <dialog id="dlg" aria-labelledby="dlgTitle"></dialog>
@@ -218,7 +257,46 @@ $("#themeBtn").addEventListener("click", () => {
 });
 
 let DATA = null;
-const state = { cat: "all", dealOnly: false, sort: "deal", q: "" };
+const state = { cat: "all", dealOnly: false, sort: "score", q: "" };
+const REQ = "__requests__";
+
+// ---------- ✕／♡ 回饋：先存在這台裝置，按「送出回饋」時開 GitHub Issue 交給後台處理 ----------
+let pending = {};
+try { pending = JSON.parse(localStorage.getItem("jpgf-pending") || "{}"); } catch (e) { pending = {}; }
+function savePending() { try { localStorage.setItem("jpgf-pending", JSON.stringify(pending)); } catch (e) {} }
+function byId(id) { return DATA.items.find((x) => x.id === id) || DATA.request_items.find((x) => x.id === id); }
+function actionOf(it) { return pending[it.id] || it.feedback || null; }
+function setAction(id, act) {
+  const it = byId(id);
+  if (!it) return;
+  if (actionOf(it) === act) { delete pending[id]; } else { pending[id] = act; }
+  savePending(); render(); renderBar();
+}
+function prunePending() {
+  // 後台已處理完（✕ 的商品從資料消失、或 feedback 已一致）就清掉
+  for (const [id, act] of Object.entries(pending)) {
+    const it = byId(id);
+    if (!it || it.feedback === act) delete pending[id];
+  }
+  savePending();
+}
+function renderBar() {
+  const vals = Object.values(pending);
+  const skip = vals.filter((a) => a === "skip").length, like = vals.length - skip;
+  $("#fbbar").hidden = !vals.length;
+  $("#fbtext").textContent = `待送出：✕ ${skip} 件・♡ ${like} 件`;
+}
+function sendFeedback() {
+  const lines = Object.entries(pending).map(([id, act]) => {
+    const it = byId(id);
+    return `${act}:${id} ${it ? titleOf(it).slice(0, 40) : ""}`;
+  });
+  if (!lines.length || !DATA.repo) return;
+  const title = `[回饋] ${lines.length} 件`;
+  const body = "Dashboard 回饋（請直接按下方 Submit new issue 送出）\n\n" + lines.join("\n");
+  const url = `https://github.com/${DATA.repo}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+  window.open(url, "_blank", "noopener");
+}
 
 function translateUrl(text) {
   return "https://translate.google.com/?sl=ja&tl=zh-TW&op=translate&text=" + encodeURIComponent(text);
@@ -251,11 +329,13 @@ function sparkline(series) {
 function filtered() {
   const q = state.q.trim().toLowerCase();
   let list = DATA.items.filter((it) =>
+    pending[it.id] !== "skip" &&
     (state.cat === "all" || it.category === state.cat) &&
     (!state.dealOnly || it.deal) &&
     (!q || (it.name + " " + (it.zh_title || "") + " " + it.shop).toLowerCase().includes(q)));
   const dropFromHigh = (it) => it.high ? (it.high - it.effective) / it.high : 0;
   const cmp = {
+    score: (a, b) => (b.score || 0) - (a.score || 0) || (!!b.deal - !!a.deal) || b.reviews - a.reviews,
     deal: (a, b) => (!!b.deal - !!a.deal) || ((b.deal?.drop_pct || 0) - (a.deal?.drop_pct || 0))
                     || (b.score || 0) - (a.score || 0) || b.reviews - a.reviews,
     new: (a, b) => (b.first_seen || "").localeCompare(a.first_seen || "") || b.reviews - a.reviews,
@@ -267,21 +347,25 @@ function filtered() {
   return list.sort(cmp);
 }
 
-function render() {
-  const list = filtered();
-  $("#count").textContent = `顯示 ${list.length} / ${DATA.items.length} 件`;
-  if (!list.length) { $("#grid").innerHTML = `<div class="empty">沒有符合條件的商品</div>`; return; }
-  $("#grid").innerHTML = list.map((it) => `
-    <button class="card" type="button" data-id="${it.id}">
+function card(it, extra) {
+  const act = actionOf(it);
+  const score = extra?.score ?? it.score;
+  return `
+    <div class="card" role="button" tabindex="0" data-id="${it.id}" aria-label="${esc(titleOf(it))}">
       <div class="thumb">
         ${it.image ? `<img loading="lazy" src="${esc(it.image)}" alt="">` : ""}
         ${it.deal ? `<span class="badge">${dealLabel(it.deal)}</span>` : ""}
-        <span class="cat-tag">${esc(DATA.categories[it.category] || it.category)}</span>
+        ${DATA.categories[it.category] ? `<span class="cat-tag">${esc(DATA.categories[it.category])}</span>` : ""}
+        <div class="acts">
+          <button class="act skip" type="button" data-act="skip" aria-label="不要這類商品" title="不要這類商品">✕</button>
+          <button class="act like" type="button" data-act="like" aria-pressed="${act === "like"}" aria-label="喜歡" title="喜歡">${act === "like" ? "♥" : "♡"}</button>
+        </div>
       </div>
       <div class="body">
         <div class="title" lang="${it.zh_title ? "zh-Hant" : "ja"}">${esc(titleOf(it))}</div>
         <div class="price-row">
           <span class="price">${yen(it.effective)}</span>
+          ${score != null ? `<span class="score-tag">${score} 分</span>` : ""}
           ${it.point_rate > 1 ? `<span class="eff">售價 ${yen(it.price)}・點數 ${it.point_rate} 倍</span>` : ""}
           ${!it.postage_included ? `<span class="eff">運費另計</span>` : ""}
         </div>
@@ -289,7 +373,35 @@ function render() {
         <div class="meta"><span>${it.reviews ? `★${it.rating}（${it.reviews}）` : "尚無評價"}</span>
           <span>${esc(it.shop).slice(0, 14)}</span></div>
       </div>
-    </button>`).join("");
+    </div>`;
+}
+
+function render() {
+  if (state.cat === REQ) return renderRequests();
+  const list = filtered();
+  $("#count").textContent = `顯示 ${list.length} / ${DATA.items.length} 件`;
+  $("#grid").className = "grid";
+  if (!list.length) { $("#grid").innerHTML = `<div class="empty">沒有符合條件的商品</div>`; return; }
+  $("#grid").innerHTML = list.map((it) => card(it)).join("");
+}
+
+function renderRequests() {
+  const reqs = DATA.requests || [];
+  $("#count").textContent = `最近 ${reqs.length} 筆需求`;
+  $("#grid").className = "";
+  const help = `<div class="req-help">在 Telegram 直接傳文字給 Bot，例如「想找包浩斯風的桌燈，2 萬円以內」，
+    下一次整理時會幫你找，結果會推到 Telegram，也會出現在這裡。</div>`;
+  if (!reqs.length) { $("#grid").innerHTML = help + `<div class="empty">還沒有需求</div>`; return; }
+  $("#grid").innerHTML = help + reqs.map((r) => {
+    const cards = r.results.map((x) => byId(x.id)).filter((it) => it && pending[it.id] !== "skip")
+      .map((it) => card(it, r.results.find((x) => x.id === it.id))).join("");
+    const status = r.status === "pending" ? "等待處理中…" :
+      `${r.summary_zh ? esc(r.summary_zh) + "・" : ""}搜尋：${esc((r.keywords || []).join("／"))}`;
+    return `<section class="req"><h3>🔎 ${esc(r.text)}</h3>
+      <div class="sub">${esc((r.at || "").slice(0, 10))}・${status}</div>
+      ${cards ? `<div class="grid">${cards}</div>` : (r.status === "pending" ? "" : `<div class="empty">沒有找到合適的商品</div>`)}
+    </section>`;
+  }).join("");
 }
 
 // ---------- 詳細視窗：價格走勢（含游標提示）＋表格 ----------
@@ -341,7 +453,7 @@ function lineChart(box, series) {
 }
 
 function openDetail(id) {
-  const it = DATA.items.find((x) => x.id === id);
+  const it = byId(id);
   if (!it) return;
   const d = $("#dlg");
   d.innerHTML = `
@@ -353,6 +465,7 @@ function openDetail(id) {
           ${it.deal ? `<span class="badge" style="position:static;display:inline-block;margin-bottom:6px">${dealLabel(it.deal)}（先前最低 ${yen(it.deal.prev_low)}）</span>` : ""}
           <h2 id="dlgTitle">${esc(titleOf(it))}</h2>
           ${it.zh_summary ? `<div>${esc(it.zh_summary)}</div>` : ""}
+          ${it.score != null ? `<div class="sub">推薦 ${it.score}/10${it.reason ? "：" + esc(it.reason) : ""}</div>` : ""}
           ${it.zh_title ? `<div class="jp" lang="ja">${esc(it.name)}</div>` : ""}
           <div class="links">
             <a href="${esc(it.url)}" target="_blank" rel="noopener">在樂天查看 ↗</a>
@@ -391,7 +504,7 @@ function openDetail(id) {
 
 // ---------- 初始化 ----------
 function setupFilters() {
-  const cats = [["all", "全部"], ...Object.entries(DATA.categories)];
+  const cats = [["all", "全部"], ...Object.entries(DATA.categories), [REQ, "🔎 我的需求"]];
   $("#cats").innerHTML = cats.map(([k, v]) =>
     `<button class="chip" type="button" data-cat="${k}" aria-pressed="${k === state.cat}">${esc(v)}</button>`).join("");
   $("#cats").addEventListener("click", (e) => {
@@ -403,7 +516,19 @@ function setupFilters() {
   $("#dealOnly").addEventListener("change", (e) => { state.dealOnly = e.target.checked; render(); });
   $("#sort").addEventListener("change", (e) => { state.sort = e.target.value; render(); });
   $("#q").addEventListener("input", (e) => { state.q = e.target.value; render(); });
-  $("#grid").addEventListener("click", (e) => { const c = e.target.closest(".card"); if (c) openDetail(c.dataset.id); });
+  $("#grid").addEventListener("click", (e) => {
+    const c = e.target.closest(".card");
+    if (!c) return;
+    const a = e.target.closest(".act");
+    if (a) { e.stopPropagation(); setAction(c.dataset.id, a.dataset.act); return; }
+    openDetail(c.dataset.id);
+  });
+  $("#grid").addEventListener("keydown", (e) => {
+    const c = e.target.classList?.contains("card") ? e.target : null;
+    if (c && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); openDetail(c.dataset.id); }
+  });
+  $("#fbsend").addEventListener("click", sendFeedback);
+  $("#fbclear").addEventListener("click", () => { pending = {}; savePending(); render(); renderBar(); });
   $("#dlg").addEventListener("click", (e) => { if (e.target.id === "dlg") e.target.close(); });
 }
 
@@ -426,7 +551,10 @@ function renderHeader() {
 
 fetch("data.json", { cache: "no-store" })
   .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
-  .then((d) => { DATA = d; renderHeader(); setupFilters(); render(); })
+  .then((d) => {
+    DATA = d; DATA.request_items = DATA.request_items || []; DATA.requests = DATA.requests || [];
+    prunePending(); renderHeader(); setupFilters(); render(); renderBar();
+  })
   .catch((e) => { $("#updated").textContent = "資料載入失敗：" + e.message; });
 </script>
 </body>

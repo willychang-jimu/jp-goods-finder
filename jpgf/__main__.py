@@ -6,6 +6,7 @@
   python -m jpgf feedback           # 只同步 Telegram 喜歡／略過按鈕
   python -m jpgf dashboard          # 由 data/ 產生 GitHub Pages 靜態頁到 site/
   python -m jpgf ping               # 傳一則 Telegram 測試訊息，確認 Token／Chat ID 正確
+  python -m jpgf issue-feedback     # 套用 Dashboard ✕／♡（GitHub Issue 內容放在 ISSUE_BODY）
 """
 from __future__ import annotations
 
@@ -39,7 +40,7 @@ def mock_items(cfg: dict):
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="jpgf")
-    ap.add_argument("mode", choices=["daily", "feedback", "dashboard", "ping"])
+    ap.add_argument("mode", choices=["daily", "feedback", "dashboard", "ping", "issue-feedback"])
     ap.add_argument("--out", default=None, help="dashboard 輸出目錄（預設 site/）")
     ap.add_argument("--config", default=None)
     ap.add_argument("--data-dir", default=None,
@@ -74,45 +75,59 @@ def main(argv: list[str] | None = None) -> int:
         log.info("Telegram 測試訊息已送出")
         return 0
 
+    if args.mode == "issue-feedback":
+        # Dashboard 的 ✕／♡ 透過 GitHub Issue 送來；內容在 ISSUE_BODY 環境變數
+        from .issue_feedback import apply_issue_feedback
+
+        n = apply_issue_feedback(store, env("ISSUE_BODY"))
+        store.save()
+        log.info("Dashboard 回饋：%d 筆", n)
+        return 0
+
     tg = None
     if cfg.get("notifiers", {}).get("telegram") and not args.dry_run:
         token, chat = env("TELEGRAM_BOT_TOKEN"), env("TELEGRAM_CHAT_ID")
         if token and chat:
             tg = TelegramNotifier(token, chat)
 
-    # 先同步回饋，讓今天的評分能參考最新的喜歡／略過
+    # 先同步回饋與文字需求，讓今天的評分能參考最新的喜歡／略過
     if tg:
         try:
             sync_feedback(tg, store)
         except Exception as e:  # noqa: BLE001
             log.warning("Telegram 回饋同步失敗：%s", e)
-
-    if args.mode == "feedback":
         store.save()
-        return 0
-
-    if args.mock:
-        items = mock_items(cfg)
-    else:
-        client = RakutenClient(env("RAKUTEN_APP_ID"), env("RAKUTEN_ACCESS_KEY"),
-                               env("RAKUTEN_REFERER"), cfg["rakuten"])
-        items = fetch_all(client, cfg["categories"], cfg["rakuten"].get("use_ranking", True))
-    if not items:
-        log.error("沒有抓到任何商品，請檢查樂天 API 金鑰／許可網站設定")
-        store.save()
-        return 1
 
     api_key = env("ANTHROPIC_API_KEY")
     scorer = ClaudeScorer(api_key, cfg["ai"]["model"]) if api_key else NoopScorer()
     if not api_key:
         log.warning("未設定 ANTHROPIC_API_KEY：不翻譯、不評分（全部給 6 分）")
-
     notifiers = build_notifiers(cfg, dry_run=args.dry_run)
+    client = None if args.mock else RakutenClient(
+        env("RAKUTEN_APP_ID"), env("RAKUTEN_ACCESS_KEY"), env("RAKUTEN_REFERER"), cfg["rakuten"])
+
+    # 「我想找…」需求：daily 和 feedback 模式都會處理
+    if client and store.pending_requests():
+        from .wishes import process_requests
+
+        process_requests(store, client, scorer, notifiers, cfg, today)
+        store.save()
+
+    if args.mode == "feedback":
+        store.save()
+        return 0
+
+    items = mock_items(cfg) if args.mock else fetch_all(
+        client, cfg["categories"], cfg["rakuten"].get("use_ranking", True))
+    if not items:
+        log.error("沒有抓到任何商品，請檢查樂天 API 金鑰／許可網站設定")
+        store.save()
+        return 1
+
     run_daily(store, items, scorer, notifiers, cfg, today,
-              real_scorer=bool(api_key), mark_notified=not args.dry_run)
+              real_scorer=bool(api_key), mark_notified=not args.dry_run, on_batch=store.save)
     store.save()
     return 0
-
 
 if __name__ == "__main__":
     sys.exit(main())

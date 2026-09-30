@@ -111,6 +111,19 @@ python -m jpgf daily --dry-run            # 真的打樂天／Claude，但只印
 - 本機預覽：`python -m jpgf dashboard --mock --out out/site`，再開 `out/site/index.html`
   （需用 `python -m http.server` 在該目錄起伺服器，直接開檔案會被瀏覽器擋 fetch）
 
+## 回饋與需求
+
+- **Dashboard 的 ✕／♡**：點了立刻在這台裝置隱藏／標記，下方出現「送出回饋」。按下去會開一張預先填好的
+  GitHub Issue，按 **Submit new issue** 送出即可（需登入 GitHub）。後台會自動套用、關單、更新 Dashboard；
+  之後 Claude 評分新商品時會參考這些喜好。
+- **Telegram 按鈕**：每日精選下的 👍／👎，效果同上。
+- **「我想找…」**：直接傳文字給 Telegram Bot（例如「想找包浩斯風的桌燈，2 萬円以內」）。
+  下一次執行時 Claude 會轉成日文關鍵字搜尋樂天、依需求評分，把前 5 名推回 Telegram，
+  Dashboard 的「🔎 我的需求」分頁也看得到。
+
+Telegram 的按鈕與訊息要靠 `mode=feedback` 排程定時收取（Telegram 只保留 24 小時），
+建議在 cron-job.org 設每 2～3 小時一次。
+
 ## 調整口味
 
 全部在 [`config.yaml`](config.yaml)：
