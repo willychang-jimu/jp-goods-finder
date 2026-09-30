@@ -5,6 +5,7 @@
 from __future__ import annotations
 
 import json
+import os
 import shutil
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -24,20 +25,19 @@ def build_data(store: Store, cfg: dict, today: str, active_days: int = 14,
     history = store.price_history(since, today)
     labels = {k: v.get("label", k) for k, v in cfg["categories"].items()}
 
-    items = []
-    for iid, rec in store.items.items():
-        if rec.get("last_seen", "") < active_since:
-            continue
+    def item_obj(iid: str, rec: dict) -> dict:
         series = sorted(history.get(iid, []))
         prices = [p for _, p in series]
         deal = detect_deal(series, rec["last_seen"], cfg["deals"]) if series else None
         scored = rec.get("scored_by") == "claude"
-        items.append({
+        translated = rec.get("scored_by") in ("claude", "request")
+        return {
             "id": iid,
             "name": rec.get("name", ""),
-            "zh_title": rec.get("zh_title") if scored else None,
-            "zh_summary": rec.get("zh_summary") if scored else None,
+            "zh_title": rec.get("zh_title") if translated else None,
+            "zh_summary": rec.get("zh_summary") if translated else None,
             "score": rec.get("score") if scored else None,
+            "reason": rec.get("score_reason") if scored else None,
             "url": rec.get("url", ""),
             "image": rec.get("image_url", ""),
             "shop": rec.get("shop_name", ""),
@@ -57,7 +57,28 @@ def build_data(store: Store, cfg: dict, today: str, active_days: int = 14,
             "high": max(prices) if prices else None,
             "deal": {"kind": deal.kind, "prev_low": deal.prev_low, "drop_pct": deal.drop_pct}
                     if deal else None,
-        })
+        }
+
+    # 主清單：設定裡的分類、最近還有抓到、沒被按過 ✕
+    items = [item_obj(iid, rec) for iid, rec in store.items.items()
+             if rec.get("last_seen", "") >= active_since and rec.get("category") in labels
+             and rec.get("feedback") != "skip"]
+
+    # 「我的需求」：最近 10 筆需求與其結果（依需求分數排序）
+    main_ids = {it["id"] for it in items}
+    requests, extra = [], {}
+    for req in reversed(store.requests[-10:]):
+        results = []
+        for r in sorted(req.get("results", []), key=lambda r: -r["score"])[:12]:
+            rec = store.items.get(r["id"])
+            if not rec or rec.get("feedback") == "skip":
+                continue
+            if r["id"] not in main_ids:
+                extra[r["id"]] = item_obj(r["id"], rec)
+            results.append({"id": r["id"], "score": r["score"], "reason": r["reason"]})
+        requests.append({"id": req["id"], "text": req["text"], "at": req["at"],
+                         "status": req.get("status"), "summary_zh": req.get("summary_zh"),
+                         "keywords": req.get("keywords", []), "results": results})
 
     days_recorded = len({d for s in history.values() for d, _ in s})
     return {
@@ -68,6 +89,9 @@ def build_data(store: Store, cfg: dict, today: str, active_days: int = 14,
                        ("min_history_days_30", "min_history_days_90", "min_drop_pct")},
         "categories": labels,
         "items": items,
+        "request_items": list(extra.values()),
+        "requests": requests,
+        "repo": os.environ.get("GITHUB_REPOSITORY") or cfg.get("github_repo", ""),
     }
 
 

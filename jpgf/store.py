@@ -3,7 +3,8 @@
 data/
   items.json          商品主檔（含中文翻譯、評分快取、推播紀錄）
   prices/YYYY-MM.csv  每日價格快照（按月分檔，只增不改）
-  feedback.json       Telegram 喜歡／略過紀錄
+  feedback.json       喜歡／略過紀錄（Telegram 按鈕、Dashboard ✕／♡）
+  requests.json       使用者傳給 Telegram Bot 的「我想找…」需求與結果
   state.json          其他狀態（Telegram getUpdates offset 等）
 """
 from __future__ import annotations
@@ -25,6 +26,7 @@ class Store:
         self.items: dict[str, dict] = self._load_json("items.json", {})
         self.feedback: list[dict] = self._load_json("feedback.json", [])
         self.state: dict = self._load_json("state.json", {})
+        self.requests: list[dict] = self._load_json("requests.json", [])
 
     # ---------- JSON ----------
     def _load_json(self, name: str, default):
@@ -43,6 +45,7 @@ class Store:
     def save(self) -> None:
         self._save_json("items.json", self.items)
         self._save_json("feedback.json", self.feedback)
+        self._save_json("requests.json", self.requests)
         self._save_json("state.json", self.state)
 
     # ---------- 商品主檔 ----------
@@ -110,8 +113,8 @@ class Store:
         return out
 
     # ---------- 回饋 ----------
-    def add_feedback(self, item_id: str, action: str, at: str) -> None:
-        self.feedback.append({"id": item_id, "action": action, "at": at})
+    def add_feedback(self, item_id: str, action: str, at: str, source: str = "telegram") -> None:
+        self.feedback.append({"id": item_id, "action": action, "at": at, "source": source})
         rec = self.items.get(item_id)
         if rec is not None:
             rec["feedback"] = action
@@ -129,3 +132,13 @@ class Store:
             if len(out) >= limit:
                 break
         return out
+
+    # ---------- 需求 ----------
+    def add_request(self, text: str, at: str, source: str = "telegram") -> dict:
+        req = {"id": f"r{len(self.requests) + 1}", "text": text.strip(), "at": at,
+               "source": source, "status": "pending"}
+        self.requests.append(req)
+        return req
+
+    def pending_requests(self) -> list[dict]:
+        return [r for r in self.requests if r.get("status") == "pending"]

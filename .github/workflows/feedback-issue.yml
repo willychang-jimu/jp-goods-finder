@@ -1,0 +1,70 @@
+# Dashboard 的 ✕／♡「送出回饋」會開一張標題以 [回饋] 開頭的 Issue。
+# 這裡只處理 repo 擁有者開的單：寫進 data/、留言後關單，再更新 Dashboard。
+name: feedback-issue
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: jpgf-data
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    if: ${{ github.event.issue.user.login == github.repository_owner && startsWith(github.event.issue.title, '[回饋]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Apply feedback
+        id: apply
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}   # 經環境變數傳入，不直接插進 shell
+        run: |
+          set -o pipefail
+          python -m jpgf issue-feedback 2>&1 | tee apply.log
+
+      - name: Commit data
+        run: |
+          git config user.name "jpgf-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then echo "no data changes"; exit 0; fi
+          git commit -m "data: dashboard feedback #${{ github.event.issue.number }}"
+          for i in 1 2 3; do
+            git pull --rebase origin "${{ github.event.repository.default_branch }}" \
+              && git push origin "HEAD:${{ github.event.repository.default_branch }}" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
+
+      - name: Comment and close
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          API: ${{ github.api_url }}/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}
+        run: |
+          n=$(grep -o 'Dashboard 回饋：[0-9]* 筆' apply.log | grep -o '[0-9]*' | tail -1)
+          msg="已套用 ${n:-0} 筆回饋，Dashboard 幾分鐘後會更新。之後的推薦會參考這些喜好。"
+          curl -sS -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "$API/comments" -d "$(python -c 'import json,sys; print(json.dumps({"body": sys.argv[1]}))' "$msg")" >/dev/null
+          curl -sS -X PATCH -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "$API" -d '{"state":"closed","state_reason":"completed"}' >/dev/null
+
+  pages:
+    needs: apply
+    uses: ./.github/workflows/pages.yml

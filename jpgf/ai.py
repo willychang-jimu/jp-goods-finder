@@ -42,8 +42,26 @@ OUTPUT_SCHEMA = {
 }
 
 
+REQUEST_PLAN_PROMPT = """你是幫台灣使用者在日本樂天市場找東西的採購顧問。
+使用者會用中文描述想找的東西。請產生 1–3 組適合在樂天市場搜尋的「日文」關鍵字：
+- 每組 1–4 個詞，用空白分隔（例：「バウハウス テーブルランプ」）
+- 要能找到符合描述的實體商品；品牌名用日本常見寫法（片假名或英文）
+- 盡量避免會混入配件、二手、福袋的寫法
+另外用一句繁體中文（20 字以內）整理你理解的需求。"""
+
+REQUEST_PLAN_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "keywords": {"type": "array", "items": {"type": "string"}},
+        "summary_zh": {"type": "string"},
+    },
+    "required": ["keywords", "summary_zh"],
+    "additionalProperties": False,
+}
+
+
 def build_user_message(items: list[dict], taste: str, liked: list[str], skipped: list[str],
-                       category_labels: dict[str, str]) -> str:
+                       category_labels: dict[str, str], request: str | None = None) -> str:
     payload = [
         {
             "id": it["id"],
@@ -56,6 +74,9 @@ def build_user_message(items: list[dict], taste: str, liked: list[str], skipped:
         for it in items
     ]
     parts = [f"## 使用者口味\n{taste.strip()}"]
+    if request:
+        parts.append(f"## 這次的需求（評分以此為主，口味為輔）\n{request.strip()}\n"
+                     "score 代表「這個商品符合這次需求、且使用者會喜歡」的程度；不符合需求的給 1–3。")
     if liked:
         parts.append("## 使用者按過「喜歡」的商品\n" + "\n".join(f"- {t}" for t in liked))
     if skipped:
@@ -80,41 +101,55 @@ class ClaudeScorer:
         self.model = model
         self.disabled = False  # 金鑰無效時停用，後續批次不再白打
 
-    def score(self, items: list[dict], **ctx) -> dict[str, dict]:
+    def _call(self, system: str, msg: str, schema: dict, max_tokens: int = 8000) -> dict | None:
+        """呼叫 Claude 並用 structured outputs 取回 JSON；失敗回 None（已記 log）。"""
         if self.disabled:
-            return {}
-        msg = build_user_message(items, **ctx)
+            return None
         try:
             resp = self.client.messages.create(
                 model=self.model,
-                max_tokens=8000,
-                system=SYSTEM_PROMPT,
+                max_tokens=max_tokens,
+                system=system,
                 messages=[{"role": "user", "content": msg}],
-                output_config={"format": {"type": "json_schema", "schema": OUTPUT_SCHEMA}},
+                output_config={"format": {"type": "json_schema", "schema": schema}},
             )
         except self.anthropic.AuthenticationError as e:
-            log.error("ANTHROPIC_API_KEY 無效（401），本次跳過所有評分：%s", e.message)
+            log.error("ANTHROPIC_API_KEY 無效（401），本次跳過所有 Claude 呼叫：%s", e.message)
             self.disabled = True
-            return {}
+            return None
         except self.anthropic.APIStatusError as e:
             log.warning("Claude API 錯誤 %s：%s", e.status_code, e.message)
-            return {}
+            return None
         except self.anthropic.APIConnectionError as e:
             log.warning("Claude API 連線失敗：%s", e)
-            return {}
+            return None
         if resp.stop_reason not in ("end_turn", "stop_sequence"):
-            log.warning("Claude 回應未正常結束（%s），略過此批", resp.stop_reason)
-            return {}
+            log.warning("Claude 回應未正常結束（%s）", resp.stop_reason)
+            return None
         text = next((b.text for b in resp.content if b.type == "text"), "")
         try:
-            rows = json.loads(text)["items"]
-        except (json.JSONDecodeError, KeyError) as e:
+            data = json.loads(text)
+        except json.JSONDecodeError as e:
             log.warning("Claude 回傳 JSON 無法解析：%s", e)
-            return {}
+            return None
         log.info("Claude 用量：input %s / output %s tokens",
                  resp.usage.input_tokens, resp.usage.output_tokens)
+        return data
+
+    def score(self, items: list[dict], **ctx) -> dict[str, dict]:
+        data = self._call(SYSTEM_PROMPT, build_user_message(items, **ctx), OUTPUT_SCHEMA)
+        rows = (data or {}).get("items", [])
         wanted = {it["id"] for it in items}
         return {r["id"]: {**r, "score": _clamp(r["score"])} for r in rows if r["id"] in wanted}
+
+    def plan_request(self, text: str, taste: str) -> dict | None:
+        """把中文需求轉成日文搜尋關鍵字。回傳 {"keywords": [...], "summary_zh": "..."} 或 None。"""
+        msg = f"## 使用者口味（參考）\n{taste.strip()}\n\n## 需求\n{text.strip()}"
+        data = self._call(REQUEST_PLAN_PROMPT, msg, REQUEST_PLAN_SCHEMA, max_tokens=1000)
+        if not data:
+            return None
+        kws = [k.strip() for k in data.get("keywords", []) if k.strip()][:3]
+        return {"keywords": kws, "summary_zh": data.get("summary_zh", "")} if kws else None
 
 
 class NoopScorer:

@@ -98,7 +98,7 @@ class FixedScorer:
 
     def score(self, items, **ctx):
         self.calls += 1
-        return {i["id"]: {"id": i["id"], "zh_title": "中文", "zh_summary": "摘要",
+        return {i["id"]: {"id": i["id"], "zh_title": f"中文{i['id']}", "zh_summary": "摘要",
                           "score": self.s, "reason": "r"} for i in items}
 
 
@@ -250,3 +250,117 @@ def test_no_picks_from_unscored_items_when_claude_expected(tmp_path):
 
     picks = run_daily(s, [mk("a:1", 1000)], Broken(), NT, CFG, t, real_scorer=True)
     assert picks == [] and "notified_at" not in s.items[mk("a:1", 1).id]
+
+
+def test_same_product_from_two_shops_is_picked_once(tmp_path):
+    s, t = Store(tmp_path), "2026-09-29"
+
+    class SameTitle(FixedScorer):
+        def score(self, items, **ctx):
+            return {i["id"]: {"id": i["id"], "zh_title": "LACOSTE L1212 Polo 衫", "zh_summary": "",
+                              "score": 9, "reason": ""} for i in items}
+
+    picks = run_daily(s, [mk("shopa:1", 1000, cat="fashion"), mk("shopb:1", 1100, cat="fashion")],
+                      SameTitle(9), [], CFG, t, real_scorer=True)
+    assert len(picks) == 1
+
+
+def test_scores_saved_after_each_batch(tmp_path):
+    s, t, calls = Store(tmp_path), "2026-09-29", []
+    items = [mk(f"a:{i}", 1000 + i) for i in range(45)]  # batch_size 20 → 3 批
+    run_daily(s, items, FixedScorer(7), [], CFG, t, real_scorer=True, on_batch=lambda: calls.append(1))
+    assert len(calls) == 3
+
+
+# ---------- Dashboard ✕／♡（GitHub Issue）----------
+def test_parse_issue_body_last_action_wins_and_ignores_junk():
+    from jpgf.issue_feedback import parse_issue_body
+
+    body = """Dashboard 回饋
+
+skip:abcdef012345 某商品
+like:0123456789ab 另一個
+like:abcdef012345 改成喜歡
+rm -rf / ; skip:notanid
+"""
+    got = dict((i, a) for a, i in parse_issue_body(body))
+    assert got == {"abcdef012345": "like", "0123456789ab": "like"}
+
+
+def test_issue_feedback_hides_skipped_from_dashboard(tmp_path):
+    from jpgf.dashboard import build_data
+    from jpgf.issue_feedback import apply_issue_feedback
+
+    s, t = Store(tmp_path), "2026-09-29"
+    run_daily(s, [mk("a:1", 1000), mk("b:1", 900)], FixedScorer(8), [], CFG, t, real_scorer=True,
+              mark_notified=False)
+    a, b = mk("a:1", 1).id, mk("b:1", 1).id
+    assert apply_issue_feedback(s, f"skip:{a} x\nlike:{b} y\nskip:ffffffffffff 不存在") == 2
+    ids = {i["id"]: i for i in build_data(s, CFG, t)["items"]}
+    assert a not in ids and ids[b]["feedback"] == "like"
+    assert s.feedback_examples("skip", 5) == [f"中文{a}"]
+
+
+# ---------- Telegram 文字需求 ----------
+def test_telegram_text_becomes_request_and_commands_ignored(tmp_path):
+    s = Store(tmp_path)
+    ups = [
+        {"update_id": 1, "message": {"chat": {"id": 42}, "text": "想找包浩斯風桌燈"}},
+        {"update_id": 2, "message": {"chat": {"id": 42}, "text": "/start"}},
+        {"update_id": 3, "message": {"chat": {"id": 99}, "text": "陌生人的需求"}},
+    ]
+    tg = FakeTG(ups)
+    sync_feedback(tg, s)
+    assert [r["text"] for r in s.requests] == ["想找包浩斯風桌燈"]
+    assert s.pending_requests()[0]["status"] == "pending"
+    assert any(m == "sendMessage" for m, _ in tg.calls)
+
+
+class FakeRakuten:
+    def search(self, kw, category):
+        return [Item(item_code=f"s:{kw}:{i}", name=f"{kw}{i}", price=1000 + i, point_rate=1,
+                     url="https://x/", shop_name="shop", image_url="", category=category)
+                for i in range(3)]
+
+
+class PlanScorer(FixedScorer):
+    def __init__(self):
+        super().__init__(8)
+        self.ctx = None
+
+    def plan_request(self, text, taste):
+        return {"keywords": ["バウハウス ランプ"], "summary_zh": "包浩斯桌燈"}
+
+    def score(self, items, **ctx):
+        self.ctx = ctx
+        return {i["id"]: {"id": i["id"], "zh_title": f"燈{i['id']}", "zh_summary": "",
+                          "score": 9 - n, "reason": "符合"} for n, i in enumerate(items)}
+
+
+def test_process_request_searches_scores_and_sends(tmp_path):
+    from jpgf.dashboard import build_data
+    from jpgf.wishes import process_requests
+
+    s, t = Store(tmp_path), "2026-09-29"
+    s.add_request("想找包浩斯風桌燈", "2026-09-29T00:00:00+00:00")
+    nt, sc = FakeNotifier(), PlanScorer()
+    assert process_requests(s, FakeRakuten(), sc, [nt], CFG, t) == 1
+    req = s.requests[0]
+    assert req["status"] == "done" and req["keywords"] == ["バウハウス ランプ"]
+    assert len(req["results"]) == 3 and len(nt.last) == 3
+    assert sc.ctx["request"] == "想找包浩斯風桌燈"
+    # 需求分數不寫進一般口味分數
+    assert all("score" not in s.items[r["id"]] for r in req["results"])
+    d = build_data(s, CFG, t)
+    assert d["requests"][0]["text"] == "想找包浩斯風桌燈" and len(d["request_items"]) == 3
+    assert d["items"] == []  # 需求結果不混進一般清單
+
+
+def test_request_waits_without_claude(tmp_path):
+    from jpgf.ai import NoopScorer
+    from jpgf.wishes import process_requests
+
+    s = Store(tmp_path)
+    s.add_request("想找東西", "x")
+    assert process_requests(s, FakeRakuten(), NoopScorer(), [], CFG, "2026-09-29") == 0
+    assert s.requests[0]["status"] == "pending"
