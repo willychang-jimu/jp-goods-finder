@@ -78,8 +78,11 @@ class ClaudeScorer:
         self.anthropic = anthropic
         self.client = anthropic.Anthropic(api_key=api_key, max_retries=3)
         self.model = model
+        self.disabled = False  # 金鑰無效時停用，後續批次不再白打
 
     def score(self, items: list[dict], **ctx) -> dict[str, dict]:
+        if self.disabled:
+            return {}
         msg = build_user_message(items, **ctx)
         try:
             resp = self.client.messages.create(
@@ -89,6 +92,10 @@ class ClaudeScorer:
                 messages=[{"role": "user", "content": msg}],
                 output_config={"format": {"type": "json_schema", "schema": OUTPUT_SCHEMA}},
             )
+        except self.anthropic.AuthenticationError as e:
+            log.error("ANTHROPIC_API_KEY 無效（401），本次跳過所有評分：%s", e.message)
+            self.disabled = True
+            return {}
         except self.anthropic.APIStatusError as e:
             log.warning("Claude API 錯誤 %s：%s", e.status_code, e.message)
             return {}

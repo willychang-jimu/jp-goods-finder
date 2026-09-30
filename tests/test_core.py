@@ -237,3 +237,16 @@ def test_clean_url_strips_rafcid_with_app_id():
     assert clean_url("https://item.rakuten.co.jp/s/1/?a=1&rafcid=x") == "https://item.rakuten.co.jp/s/1/?a=1"
     it = parse_item({"itemCode": "s:1", "itemPrice": 100, "itemUrl": "https://x/?rafcid=secret"}, "c")
     assert "secret" not in it.url
+
+
+def test_no_picks_from_unscored_items_when_claude_expected(tmp_path):
+    s, t = Store(tmp_path), "2026-09-29"
+    # 先前沒有 key 時留下的 noop 分數
+    run_daily(s, [mk("a:1", 1000)], FixedScorer(9), [], CFG, t, real_scorer=False, mark_notified=False)
+
+    class Broken:
+        def score(self, items, **ctx):
+            return {}
+
+    picks = run_daily(s, [mk("a:1", 1000)], Broken(), NT, CFG, t, real_scorer=True)
+    assert picks == [] and "notified_at" not in s.items[mk("a:1", 1).id]
