@@ -83,6 +83,10 @@ deals:
   bonus_30d: 2.0                # 排名加分
   bonus_90d: 3.0
 
+watch:                          # 收藏（★）商品的降價提醒
+  min_drop_pct: 3.0             # 實付價比「上次提醒（或收藏時）」再低幾 % 才通知
+  max_lookups: 40               # 收藏商品沒出現在今天搜尋結果時，每次最多補查幾件
+
 requests:                       # Telegram 傳文字「我想找…」
   top_n: 5                      # 每個需求推幾件
   min_score: 5                  # 需求符合度低於此分不推

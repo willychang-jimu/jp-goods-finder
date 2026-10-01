@@ -18,6 +18,8 @@ jp-goods-finder：追蹤日本購物平台（目前只有樂天），每天挑�
 - ✅ Dashboard 卡片 ✕／♡：先存在裝置 localStorage，「送出回饋」開 `[回饋]` GitHub Issue → `feedback-issue.yml`（只收 repo 擁有者）→ `issue_feedback.py` 寫 data/ → 重新部署。
 - ✅ Telegram 傳文字＝「我想找…」需求：`feedback.py` 收進 `data/requests.json`，`wishes.py` 在 daily／feedback 執行時處理（Claude 轉日文關鍵字 → 樂天搜尋 → 依需求評分 → 推 Telegram；需求分數存在 request 紀錄，不覆蓋一般口味分數）。
 - ✅ 同商品不同店家：`pipeline.dedupe_key`（中文標題正規化）去重。評分每批存檔，daily 逾時也會 commit 已完成部分。
+- ✅ **♡ 喜歡 vs ★ 收藏是兩個獨立狀態**（使用者明確要求）：♡/✕ 是口味（`rec["feedback"]`＝like/skip，給 Claude 評分參考）；★ 是「可能真的要買」（`rec["watched"]`，action＝watch/unwatch）→ 降價提醒。收藏也算正向口味範例（`store.liked_examples`）。已收藏的商品不再出現在每日精選（`select_picks`）。
+- ✅ 降價提醒（`watchlist.py`）：daily 跑完後執行。收藏商品沒出現在今天搜尋結果時用 `RakutenClient.lookup(itemCode)` 補查價格；今天實付價比 `alert_baseline`（收藏時價格，每次提醒後下修）低 `watch.min_drop_pct`（3%）以上才推 Telegram（附「✖ 取消收藏」鈕）；送達後才下修基準價，dry-run／只印 log 不下修。診斷：workflow `mode=lookup` ＋ `item_code`。
 - 待做：老婆的女裝與「我／老婆」切換（等老婆的喜好）。
 - 使用者強調：品牌只是例子，要的是「追求潮流物的精神」→ 靠 taste_profile ＋ Claude 評分，不要只加品牌關鍵字。
 
@@ -48,9 +50,10 @@ jpgf/
   notify.py     ConsoleNotifier、TelegramNotifier、Pick、format_caption
   feedback.py   Telegram getUpdates → 喜歡／略過、文字需求
   wishes.py     「我想找…」需求處理（不要命名成 requests.py，會和 requests 套件混淆）
-  issue_feedback.py  Dashboard ✕／♡（GitHub Issue 內容）解析與套用
+  issue_feedback.py  Dashboard ✕／♡／★（GitHub Issue 內容）解析與套用
+  watchlist.py  收藏（★）商品降價提醒：補查價格 → 判斷 → 推播 → 下修基準價
   dashboard.py  由 data/ 產生 site/（web/index.html 靜態頁 ＋ data.json），daily.yml 的 pages job 部署到 GitHub Pages
-  web/index.html  Dashboard 前端（純 HTML/JS，無框架；淺色／深色）。版型仿 HBX App：置中大 Logo＋左右膠囊鈕、膠囊分類列、公告輪播、大圖輪播、商品格、底部浮動分頁（主頁／搜尋／收藏／需求）。使用者明確喜歡這種風格，改版請維持
+  web/index.html  Dashboard 前端（純 HTML/JS，無框架；淺色／深色）。版型仿 HBX App：置中大 Logo＋左右膠囊鈕、膠囊分類列、公告輪播、大圖輪播、商品格（每張 ✕／♡／★）、底部浮動分頁（主頁／搜尋／收藏★／需求）。使用者明確喜歡這種風格，改版請維持
 config.yaml     口味、關鍵字、門檻、開關（無密鑰）
 data/           由 Actions commit 的資料（勿手動大改格式；若改格式要寫遷移）
 tests/          pytest；fixtures/rakuten_sample.json 是 --mock 用的假資料
@@ -73,7 +76,7 @@ tests/          pytest；fixtures/rakuten_sample.json 是 --mock 用的假資料
 
 1. ✅ 第 1 階段 MVP
 1.5 ✅ Dashboard（商品卡片、價格走勢、真特價標籤、篩選排序）
-2. 第 2 階段：✅ Dashboard 喜歡／略過（經 GitHub Issue）、✅ Telegram 文字需求；待做：降價提醒（追蹤按過喜歡的商品）、Email 週報（新 notifier）
+2. 第 2 階段：✅ Dashboard 喜歡／略過／收藏（經 GitHub Issue）、✅ Telegram 文字需求、✅ 收藏降價提醒；待做：Email 週報（新 notifier）
 3. 第 3 階段：YouTube Data API 搜「商品名 開封／レビュー」→ Claude 中文摘要；Keepa API 接 Amazon.co.jp
 
 ## 待使用者提供／確認

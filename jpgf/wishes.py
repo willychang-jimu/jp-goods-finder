@@ -74,7 +74,7 @@ def _score_for_request(store: Store, ids: list[str], scorer, cfg: dict, text: st
     ai = cfg["ai"]
     ctx = {
         "taste": cfg.get("taste_profile", ""),
-        "liked": store.feedback_examples("like", ai.get("feedback_examples", 15)),
+        "liked": store.liked_examples(ai.get("feedback_examples", 15)),
         "skipped": store.feedback_examples("skip", ai.get("feedback_examples", 15)),
         "category_labels": {REQUEST_CATEGORY: "需求搜尋"},
         "request": text,

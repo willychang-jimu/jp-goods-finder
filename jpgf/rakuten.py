@@ -162,6 +162,16 @@ class RakutenClient:
                 it.keywords.append(keyword)
         return [i for i in items if i]
 
+    def lookup(self, item_code: str, category: str) -> Item | None:
+        """用 itemCode 直接查單一商品（收藏商品沒出現在今天的關鍵字結果時用）。
+        不帶 availability／minPrice 限制；回傳的 Item.available 為 False 代表已賣完。"""
+        data = self._get(self.cfg["search_endpoint"], {"itemCode": item_code, "hits": 1})
+        for raw in _items_from_response(data):
+            it = parse_item(raw, category, "lookup")
+            if it and it.item_code == item_code:
+                return it
+        return None
+
     def ranking(self, genre_id: int, category: str) -> list[Item]:
         data = self._get(self.cfg["ranking_endpoint"], {"genreId": genre_id})
         items = [parse_item(r, category, "ranking") for r in _items_from_response(data)]

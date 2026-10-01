@@ -3,7 +3,7 @@
 data/
   items.json          商品主檔（含中文翻譯、評分快取、推播紀錄）
   prices/YYYY-MM.csv  每日價格快照（按月分檔，只增不改）
-  feedback.json       喜歡／略過紀錄（Telegram 按鈕、Dashboard ✕／♡）
+  feedback.json       喜歡／略過／收藏／取消收藏紀錄（Telegram 按鈕、Dashboard ✕／♡／★）
   requests.json       使用者傳給 Telegram Bot 的「我想找…」需求與結果
   state.json          其他狀態（Telegram getUpdates offset 等）
 """
@@ -114,9 +114,21 @@ class Store:
 
     # ---------- 回饋 ----------
     def add_feedback(self, item_id: str, action: str, at: str, source: str = "telegram") -> None:
+        """action：like／skip（口味，存在 rec["feedback"]）、watch／unwatch（收藏＝追蹤降價，存在 rec["watched"]）。
+        兩組互相獨立：一件商品可以同時 ♡ 又 ★。"""
         self.feedback.append({"id": item_id, "action": action, "at": at, "source": source})
         rec = self.items.get(item_id)
-        if rec is not None:
+        if rec is None:
+            return
+        if action == "watch":
+            if not rec.get("watched"):  # 已收藏的再按一次不重設基準價
+                price = rec.get("last_effective_price")
+                rec.update({"watched": True, "watch_at": at, "watch_price": price, "alert_baseline": price})
+        elif action == "unwatch":
+            rec["watched"] = False
+            for k in ("watch_at", "watch_price", "alert_baseline"):
+                rec.pop(k, None)
+        else:
             rec["feedback"] = action
 
     def feedback_examples(self, action: str, limit: int) -> list[str]:
@@ -132,6 +144,19 @@ class Store:
             if len(out) >= limit:
                 break
         return out
+
+    def liked_examples(self, limit: int) -> list[str]:
+        """口味正向範例：按過 ♡ 的商品，加上收藏（★）的商品（收藏代表更想買）。"""
+        out = self.feedback_examples("like", limit)
+        for iid in reversed(self.watched_ids()):
+            rec = self.items[iid]
+            title = rec.get("zh_title") or rec.get("name", "")
+            if title and title not in out and len(out) < limit * 2:
+                out.append(title)
+        return out
+
+    def watched_ids(self) -> list[str]:
+        return [iid for iid, r in self.items.items() if r.get("watched")]
 
     # ---------- 需求 ----------
     def add_request(self, text: str, at: str, source: str = "telegram") -> dict:

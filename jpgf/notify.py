@@ -1,6 +1,6 @@
 """推播模組：依 config.yaml 的 notifiers 開關組合多個通道。
 
-新增通道（例如第 2 階段的 Email 週報）只要實作 send_picks()，再加進 build_notifiers()。
+新增通道（例如第 2 階段的 Email 週報）只要實作 send_picks()（以及收藏降價用的 send_alerts()），再加進 build_notifiers()。
 """
 from __future__ import annotations
 
@@ -22,6 +22,17 @@ class Pick:
     rec: dict              # items.json 的那筆資料
     category_label: str
     rank_score: float
+    deal: Deal | None = None
+
+
+@dataclass
+class Alert:
+    """收藏商品降價提醒。"""
+    id: str
+    rec: dict              # items.json 的那筆資料
+    price: int             # 今天的實付價
+    baseline: int          # 上次提醒（或收藏時）的實付價：比它低一定幅度才提醒
+    watch_price: int       # 收藏當下的實付價
     deal: Deal | None = None
 
 
@@ -64,8 +75,42 @@ def format_caption(p: Pick) -> str:
     return "\n".join(lines + optional)
 
 
+def _pct(now: int, before: int) -> str:
+    if not before:
+        return ""
+    d = (now - before) / before * 100
+    return f"{d:+.1f}%"
+
+
+def format_alert_caption(a: Alert) -> str:
+    """收藏降價的 Telegram HTML caption。"""
+    r = a.rec
+    drop = (a.baseline - a.price) / a.baseline * 100 if a.baseline else 0.0
+    lines = [f"📉 <b>收藏降價</b>（比上次再低 {drop:.1f}%）"]
+    if a.deal:
+        tag = "🔥 90 日新低" if a.deal.kind == "90d" else "💰 30 日新低"
+        lines.append(f"<b>{tag}</b>")
+    lines.append(f"<b>{html.escape(_cut(r.get('zh_title') or r['name'], 60))}</b>")
+    now = f"現在 <b>{_yen(a.price)}</b>"
+    if r.get("last_point_rate", 1) > 1:
+        now += f"（含點數回饋，售價 {_yen(r['last_price'])}）"
+    lines.append(now)
+    if a.watch_price:
+        lines.append(f"收藏時 {_yen(a.watch_price)}（{_pct(a.price, a.watch_price)}）")
+    if r.get("shop_name"):
+        lines.append(f"<code>{html.escape(_cut(r['shop_name'], 40))}</code>")
+    return "\n".join(lines)
+
+
 class ConsoleNotifier:
     name = "console"
+
+    def send_alerts(self, alerts: list[Alert], title: str) -> None:
+        print(f"\n===== {title} =====")
+        for a in alerts:
+            r = a.rec
+            print(f"📉 {r.get('zh_title') or r['name'][:60]}")
+            print(f"   實付 {_yen(a.price)}（上次 {_yen(a.baseline)}，收藏時 {_yen(a.watch_price)}）  {r['url']}")
 
     def send_picks(self, picks: list[Pick], title: str) -> None:
         print(f"\n===== {title} =====")
@@ -100,8 +145,30 @@ class TelegramNotifier:
         return {"inline_keyboard": [
             [{"text": "👍 喜歡", "callback_data": f"like:{p.id}"},
              {"text": "👎 略過", "callback_data": f"skip:{p.id}"}],
-            [{"text": "🔗 看商品", "url": p.rec["url"]}],
+            [{"text": "⭐ 收藏（降價通知）", "callback_data": f"watch:{p.id}"},
+             {"text": "🔗 看商品", "url": p.rec["url"]}],
         ]}
+
+    @staticmethod
+    def alert_keyboard(a: Alert) -> dict:
+        return {"inline_keyboard": [
+            [{"text": "🔗 看商品", "url": a.rec["url"]},
+             {"text": "✖ 取消收藏", "callback_data": f"unwatch:{a.id}"}],
+        ]}
+
+    def send_alerts(self, alerts: list[Alert], title: str) -> None:
+        for a in alerts:
+            caption = format_alert_caption(a)
+            kb = self.alert_keyboard(a)
+            try:
+                if a.rec.get("image_url"):
+                    self.call("sendPhoto", chat_id=self.chat_id, photo=a.rec["image_url"],
+                              caption=caption, parse_mode="HTML", reply_markup=kb)
+                    continue
+            except RuntimeError as e:
+                log.warning("sendPhoto 失敗，改傳文字：%s", e)
+            self.call("sendMessage", chat_id=self.chat_id, text=caption, parse_mode="HTML",
+                      reply_markup=kb, disable_web_page_preview=True)
 
     def send_picks(self, picks: list[Pick], title: str) -> None:
         self.call("sendMessage", chat_id=self.chat_id, text=f"🛍 <b>{html.escape(title)}</b>",
