@@ -50,7 +50,7 @@ jpgf/
   wishes.py     「我想找…」需求處理（不要命名成 requests.py，會和 requests 套件混淆）
   issue_feedback.py  Dashboard ✕／♡（GitHub Issue 內容）解析與套用
   dashboard.py  由 data/ 產生 site/（web/index.html 靜態頁 ＋ data.json），daily.yml 的 pages job 部署到 GitHub Pages
-  web/index.html  Dashboard 前端（純 HTML/JS，無框架；淺色／深色）
+  web/index.html  Dashboard 前端（純 HTML/JS，無框架；淺色／深色）。版型仿 HBX App：置中大 Logo＋左右膠囊鈕、膠囊分類列、公告輪播、大圖輪播、商品格、底部浮動分頁（主頁／搜尋／收藏／需求）。使用者明確喜歡這種風格，改版請維持
 config.yaml     口味、關鍵字、門檻、開關（無密鑰）
 data/           由 Actions commit 的資料（勿手動大改格式；若改格式要寫遷移）
 tests/          pytest；fixtures/rakuten_sample.json 是 --mock 用的假資料

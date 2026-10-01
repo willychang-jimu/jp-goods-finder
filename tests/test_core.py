@@ -364,3 +364,15 @@ def test_request_waits_without_claude(tmp_path):
     s.add_request("想找東西", "x")
     assert process_requests(s, FakeRakuten(), NoopScorer(), [], CFG, "2026-09-29") == 0
     assert s.requests[0]["status"] == "pending"
+
+
+def test_liked_item_stays_available_after_it_stops_appearing(tmp_path):
+    from jpgf.dashboard import build_data
+
+    s = Store(tmp_path)
+    run_daily(s, [mk("a:1", 1000)], FixedScorer(8), [], CFG, "2026-08-01", real_scorer=True,
+              mark_notified=False)
+    a = mk("a:1", 1).id
+    s.add_feedback(a, "like", "2026-08-02T00:00:00+00:00")
+    d = build_data(s, CFG, "2026-09-29")          # 已 58 天沒再抓到
+    assert d["items"] == [] and [i["id"] for i in d["request_items"]] == [a]
