@@ -7,10 +7,14 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "daily = 抓價格＋評分＋推播；feedback = 只同步 Telegram 按鈕；ping = 傳 Telegram 測試訊息"
+        description: "daily = 抓價格＋評分＋推播；feedback = 只同步 Telegram 按鈕；ping = 傳 Telegram 測試訊息；lookup = 診斷：查單一商品"
         type: choice
-        options: [daily, feedback, ping]
+        options: [daily, feedback, ping, lookup]
         default: daily
+      item_code:
+        description: "mode=lookup 時要查的商品代碼（店家代碼:商品編號）"
+        type: string
+        default: ""
       dry_run:
         description: "只印 log，不推播、不標記已推播"
         type: boolean
@@ -50,6 +54,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ITEM_CODE: ${{ inputs.item_code }}   # 經環境變數傳入，不直接插進 shell
         run: |
           args="${{ inputs.mode }}"
           if [ "${{ inputs.dry_run }}" = "true" ]; then args="$args --dry-run"; fi

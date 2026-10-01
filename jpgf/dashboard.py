@@ -52,6 +52,9 @@ def build_data(store: Store, cfg: dict, today: str, active_days: int = 14,
             "first_seen": rec.get("first_seen"),
             "last_seen": rec.get("last_seen"),
             "feedback": rec.get("feedback"),
+            "watched": bool(rec.get("watched")),
+            "watch_price": rec.get("watch_price"),
+            "watch_at": rec.get("watch_at"),
             "series": series,
             "low": min(prices) if prices else None,
             "high": max(prices) if prices else None,
@@ -80,10 +83,10 @@ def build_data(store: Store, cfg: dict, today: str, active_days: int = 14,
                          "status": req.get("status"), "summary_zh": req.get("summary_zh"),
                          "keywords": req.get("keywords", []), "results": results})
 
-    # 收藏（♡）過但最近沒再抓到的商品也要留著，「收藏」分頁才不會少東西。
+    # 收藏（★）的商品即使最近沒再出現在搜尋結果也要留著，「收藏」分頁才不會少東西。
     # 和需求結果一樣放在 request_items（= 不在主清單、但前端要能查到的額外商品）。
     for iid, rec in store.items.items():
-        if rec.get("feedback") == "like" and iid not in main_ids and iid not in extra:
+        if rec.get("watched") and iid not in main_ids and iid not in extra:
             extra[iid] = item_obj(iid, rec)
 
     days_recorded = len({d for s in history.values() for d, _ in s})
@@ -93,6 +96,7 @@ def build_data(store: Store, cfg: dict, today: str, active_days: int = 14,
         "days_recorded": days_recorded,
         "deal_rules": {k: cfg["deals"][k] for k in
                        ("min_history_days_30", "min_history_days_90", "min_drop_pct")},
+        "watch_min_drop_pct": cfg.get("watch", {}).get("min_drop_pct", 3.0),
         "categories": labels,
         "items": items,
         "request_items": list(extra.values()),

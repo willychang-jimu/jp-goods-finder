@@ -6,7 +6,8 @@
   python -m jpgf feedback           # 只同步 Telegram 喜歡／略過按鈕
   python -m jpgf dashboard          # 由 data/ 產生 GitHub Pages 靜態頁到 site/
   python -m jpgf ping               # 傳一則 Telegram 測試訊息，確認 Token／Chat ID 正確
-  python -m jpgf issue-feedback     # 套用 Dashboard ✕／♡（GitHub Issue 內容放在 ISSUE_BODY）
+  python -m jpgf issue-feedback     # 套用 Dashboard ✕／♡／★（GitHub Issue 內容放在 ISSUE_BODY）
+  python -m jpgf lookup             # 診斷：用環境變數 ITEM_CODE 向樂天查單一商品（不寫任何資料）
 """
 from __future__ import annotations
 
@@ -40,7 +41,7 @@ def mock_items(cfg: dict):
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="jpgf")
-    ap.add_argument("mode", choices=["daily", "feedback", "dashboard", "ping", "issue-feedback"])
+    ap.add_argument("mode", choices=["daily", "feedback", "dashboard", "ping", "issue-feedback", "lookup"])
     ap.add_argument("--out", default=None, help="dashboard 輸出目錄（預設 site/）")
     ap.add_argument("--config", default=None)
     ap.add_argument("--data-dir", default=None,
@@ -82,6 +83,20 @@ def main(argv: list[str] | None = None) -> int:
         n = apply_issue_feedback(store, env("ISSUE_BODY"))
         store.save()
         log.info("Dashboard 回饋：%d 筆", n)
+        return 0
+
+    if args.mode == "lookup":
+        code = env("ITEM_CODE")
+        if not code:
+            log.error("請用環境變數 ITEM_CODE 指定商品代碼（格式：店家代碼:商品編號）")
+            return 1
+        it = RakutenClient(env("RAKUTEN_APP_ID"), env("RAKUTEN_ACCESS_KEY"), env("RAKUTEN_REFERER"),
+                           cfg["rakuten"]).lookup(code, "")
+        if it is None:
+            log.error("查不到商品：%s", code)
+            return 1
+        log.info("查到：%s｜售價 ¥%s｜點數 %s 倍｜實付 ¥%s｜%s", it.name[:50], it.price, it.point_rate,
+                 it.effective_price, "有庫存" if it.available else "已賣完")
         return 0
 
     tg = None
@@ -126,6 +141,13 @@ def main(argv: list[str] | None = None) -> int:
 
     run_daily(store, items, scorer, notifiers, cfg, today,
               real_scorer=bool(api_key), mark_notified=not args.dry_run, on_batch=store.save)
+    store.save()
+
+    # 收藏（★）商品的降價提醒：價格更新完之後才判斷
+    from .watchlist import run_watchlist
+
+    run_watchlist(store, client, {i.id: i for i in items}, notifiers, cfg, today,
+                  mark=not args.dry_run)
     store.save()
     return 0
 

@@ -185,15 +185,18 @@ h2.sec { font-size: clamp(25px, 6.6vw, 32px); font-weight: 500; letter-spacing: 
   position: absolute; left: 8px; top: 8px; background: var(--sale); color: #fff; font-size: 11px; font-weight: 700;
   letter-spacing: .02em; padding: 4px 8px; border-radius: 4px;
 }
-.acts { position: absolute; right: 8px; bottom: 8px; display: flex; gap: 6px; }
+.acts { position: absolute; right: 8px; bottom: 8px; display: flex; gap: 5px; }
 .act {
-  width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--border-soft); cursor: pointer; padding: 0;
+  width: 34px; height: 34px; border-radius: 999px; border: 1px solid var(--border-soft); cursor: pointer; padding: 0;
   background: var(--surface-1); color: var(--text-secondary); font-size: 16px; line-height: 1;
   display: flex; align-items: center; justify-content: center; box-shadow: var(--pill-shadow);
 }
 :root[data-theme="dark"] .act { background: #1c1c1c; color: #ddd; }
 .act:hover { color: var(--text-primary); }
 .act.like[aria-pressed="true"] { color: var(--sale); border-color: var(--sale); }
+.act.watch[aria-pressed="true"] { color: #e09a00; border-color: #e09a00; }
+.wline { font-size: 12px; color: var(--text-muted); }
+.wline.down { color: var(--sale); font-weight: 600; }
 .shop { font-size: 12px; color: var(--text-muted); letter-spacing: .02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .title {
   font-size: 14px; line-height: 1.38; font-weight: 500; min-height: 2.76em;
@@ -263,7 +266,13 @@ dialog::backdrop { background: rgba(0,0,0,.5); }
   color: var(--on-accent); background: var(--accent); text-decoration: none; font-size: 14px; font-weight: 600;
   border-radius: 999px; padding: 9px 18px;
 }
-.links a.ghost { background: var(--surface-2); color: var(--text-primary); }
+.links a.ghost, .links button {
+  background: var(--surface-2); color: var(--text-primary);
+}
+.links button {
+  border: 0; font-size: 14px; font-weight: 600; border-radius: 999px; padding: 9px 18px; cursor: pointer;
+}
+.links button[aria-pressed="true"] { color: #e09a00; }
 .close {
   position: absolute; right: 12px; top: 10px; border: 0; background: none; font-size: 26px;
   color: var(--text-muted); cursor: pointer; line-height: 1; width: 36px; height: 36px;
@@ -363,10 +372,10 @@ $("#themeBtn").addEventListener("click", () => {
 
 let DATA = null;
 const state = { tab: "home", cat: "all", dealOnly: false, sort: "score", q: "" };
-const SORTS = [["score", "推薦分數高"], ["deal", "特價優先"], ["new", "最新發現"], ["drop", "跌最多"],
-               ["reviews", "評價數多"], ["price_asc", "價格低→高"], ["price_desc", "價格高→低"]];
-const TABS = [["home", "主頁", "home"], ["search", "搜尋", "search"], ["likes", "收藏", "heart"], ["requests", "需求", "chat"]];
-const TITLES = { home: "今天想看什麼？", search: "搜尋", likes: "我的收藏", requests: "我的需求" };
+const SORTS = [["wdrop", "收藏後降幅", "watch"], ["score", "推薦分數高"], ["deal", "特價優先"], ["new", "最新發現"],
+               ["drop", "跌最多"], ["reviews", "評價數多"], ["price_asc", "價格低→高"], ["price_desc", "價格高→低"]];
+const TABS = [["home", "主頁", "home"], ["search", "搜尋", "search"], ["watch", "收藏", "star"], ["requests", "需求", "chat"]];
+const TITLES = { home: "今天想看什麼？", search: "搜尋", watch: "我的收藏", requests: "我的需求" };
 
 function icon(name, on) {
   const f = on ? "currentColor" : "none";
@@ -374,42 +383,67 @@ function icon(name, on) {
   return {
     home: `<svg ${a} fill="${f}"><path d="M12 3 2.8 11v10h6.4v-6h5.6v6h6.4V11z"/></svg>`,
     search: `<svg ${a} fill="none" stroke-width="${on ? 2.8 : 2}"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>`,
-    heart: `<svg ${a} fill="${f}"><path d="M12 20.5s-7.5-4.6-9.4-9.2C1.2 7.9 3.3 4.5 6.7 4.5c2 0 3.6 1.1 5.3 3 1.7-1.9 3.3-3 5.3-3 3.4 0 5.5 3.4 4.1 6.8C19.5 15.9 12 20.5 12 20.5z"/></svg>`,
+    star: `<svg ${a} fill="${f}"><path d="M12 3.4l2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.4 2.8 1-6-4.3-4.2 6-.9z"/></svg>`,
     chat: `<svg ${a} fill="${f}"><path d="M4 5h16v11H9.5L4 20.5z"/></svg>`,
   }[name];
 }
 
-// ---------- ✕／♡ 回饋：先存在這台裝置，按「送出回饋」時開 GitHub Issue 交給後台處理 ----------
+// ---------- ✕／♡／★ 回饋：先存在這台裝置，按「送出回饋」時開 GitHub Issue 交給後台處理 ----------
+// ♡／✕ 是「口味」（t：like／skip）；★ 是「收藏＝追蹤降價」（w：watch／unwatch）。兩組互相獨立。
 let pending = {};
-try { pending = JSON.parse(localStorage.getItem("jpgf-pending") || "{}"); } catch (e) { pending = {}; }
+try {
+  pending = JSON.parse(localStorage.getItem("jpgf-pending") || "{}");
+  for (const [id, v] of Object.entries(pending)) if (typeof v === "string") pending[id] = { t: v };  // 舊格式
+} catch (e) { pending = {}; }
 function savePending() { try { localStorage.setItem("jpgf-pending", JSON.stringify(pending)); } catch (e) {} }
 function byId(id) { return DATA.items.find((x) => x.id === id) || DATA.request_items.find((x) => x.id === id); }
-function actionOf(it) { return pending[it.id] || it.feedback || null; }
-function setAction(id, act) {
-  const it = byId(id);
-  if (!it) return;
-  if (actionOf(it) === act) { delete pending[id]; } else { pending[id] = act; }
+function pend(id) { return pending[id] || {}; }
+function tasteOf(it) { return pend(it.id).t ?? it.feedback ?? null; }
+function watchedOf(it) { const w = pend(it.id).w; return w !== undefined ? w === "watch" : !!it.watched; }
+function isSkipped(it) { return pend(it.id).t === "skip"; }   // 這次按了 ✕：立刻從畫面隱藏
+function commit(id, e) {
+  if (Object.keys(e).length) pending[id] = e; else delete pending[id];
   savePending(); render(); renderBar();
 }
+function setTaste(id, act) {
+  const it = byId(id);
+  if (!it) return;
+  const e = { ...pend(id) };
+  if (tasteOf(it) === act) delete e.t; else e.t = act;
+  commit(id, e);
+}
+function toggleWatch(id) {
+  const it = byId(id);
+  if (!it) return;
+  const e = { ...pend(id) }, want = !watchedOf(it);
+  if (want === !!it.watched) delete e.w; else e.w = want ? "watch" : "unwatch";
+  commit(id, e);
+}
 function prunePending() {
-  // 後台已處理完（✕ 的商品從資料消失、或 feedback 已一致）就清掉
-  for (const [id, act] of Object.entries(pending)) {
+  // 後台已處理完（✕ 的商品從資料消失、或狀態已一致）就清掉
+  for (const [id, e] of Object.entries(pending)) {
     const it = byId(id);
-    if (!it || it.feedback === act) delete pending[id];
+    if (!it) { delete pending[id]; continue; }
+    if (e.t !== undefined && it.feedback === e.t) delete e.t;
+    if (e.w !== undefined && (e.w === "watch") === !!it.watched) delete e.w;
+    if (!Object.keys(e).length) delete pending[id];
   }
   savePending();
 }
 function renderBar() {
-  const vals = Object.values(pending);
-  const skip = vals.filter((a) => a === "skip").length, like = vals.length - skip;
-  $("#fbbar").hidden = !vals.length;
-  $("#fbtext").textContent = `待送出：✕ ${skip} 件・♡ ${like} 件`;
+  const c = { skip: 0, like: 0, watch: 0, unwatch: 0 };
+  for (const e of Object.values(pending)) { if (e.t) c[e.t]++; if (e.w) c[e.w]++; }
+  const parts = [["✕", c.skip], ["♡", c.like], ["★", c.watch], ["取消★", c.unwatch]].filter(([, n]) => n);
+  $("#fbbar").hidden = !parts.length;
+  $("#fbtext").textContent = "待送出：" + parts.map(([k, n]) => `${k} ${n}`).join("・");
 }
 function sendFeedback() {
-  const lines = Object.entries(pending).map(([id, act]) => {
-    const it = byId(id);
-    return `${act}:${id} ${it ? titleOf(it).slice(0, 40) : ""}`;
-  });
+  const lines = [];
+  for (const [id, e] of Object.entries(pending)) {
+    const it = byId(id), name = it ? titleOf(it).slice(0, 40) : "";
+    if (e.t) lines.push(`${e.t}:${id} ${name}`);
+    if (e.w) lines.push(`${e.w}:${id} ${name}`);
+  }
   if (!lines.length || !DATA.repo) return;
   const title = `[回饋] ${lines.length} 件`;
   const body = "Dashboard 回饋（請直接按下方 Submit new issue 送出）\n\n" + lines.join("\n");
@@ -455,17 +489,19 @@ const CMP = {
   reviews: (a, b) => b.reviews - a.reviews,
   price_asc: (a, b) => a.effective - b.effective,
   price_desc: (a, b) => b.effective - a.effective,
+  wdrop: (a, b) => watchDelta(a) - watchDelta(b),
 };
+function watchDelta(it) { return it.watch_price ? (it.effective - it.watch_price) / it.watch_price : 1; }   // 越負 = 降越多
 function baseList() {
-  if (state.tab !== "likes") return DATA.items;
+  if (state.tab !== "watch") return DATA.items;
   const seen = new Set();
-  return [...DATA.items, ...DATA.request_items].filter((it) => !seen.has(it.id) && seen.add(it.id) && actionOf(it) === "like");
+  return [...DATA.items, ...DATA.request_items].filter((it) => !seen.has(it.id) && seen.add(it.id) && watchedOf(it));
 }
 function filtered() {
   const q = state.q.trim().toLowerCase();
-  const catOn = state.tab !== "likes" && state.cat !== "all";
+  const catOn = state.tab !== "watch" && state.cat !== "all";
   return baseList().filter((it) =>
-    pending[it.id] !== "skip" &&
+    !isSkipped(it) &&
     (!catOn || it.category === state.cat) &&
     (!state.dealOnly || it.deal) &&
     (!q || (it.name + " " + (it.zh_title || "") + " " + it.shop).toLowerCase().includes(q))
@@ -473,8 +509,15 @@ function filtered() {
 }
 
 // ---------- 商品卡 ----------
+function watchLine(it) {
+  if (!watchedOf(it)) return "";
+  if (!it.watch_price) return `<div class="wline">★ 追蹤降價中</div>`;
+  const d = (it.effective - it.watch_price) / it.watch_price * 100;
+  const txt = Math.abs(d) < 0.05 ? "持平" : `${d < 0 ? "▼" : "▲"} ${Math.abs(d).toFixed(1)}%`;
+  return `<div class="wline${d < 0 ? " down" : ""}">★ 收藏時 ${yen(it.watch_price)}・${txt}</div>`;
+}
 function card(it, extra) {
-  const act = actionOf(it);
+  const act = tasteOf(it), watched = watchedOf(it);
   const score = extra?.score ?? it.score;
   return `
     <div class="card" role="button" tabindex="0" data-id="${it.id}" aria-label="${esc(titleOf(it))}">
@@ -483,7 +526,8 @@ function card(it, extra) {
         ${it.deal ? `<span class="badge">${dealLabel(it.deal)}</span>` : ""}
         <div class="acts">
           <button class="act skip" type="button" data-act="skip" aria-label="不要這類商品" title="不要這類商品">✕</button>
-          <button class="act like" type="button" data-act="like" aria-pressed="${act === "like"}" aria-label="喜歡" title="喜歡">${act === "like" ? "♥" : "♡"}</button>
+          <button class="act like" type="button" data-act="like" aria-pressed="${act === "like"}" aria-label="喜歡（告訴系統你的口味）" title="喜歡（告訴系統你的口味）">${act === "like" ? "♥" : "♡"}</button>
+          <button class="act watch" type="button" data-act="watch" aria-pressed="${watched}" aria-label="收藏（降價時通知你）" title="收藏（降價時通知你）">${watched ? "★" : "☆"}</button>
         </div>
       </div>
       <div class="shop">${esc(it.shop)}</div>
@@ -494,6 +538,7 @@ function card(it, extra) {
         ${it.point_rate > 1 ? `<span class="eff">點數 ${it.point_rate} 倍</span>` : ""}
         ${!it.postage_included ? `<span class="eff">運費另計</span>` : ""}
       </div>
+      ${watchLine(it)}
       ${sparkline(it.series)}
       <div class="meta">${it.reviews ? `★${it.rating}（${it.reviews}）` : "尚無評價"}</div>
     </div>`;
@@ -504,7 +549,7 @@ let heroKey = "";
 function renderHero() {
   const show = state.tab === "home" && state.cat === "all" && !state.q && !state.dealOnly;
   const list = show
-    ? DATA.items.filter((it) => pending[it.id] !== "skip" && it.image).sort(CMP.score).slice(0, 6) : [];
+    ? DATA.items.filter((it) => !isSkipped(it) && it.image).sort(CMP.score).slice(0, 6) : [];
   $("#sec-hero").hidden = !list.length;
   const key = list.map((i) => i.id).join(",");
   if (key === heroKey) return;
@@ -530,7 +575,7 @@ function renderRequests() {
     下一次整理時會幫你找，結果會推到 Telegram，也會出現在這裡。</div>`;
   if (!reqs.length) { g.innerHTML = help + `<div class="empty">還沒有需求</div>`; return; }
   g.innerHTML = help + reqs.map((r) => {
-    const cards = r.results.map((x) => byId(x.id)).filter((it) => it && pending[it.id] !== "skip")
+    const cards = r.results.map((x) => byId(x.id)).filter((it) => it && !isSkipped(it))
       .map((it) => card(it, r.results.find((x) => x.id === it.id))).join("");
     const status = r.status === "pending" ? "等待處理中…" :
       `${r.summary_zh ? esc(r.summary_zh) + "・" : ""}搜尋：${esc((r.keywords || []).join("／"))}`;
@@ -556,6 +601,7 @@ function render() {
   document.querySelectorAll("#cats .pill").forEach((b) => b.setAttribute("aria-pressed", b.dataset.cat === state.cat));
   document.querySelectorAll("#sorts button").forEach((b) => {
     b.setAttribute("aria-pressed", b.dataset.sort ? b.dataset.sort === state.sort : state.dealOnly);
+    if (b.dataset.only) b.hidden = b.dataset.only !== t;   // 「收藏後降幅」只在收藏分頁出現
   });
   renderHero();
   renderTabbar();
@@ -568,12 +614,19 @@ function render() {
     return;
   }
   const list = filtered();
-  $("#count").textContent = t === "likes" ? `${list.length} 件收藏` : `顯示 ${list.length} / ${DATA.items.length} 件`;
+  if (t === "watch") {
+    const cheaper = list.filter((it) => it.watch_price && it.effective < it.watch_price).length;
+    $("#count").textContent = `${list.length} 件收藏中・降價時會通知你${cheaper ? `・${cheaper} 件比收藏時便宜` : ""}`;
+  } else {
+    $("#count").textContent = `顯示 ${list.length} / ${DATA.items.length} 件`;
+  }
   g.innerHTML = list.length ? list.map((it) => card(it)).join("")
-    : `<div class="empty">${t === "likes" ? "還沒有收藏。點商品右下角的 ♡ 就會出現在這裡" : "沒有符合條件的商品"}</div>`;
+    : `<div class="empty">${t === "watch" ? "還沒有收藏。想買的商品點 ☆，降價時會用 Telegram 通知你" : "沒有符合條件的商品"}</div>`;
 }
 function setTab(t) {
   state.tab = t;
+  if (t === "watch" && state.sort !== "wdrop") state.sort = "wdrop";          // 收藏分頁預設：降最多的在前
+  if (t !== "watch" && state.sort === "wdrop") state.sort = "score";
   if (t !== "search") { state.q = ""; $("#q").value = ""; }
   render();
   window.scrollTo({ top: 0 });
@@ -602,6 +655,11 @@ function buildBanner() {
     `追蹤中 ${DATA.items.length} 件商品・資料日期 ${DATA.today}`,
     "實付價 = 售價 − 樂天點數回饋",
   ];
+  const w = [...DATA.items, ...DATA.request_items].filter((it) => it.watched);
+  if (w.length) {
+    const cheaper = w.filter((it) => it.watch_price && it.effective < it.watch_price).length;
+    bMsgs.splice(1, 0, `★ 收藏中 ${w.length} 件${cheaper ? `，${cheaper} 件比收藏時便宜` : "，降價時會通知你"}`);
+  }
   $("#btext").textContent = bMsgs[0];
   startBanner();
 }
@@ -621,6 +679,9 @@ function openInfo() {
         <div class="stat"><div class="v">${deals}</div><div class="l">今日真特價</div></div>
       </div>
       <div class="about">
+        <div><b>♡ 喜歡</b>：告訴系統你的口味，之後的推薦會參考。<b>☆ 收藏</b>：你可能真的要買，
+          系統每天追蹤價格，實付價比收藏（或上次通知）時再低 ${DATA.watch_min_drop_pct ?? 3}% 以上就用 Telegram 通知你。
+          <b>✕</b>：不要這類商品。</div>
         <div><b>實付價</b> = 售價 − 樂天點數回饋。</div>
         <div><b>真特價</b>：今天的實付價比「自己記錄的」30／90 日最低價再低 ${r.min_drop_pct}% 以上，
           且至少記錄 ${r.min_history_days_30}／${r.min_history_days_90} 天才會標示。不採用商店網頁上的「原價」或折扣標示。</div>
@@ -697,6 +758,7 @@ function openDetail(id) {
           ${it.zh_title ? `<div class="jp" lang="ja">${esc(it.name)}</div>` : ""}
           <div class="links">
             <a href="${esc(it.url)}" target="_blank" rel="noopener">在樂天查看 ↗</a>
+            <button type="button" id="dWatch" aria-pressed="${watchedOf(it)}">${watchedOf(it) ? "★ 已收藏" : "☆ 收藏（降價通知）"}</button>
             ${it.zh_title ? "" : `<a class="ghost" href="${translateUrl(it.name)}" target="_blank" rel="noopener">Google 翻譯 ↗</a>`}
           </div>
         </div>
@@ -720,6 +782,12 @@ function openDetail(id) {
       <div class="sub">${esc(it.shop)}・首次發現 ${it.first_seen || "—"}${it.reviews ? `・★${it.rating}（${it.reviews} 則評價）` : ""}${it.rank ? `・排行榜第 ${it.rank} 名` : ""}</div>
     </div>`;
   d.querySelector(".close").addEventListener("click", () => d.close());
+  d.querySelector("#dWatch").addEventListener("click", (e) => {
+    toggleWatch(it.id);
+    const on = watchedOf(it);
+    e.currentTarget.setAttribute("aria-pressed", on);
+    e.currentTarget.textContent = on ? "★ 已收藏" : "☆ 收藏（降價通知）";
+  });
   d.querySelector("#tblBtn").addEventListener("click", (e) => {
     const w = d.querySelector(".hist-wrap"); w.hidden = !w.hidden;
     e.target.textContent = w.hidden ? "顯示表格" : "隱藏表格";
@@ -740,7 +808,7 @@ function setup() {
     state.cat = b.dataset.cat; render();
   });
   $("#sorts").innerHTML = `<button type="button" data-deal="1" aria-pressed="false">只看真特價</button>` +
-    SORTS.map(([k, v]) => `<button type="button" data-sort="${k}" aria-pressed="false">${v}</button>`).join("");
+    SORTS.map(([k, v, only]) => `<button type="button" data-sort="${k}"${only ? ` data-only="${only}"` : ""} aria-pressed="false">${v}</button>`).join("");
   $("#sorts").addEventListener("click", (e) => {
     const b = e.target.closest("button"); if (!b) return;
     if (b.dataset.sort) state.sort = b.dataset.sort; else state.dealOnly = !state.dealOnly;
@@ -755,7 +823,11 @@ function setup() {
     const c = e.target.closest(".card");
     if (!c) return;
     const a = e.target.closest(".act");
-    if (a) { e.stopPropagation(); setAction(c.dataset.id, a.dataset.act); return; }
+    if (a) {
+      e.stopPropagation();
+      if (a.dataset.act === "watch") toggleWatch(c.dataset.id); else setTaste(c.dataset.id, a.dataset.act);
+      return;
+    }
     open(c);
   });
   $("#hero").addEventListener("click", (e) => open(e.target.closest(".hero")));

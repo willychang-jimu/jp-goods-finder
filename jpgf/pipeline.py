@@ -42,7 +42,7 @@ def score_new_items(store: Store, seen_ids: list[str], scorer, cfg: dict, real_s
     labels = {k: v.get("label", k) for k, v in cfg["categories"].items()}
     ctx = {
         "taste": cfg.get("taste_profile", ""),
-        "liked": store.feedback_examples("like", ai.get("feedback_examples", 15)),
+        "liked": store.liked_examples(ai.get("feedback_examples", 15)),
         "skipped": store.feedback_examples("skip", ai.get("feedback_examples", 15)),
         "category_labels": labels,
     }
@@ -78,8 +78,8 @@ def select_picks(store: Store, seen_ids: list[str], today: str, cfg: dict,
     for iid in seen_ids:
         rec = store.items[iid]
         score = rec.get("score")
-        if score is None or rec.get("feedback") == "skip":
-            continue
+        if score is None or rec.get("feedback") == "skip" or rec.get("watched"):
+            continue  # 已收藏的商品改由「降價提醒」負責，不再當作新推薦
         if require_claude and rec.get("scored_by") != "claude":
             continue
         deal = detect_deal(history.get(iid, []), today, dcfg)

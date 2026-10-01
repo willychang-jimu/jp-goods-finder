@@ -366,13 +366,138 @@ def test_request_waits_without_claude(tmp_path):
     assert s.requests[0]["status"] == "pending"
 
 
-def test_liked_item_stays_available_after_it_stops_appearing(tmp_path):
+def test_watched_item_stays_available_after_it_stops_appearing(tmp_path):
     from jpgf.dashboard import build_data
 
     s = Store(tmp_path)
-    run_daily(s, [mk("a:1", 1000)], FixedScorer(8), [], CFG, "2026-08-01", real_scorer=True,
-              mark_notified=False)
-    a = mk("a:1", 1).id
-    s.add_feedback(a, "like", "2026-08-02T00:00:00+00:00")
+    run_daily(s, [mk("a:1", 1000), mk("b:1", 900)], FixedScorer(8), [], CFG, "2026-08-01",
+              real_scorer=True, mark_notified=False)
+    a, b = mk("a:1", 1).id, mk("b:1", 1).id
+    s.add_feedback(a, "watch", "2026-08-02T00:00:00+00:00")
+    s.add_feedback(b, "like", "2026-08-02T00:00:00+00:00")     # ♡ 只是口味，不會被保留
     d = build_data(s, CFG, "2026-09-29")          # 已 58 天沒再抓到
     assert d["items"] == [] and [i["id"] for i in d["request_items"]] == [a]
+    assert d["request_items"][0]["watched"] is True and d["request_items"][0]["watch_price"] == 990
+
+# ---------- ★ 收藏與降價提醒 ----------
+def test_like_and_watch_are_independent_states(tmp_path):
+    s = Store(tmp_path)
+    run_daily(s, [mk("a:1", 1000)], FixedScorer(8), [], CFG, "2026-09-29", real_scorer=True, mark_notified=False)
+    a = mk("a:1", 1).id
+    s.add_feedback(a, "like", "t1")
+    s.add_feedback(a, "watch", "t2")
+    rec = s.items[a]
+    assert rec["feedback"] == "like" and rec["watched"] is True
+    assert rec["watch_price"] == rec["alert_baseline"] == 990
+    rec["last_effective_price"] = 800
+    s.add_feedback(a, "watch", "t3")                       # 重複收藏不重設基準價
+    assert rec["watch_price"] == 990
+    s.add_feedback(a, "unwatch", "t4")
+    assert rec["watched"] is False and "alert_baseline" not in rec and rec["feedback"] == "like"
+    assert s.watched_ids() == []
+
+
+def test_issue_body_keeps_like_and_watch_of_same_item():
+    from jpgf.issue_feedback import parse_issue_body
+
+    body = "like:abcdef012345 x\nwatch:abcdef012345 x\nunwatch:abcdef012345 x\nskip:abcdef012345 x\nlike:abcdef012345 y"
+    got = sorted(parse_issue_body(body))
+    assert got == [("like", "abcdef012345"), ("unwatch", "abcdef012345")]
+
+
+def test_telegram_watch_button_sets_watched(tmp_path):
+    s = Store(tmp_path)
+    run_daily(s, [mk("a:1", 1000)], FixedScorer(8), [], CFG, "2026-09-29", real_scorer=True, mark_notified=False)
+    a = mk("a:1", 1).id
+    ups = [{"update_id": 1, "callback_query": {"id": "c", "data": f"watch:{a}", "message": {"chat": {"id": 42}}}}]
+    tg = FakeTG(ups)
+    assert sync_feedback(tg, s) == 1 and s.items[a]["watched"] is True
+    assert any(kw.get("text", "").startswith("已記錄：收藏") for m, kw in tg.calls if m == "answerCallbackQuery")
+
+
+def _watched(tmp_path, price=1000):
+    s, day0 = Store(tmp_path), "2026-09-28"
+    run_daily(s, [mk("a:1", price, pr=1)], FixedScorer(8), [], CFG, day0, real_scorer=True, mark_notified=False)
+    a = mk("a:1", 1).id
+    s.add_feedback(a, "watch", "t")
+    return s, a
+
+
+def test_alert_only_when_drop_exceeds_threshold_and_ratchets_down(tmp_path):
+    from jpgf.watchlist import find_alerts
+
+    s, a = _watched(tmp_path)                                  # 基準價 990
+    run_daily(s, [mk("a:1", 1000)], FixedScorer(8), [], CFG, "2026-09-29", real_scorer=True, mark_notified=False)
+    assert find_alerts(s, CFG, "2026-09-29") == []             # 沒降價
+    run_daily(s, [mk("a:1", 980)], FixedScorer(8), [], CFG, "2026-09-30", real_scorer=True, mark_notified=False)
+    assert find_alerts(s, CFG, "2026-09-30") == []             # 970 → 只降 2%，未達 3%
+    run_daily(s, [mk("a:1", 900)], FixedScorer(8), [], CFG, "2026-10-01", real_scorer=True, mark_notified=False)
+    al = find_alerts(s, CFG, "2026-10-01")
+    assert len(al) == 1 and al[0].price == 891 and al[0].baseline == 990 and al[0].watch_price == 990
+
+
+def test_watchlist_marks_baseline_only_after_real_delivery(tmp_path):
+    from jpgf.notify import ConsoleNotifier
+    from jpgf.watchlist import run_watchlist
+
+    s, a = _watched(tmp_path)
+    run_daily(s, [mk("a:1", 900)], FixedScorer(8), [], CFG, "2026-09-29", real_scorer=True, mark_notified=False)
+
+    class Tg(FakeNotifier):
+        name = "telegram"
+        def send_alerts(self, alerts, title):
+            self.sent = alerts
+
+    run_watchlist(s, None, {}, [ConsoleNotifier()], CFG, "2026-09-29")        # 只印 log
+    assert s.items[a]["alert_baseline"] == 990
+    run_watchlist(s, None, {}, [Tg()], CFG, "2026-09-29", mark=False)         # dry-run
+    assert s.items[a]["alert_baseline"] == 990
+    tg = Tg()
+    assert len(run_watchlist(s, None, {}, [tg], CFG, "2026-09-29")) == 1
+    assert s.items[a]["alert_baseline"] == 891 and s.items[a]["last_alert_at"] == "2026-09-29"
+    assert run_watchlist(s, None, {}, [Tg()], CFG, "2026-09-29") == []        # 同價格不重複提醒
+
+
+def test_watched_item_missing_from_search_is_looked_up(tmp_path):
+    from jpgf.watchlist import refresh_prices
+
+    s, a = _watched(tmp_path)
+
+    class C:
+        def lookup(self, code, category):
+            it = mk("a:1", 850)
+            it.category = category
+            return it
+
+    assert refresh_prices(s, C(), {}, CFG, "2026-09-29") == 1
+    assert s.items[a]["last_seen"] == "2026-09-29" and s.items[a]["last_effective_price"] == 842
+    assert s.price_history("2026-09-29", "2026-09-29")[a] == [("2026-09-29", 842)]
+
+    class Gone:
+        def lookup(self, code, category):
+            return None
+
+    s2, a2 = _watched(tmp_path / "b")
+    assert refresh_prices(s2, Gone(), {}, CFG, "2026-09-29") == 0
+    assert s2.items[a2]["last_seen"] != "2026-09-29"           # 查不到 → 不會誤發提醒
+
+
+def test_watched_items_not_repicked_and_alert_captions():
+    from jpgf.notify import Alert, TelegramNotifier, format_alert_caption
+
+    rec = {"name": "x", "zh_title": "<燈>", "last_price": 900, "last_point_rate": 10, "url": "https://x/", "shop_name": "s"}
+    cap = format_alert_caption(Alert("abc", rec, 810, 900, 1000))
+    assert "收藏降價" in cap and "現在 <b>¥810</b>" in cap and "收藏時 ¥1,000（-19.0%）" in cap and "&lt;燈&gt;" in cap
+    kb = TelegramNotifier.alert_keyboard(Alert("abc", rec, 810, 900, 1000))
+    assert kb["inline_keyboard"][0][1]["callback_data"] == "unwatch:abc"
+    pick_kb = TelegramNotifier.keyboard(Pick("abc", rec, "c", 8.0))
+    assert [b.get("callback_data") for row in pick_kb["inline_keyboard"] for b in row] == \
+        ["like:abc", "skip:abc", "watch:abc", None]
+
+
+def test_daily_picks_skip_watched_items(tmp_path):
+    s, t = Store(tmp_path), "2026-09-29"
+    run_daily(s, [mk("a:1", 1000)], FixedScorer(9), [], CFG, t, real_scorer=True, mark_notified=False)
+    a = mk("a:1", 1).id
+    s.add_feedback(a, "watch", "x")
+    assert select_picks(s, [a], t, CFG) == []

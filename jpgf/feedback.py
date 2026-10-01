@@ -1,4 +1,4 @@
-"""從 Telegram 拉回「喜歡／略過」按鈕的點擊（存進 data/feedback.json），
+"""從 Telegram 拉回「喜歡／略過／收藏」按鈕的點擊（存進 data/feedback.json），
 以及使用者直接傳給 Bot 的文字需求（存進 data/requests.json，由 wishes.py 處理）。
 
 用 getUpdates 輪詢（不需要 webhook 伺服器）。注意 Telegram 只保留約 24 小時內的更新，
@@ -13,7 +13,7 @@ from .notify import TelegramNotifier
 from .store import Store
 
 log = logging.getLogger(__name__)
-ACTIONS = {"like": "喜歡", "skip": "略過"}
+ACTIONS = {"like": "喜歡", "skip": "略過", "watch": "收藏（降價時會通知你）", "unwatch": "已取消收藏"}
 
 
 def sync_feedback(tg: TelegramNotifier, store: Store) -> int:
