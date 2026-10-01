@@ -5659,6 +5659,7 @@
   "zh_title": "玻璃壁燈 北歐復古"
  },
  "4a7a2a30e950": {
+  "alert_baseline": 35145,
   "category": "gadgets",
   "feedback": "like",
   "first_seen": "2026-09-30",
@@ -5680,6 +5681,9 @@
   "scored_by": "claude",
   "shop_name": "住まいの照明 ラ・ヴィータ",
   "url": "https://item.rakuten.co.jp/eco-glass/aoya-kaku-deskstand/",
+  "watch_at": "2026-10-01T06:11:47+00:00",
+  "watch_price": 35145,
+  "watched": true,
   "zh_summary": "日本和紙設計燈，北村亨設計，3年保修正規品。",
   "zh_title": "AOYA Kaku-Deskstand 和紙LED桌燈 正規品"
  },
@@ -6042,6 +6046,7 @@
   "zh_title": "可口可樂A380飛機模型組"
  },
  "505defefddfc": {
+  "alert_baseline": 23760,
   "category": "lighting_art",
   "feedback": "like",
   "first_seen": "2026-09-30",
@@ -6063,6 +6068,9 @@
   "scored_by": "claude",
   "shop_name": "ジャパンブリッジ",
   "url": "https://item.rakuten.co.jp/japanbridge/10002706/",
+  "watch_at": "2026-10-01T06:11:47+00:00",
+  "watch_price": 23760,
+  "watched": true,
   "zh_summary": "日本製設計師檯燈，和風和現代混搭，LED對應。",
   "zh_title": "Hikidashi日本設計師木製檯燈"
  },
