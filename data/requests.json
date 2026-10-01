@@ -1,1 +1,48 @@
-[]
+[
+ {
+  "at": "2026-10-01T01:41:31+00:00",
+  "done_at": "2026-10-01T01:41:45+00:00",
+  "id": "r1",
+  "keywords": [
+   "Louis Poulsen テーブルランプ",
+   "ルイスポールセン デスクライト",
+   "Louis Poulsen PH"
+  ],
+  "results": [
+   {
+    "id": "6208d1e12d63",
+    "reason": "正是所求的 Louis Poulsen 桌燈，經典款式，設計地位高。",
+    "score": 8
+   },
+   {
+    "id": "c87539de9682",
+    "reason": "符合需求的 LP 桌燈，夾式設計便利，價格較親民。",
+    "score": 7
+   },
+   {
+    "id": "8243a475813f",
+    "reason": "為壁燈非桌燈；標註為ビンテージ恐涉中古，不符需求。",
+    "score": 3
+   },
+   {
+    "id": "f24d6115c7e1",
+    "reason": "為吊燈非桌燈；雖未開封但非新品，來自回收商。",
+    "score": 2
+   },
+   {
+    "id": "0cd4d8ec97ff",
+    "reason": "ビンテージ品恐為中古；為吊燈非桌燈，不符需求。",
+    "score": 2
+   },
+   {
+    "id": "4583a9d43e2c",
+    "reason": "為吊燈非桌燈；雖未開封但非新品，來自回收商。",
+    "score": 2
+   }
+  ],
+  "source": "telegram",
+  "status": "done",
+  "summary_zh": "Louis Poulsen 桌燈新品，設計師經典照明作品",
+  "text": "我想找Louis poulsen桌燈 不要中古的"
+ }
+]
