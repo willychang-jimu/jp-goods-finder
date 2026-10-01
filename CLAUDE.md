@@ -21,6 +21,7 @@ jp-goods-finder：追蹤日本購物平台（目前只有樂天），每天挑�
 - ✅ **♡ 喜歡 vs ★ 收藏是兩個獨立狀態**（使用者明確要求）：♡/✕ 是口味（`rec["feedback"]`＝like/skip，給 Claude 評分參考）；★ 是「可能真的要買」（`rec["watched"]`，action＝watch/unwatch）→ 降價提醒。收藏也算正向口味範例（`store.liked_examples`）。已收藏的商品不再出現在每日精選（`select_picks`）。
 - ✅ 降價提醒（`watchlist.py`）：daily 跑完後執行。收藏商品沒出現在今天搜尋結果時用 `RakutenClient.lookup(itemCode)` 補查價格；今天實付價比 `alert_baseline`（收藏時價格，每次提醒後下修）低 `watch.min_drop_pct`（3%）以上才推 Telegram（附「✖ 取消收藏」鈕）；送達後才下修基準價，dry-run／只印 log 不下修。診斷：workflow `mode=lookup` ＋ `item_code`。
 - 待做：老婆的女裝與「我／老婆」切換（等老婆的喜好）。
+- **使用者決定（2026-10-01）**：Email 週報、YouTube 開箱影片摘要都**先不做**；使用者要先實際用一陣子，再提出還需要什麼。不要主動提議這兩項，等使用者提需求。
 - 使用者強調：品牌只是例子，要的是「追求潮流物的精神」→ 靠 taste_profile ＋ Claude 評分，不要只加品牌關鍵字。
 
 ## 已定案、不要推翻的決策
@@ -76,8 +77,8 @@ tests/          pytest；fixtures/rakuten_sample.json 是 --mock 用的假資料
 
 1. ✅ 第 1 階段 MVP
 1.5 ✅ Dashboard（商品卡片、價格走勢、真特價標籤、篩選排序）
-2. 第 2 階段：✅ Dashboard 喜歡／略過／收藏（經 GitHub Issue）、✅ Telegram 文字需求、✅ 收藏降價提醒；待做：Email 週報（新 notifier）
-3. 第 3 階段：YouTube Data API 搜「商品名 開封／レビュー」→ Claude 中文摘要；Keepa API 接 Amazon.co.jp
+2. 第 2 階段：✅ Dashboard 喜歡／略過／收藏（經 GitHub Issue）、✅ Telegram 文字需求、✅ 收藏降價提醒；（Email 週報：使用者暫不需要）
+3. 第 3 階段（使用者暫不需要，先觀察使用狀況）：YouTube Data API 搜「商品名 開封／レビュー」→ Claude 中文摘要；Keepa API 接 Amazon.co.jp
 
 ## 待使用者提供／確認
 
